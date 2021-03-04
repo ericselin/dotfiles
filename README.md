@@ -18,6 +18,19 @@ os
 - [x] workspace names
 - [ ] i3status colors
 
+## Dvorak navigation (e.g. in `vim`)
+
+Navigating in e.g. `vim` and `less` with a Dvorak layout is not very nice, since the navigation keys are not on the home row. In order to achieve proper navigation, just remap navigation to the home row keys. This of course means that we have to remap the now shadowed "original" key commands. Here are some thoughts on how to do this.
+
+The home row of the right hand is H-T-N-S on Dvorak. Since we don't have the `:` on the home row, we can map these keys as navigation. So essentially switching `vim` navigation one key to the right.
+
+- `h`: Move left (`j` on QWERTY)
+- `t`: Move down (`k` on QWERTY)
+- `n`: Move up   (`l` on QWERTY)
+- `s`: Move rigt (`:` on QWERTY)
+
+These keys now have to be remapped. E.g. `vim` has the "next occurence" for search under `n`. This can be remapped as `l`, as in "look for more".
+
 ## Software
 
 - Themes: `dracula`
