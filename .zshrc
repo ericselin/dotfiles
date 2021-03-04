@@ -12,7 +12,7 @@ ZSH_THEME="dracula"
 
 # Set alias for managing the dotfiles git repo as per
 # https://www.atlassian.com/git/tutorials/dotfiles
-alias dot='/usr/bin/git --git-dir=$HOME/.dot.git/ --work-tree=$HOME'
+alias dot='git --git-dir=$HOME/.dot.git/ --work-tree=$HOME'
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
