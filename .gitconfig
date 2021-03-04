@@ -1,0 +1,12 @@
+[credential]
+	helper = store
+[user]
+	name = Eric Selin
+	email = eric.selin@gmail.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[alias]
+	lg = !git --no-pager log --graph --oneline --all -20
