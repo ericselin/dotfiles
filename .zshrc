@@ -74,7 +74,7 @@ alias dot='git --git-dir=$HOME/.dot.git/ --work-tree=$HOME'
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git deno gh)
 
 source $ZSH/oh-my-zsh.sh
 

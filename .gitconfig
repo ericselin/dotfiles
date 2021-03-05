@@ -10,3 +10,5 @@
 	required = true
 [alias]
 	lg = !git --no-pager log --graph --oneline --all -20
+[init]
+	defaultBranch = main

@@ -10,7 +10,15 @@ vscode
 - [ ] css variable intellisense
 
 os
+- vim config
+  - [x] tabs as spaces
+  - [ ] coc config
+  - [x] indent based on text automatically
 - [ ] screen lock
+- [ ] `less` navigation
+- [ ] emojis
+- [ ] `mutt` with gmail and exchange
+- [ ] `gh` list project cards alias
 - [ ] keyboard layout switching
 - [ ] Make gdrive mount work on boot
 - [ ] Pomodoro app
