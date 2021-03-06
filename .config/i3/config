@@ -61,13 +61,16 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # Focus deos not follow mouse
-focus_follows_mouse yes|no
+focus_follows_mouse no
 
 # start a terminal
 bindsym $mod+Return exec urxvt 
 
 # kill focused window
 bindsym $mod+Escape kill
+
+# bind pomodoro starting
+bindsym $mod+p exec $HOME/ericselin/i3status-pomodoro/pomodoro.sh
 
 # start dmenu (a program launcher)
 # bindsym $mod+m exec dmenu_run

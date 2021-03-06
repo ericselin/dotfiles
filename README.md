@@ -22,7 +22,7 @@ This is a repo of dotfiles, scripts and instructions for setting up a new system
 - [x] set background to #282a36
 - [ ] `less` navigation
 - [ ] emojis
-- [ ] `mutt` with gmail and exchange
+- [x] `mutt` with gmail (exchange not possible)
 - [ ] `gh` list project cards alias
 - [ ] keyboard layout switching
 - [ ] Make gdrive mount work on boot
@@ -32,7 +32,10 @@ This is a repo of dotfiles, scripts and instructions for setting up a new system
 
 ### pomodoro app
 
+- [x] add i3 shortcut
 - [ ] remove file on kill
+- [ ] add i3 shortcut for killing
+- [ ] refresh i3status on update
 - [ ] nag on complete
 - [ ] change font to non-ligatures
 
