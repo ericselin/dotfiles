@@ -22,6 +22,9 @@ client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
 
 client.background       #F8F8F2
 
+# set root window color (i.e. background)
+exec --no-startup-id xsetroot -solid '#282A36'
+
 # BIND: dMenu
 bindsym $mod+m exec "dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10' -p 'dmenu%'"
 
@@ -38,7 +41,7 @@ font pango:Fira Code 8
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 383a59
 
 # lock screen
 bindsym $mod+l exec i3lock -c 383a59

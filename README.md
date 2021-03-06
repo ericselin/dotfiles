@@ -2,29 +2,39 @@
 
 This is a repo of dotfiles, scripts and instructions for setting up a new system. It is a bare repo and should be synced to the home folder according to the [instructions here](https://www.atlassian.com/git/tutorials/dotfiles).
 
-## TODO
+## Wishlist
 
-vscode 
+### vscode 
+
 - [x] css formatting
 - [ ] ctrl+shift+e problem
 - [ ] css variable intellisense
 
-os
-- vim config
-  - [x] tabs as spaces
-  - [ ] coc config
-  - [x] indent based on text automatically
-- [ ] screen lock
+### vim
+
+- [x] tabs as spaces
+- [ ] coc config
+- [x] indent based on text automatically
+
+### os
+
+- [x] screen lock
+- [x] set background to #282a36
 - [ ] `less` navigation
 - [ ] emojis
 - [ ] `mutt` with gmail and exchange
 - [ ] `gh` list project cards alias
 - [ ] keyboard layout switching
 - [ ] Make gdrive mount work on boot
-- [ ] Pomodoro app
 - [ ] screen brightness
 - [x] workspace names
-- [ ] i3status colors
+- [x] i3status colors
+
+### pomodoro app
+
+- [ ] remove file on kill
+- [ ] nag on complete
+- [ ] change font to non-ligatures
 
 ## Dvorak navigation (e.g. in `vim`)
 

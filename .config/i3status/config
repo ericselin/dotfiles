@@ -9,10 +9,11 @@
 general {
         colors = true
         interval = 5
+        color_good = "#50FA7B"
+        color_bad = "#FF5555"
 }
 
 order += "read_file pomodoro"
-order += "ipv6"
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "battery all"
@@ -57,5 +58,6 @@ tztime local {
 read_file pomodoro {
 	path = "/home/eric/pomodoro"
 	format = "Pomo: %content"
-	format_bad = ""
+	format_bad = "No pomodoro running - you must be on a break!"
+  color_bad = "F8F8F2"
 }

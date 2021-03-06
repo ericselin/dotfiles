@@ -16,6 +16,16 @@ packadd! dracula
 syntax enable
 colorscheme dracula
 
+" scroll offset
+set scrolloff=5
+
+" fast scrolling with ctrl
+nnoremap <C-t> 10j
+nnoremap <C-n> 10k
+
+" line numbers hybrid mode
+set number relativenumber
+
 " tabs should be spaces - two of them
 " tabstop:          Width of tab character
 " softtabstop:      Fine tunes the amount of white space to be added
