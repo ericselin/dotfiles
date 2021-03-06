@@ -21,6 +21,7 @@ This is a repo of dotfiles, scripts and instructions for setting up a new system
 - [x] screen lock
 - [x] set background to #282a36
 - [ ] `less` navigation
+- [ ] keepass start on login
 - [ ] emojis
 - [x] `mutt` with gmail (exchange not possible)
 - [ ] `gh` list project cards alias
@@ -33,10 +34,11 @@ This is a repo of dotfiles, scripts and instructions for setting up a new system
 ### pomodoro app
 
 - [x] add i3 shortcut
-- [ ] remove file on kill
+- [x] remove file on kill
 - [ ] add i3 shortcut for killing
-- [ ] refresh i3status on update
-- [ ] nag on complete
+- [x] refresh i3status on update
+- [x] nag on complete
+- [ ] make notification more like a message, and dismissable with keyboard
 - [ ] change font to non-ligatures
 
 ## Dvorak navigation (e.g. in `vim`)

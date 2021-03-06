@@ -69,8 +69,9 @@ bindsym $mod+Return exec urxvt
 # kill focused window
 bindsym $mod+Escape kill
 
-# bind pomodoro starting
-bindsym $mod+p exec $HOME/ericselin/i3status-pomodoro/pomodoro.sh
+# bind pomodoro starting and stopping
+bindsym $mod+p exec $HOME/scripts/pomodoro.sh
+bindsym $mod+Shift+P exec killall pomodoro.sh
 
 # start dmenu (a program launcher)
 # bindsym $mod+m exec dmenu_run

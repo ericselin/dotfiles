@@ -17,6 +17,9 @@ alias dot='git --git-dir=$HOME/.dot.git/ --work-tree=$HOME'
 # Add utilities to the path
 export PATH="$HOME/utilities:$PATH"
 
+# Make alias for editing i3 configuration
+alias i3conf='vim ~/.config/i3/config'
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
