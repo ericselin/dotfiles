@@ -10,3 +10,6 @@
 [submodule ".mutt/dracula"]
 	path = .mutt/dracula
 	url = https://github.com/dracula/mutt.git
+[submodule ".themes/alacritty"]
+	path = .themes/alacritty
+	url = https://github.com/dracula/alacritty.git
