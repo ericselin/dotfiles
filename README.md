@@ -13,8 +13,12 @@ This is a repo of dotfiles, scripts and instructions for setting up a new system
 ### vim
 
 - [x] tabs as spaces
-- [ ] coc config
 - [x] indent based on text automatically
+- [ ] format document
+- [ ] hbs / go templating syntax highlighting
+- [ ] leader key?
+- commands
+  - select next occurence, like vscode ctrl+d
 
 ### os
 
@@ -37,7 +41,7 @@ This is a repo of dotfiles, scripts and instructions for setting up a new system
 
 - [x] add i3 shortcut
 - [x] remove file on kill
-- [ ] add i3 shortcut for killing
+- [x] add i3 shortcut for killing
 - [x] refresh i3status on update
 - [x] nag on complete
 - [ ] make notification more like a message, and dismissable with keyboard
@@ -55,6 +59,8 @@ The home row of the right hand is H-T-N-S on Dvorak. Since we don't have the `:`
 - `s`: Move rigt (`:` on QWERTY)
 
 These keys now have to be remapped. E.g. `vim` has the "next occurence" for search under `n`. This can be remapped as `l`, as in "look for more".
+
+`less` is remapped by creating a less key file and running `lesskey`.
 
 ## Software
 
