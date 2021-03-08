@@ -4,7 +4,7 @@ This is a repo of dotfiles, scripts and instructions for setting up a new system
 
 ## Wishlist
 
-### vscode 
+### vscode
 
 - [x] css formatting
 - [ ] ctrl+shift+e problem
@@ -21,9 +21,11 @@ This is a repo of dotfiles, scripts and instructions for setting up a new system
 - [x] format document
   gg=G (go to top + format + until bottom)
 - [ ] hbs / go templating syntax highlighting
-- [ ] leader key?
+- leader key
+  leader is just for "namespaced" shortcuts
 - commands
-  - select next occurence, like vscode ctrl+d
+  - [x] select next occurence, like vscode ctrl+d
+  this is the `gn` pattern, i.e. search, then `cgn` to change, and `.` to repeat
 
 ### os
 
@@ -85,12 +87,11 @@ These keys now have to be remapped. E.g. `vim` has the "next occurence" for sear
 
 Logins are managed with KeePassXC. The database is stored in Google Drive and the key file copied to each device separately.
 
-On Linux, the database file is [mounted with rclone](https://rclone.org/commands/rclone_mount/) [on login](https://devsrealm.com/cloud-computing/ubuntu/mounting-and-unmounting-cloud-storage-with-rclone-in-linux/) using a script in `~/scripts/mount-gdrive-sync.sh`. 
+On Linux, the database file is [mounted with rclone](https://rclone.org/commands/rclone_mount/) [on login](https://devsrealm.com/cloud-computing/ubuntu/mounting-and-unmounting-cloud-storage-with-rclone-in-linux/) using a script in `~/scripts/mount-gdrive-sync.sh`.
 
 ## Backups
 
 ### Logins
 
-The login database should be backed up in the same way regular files are backed up. The keyfile should be backed up to a flashdrive together with the database password and instructions for unlocking in a sealed envelope in a secure location. 
-
+The login database should be backed up in the same way regular files are backed up. The keyfile should be backed up to a flashdrive together with the database password and instructions for unlocking in a sealed envelope in a secure location.
 

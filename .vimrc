@@ -10,6 +10,8 @@ vnoremap n k
 " remap next occurence to Look
 nnoremap l n
 nnoremap L N
+vnoremap l n
+vnoremap L N
 
 " fast scrolling with ctrl
 nnoremap <C-t> 10j
