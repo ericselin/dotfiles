@@ -22,8 +22,9 @@ This is a repo of dotfiles, scripts and instructions for setting up a new system
 - [x] set background to #282a36
 - [x] `less` navigation
 - [ ] keepass start on login
-- [ ] emojis
+- [x] emojis
 - [x] `mutt` with gmail (exchange not possible)
+- [ ] emojis in i3status
 - [ ] `gh` list project cards alias
 - [ ] keyboard layout switching
 - [ ] Make gdrive mount work on boot
@@ -56,10 +57,17 @@ These keys now have to be remapped. E.g. `vim` has the "next occurence" for sear
 
 ## Software
 
+### Core tools
+
 - Themes: `dracula`
 - Window manager: `i3`
-- Terminal: `urxvt`
+- Terminal: `alacritty`
 - Shell: `zsh`, configured via `oh-my-zsh`
+- Browser: `firefox`
+
+### Helpers
+
+- Console email: `mutt`
 
 ## Logins / Password management
 

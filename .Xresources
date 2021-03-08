@@ -20,5 +20,3 @@
 
 *.font: xft:Fira Code:size=12
 
-!URxvt.font: Symbola,xft:Fira Code:size=12
-URxvt.scrollBar: false

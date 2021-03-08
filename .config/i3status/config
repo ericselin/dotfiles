@@ -7,52 +7,56 @@
 # If the above line is not correctly displayed, fix your editor first!
 
 general {
-        colors = true
-        interval = 5
-        color_good = "#50FA7B"
-        color_bad = "#FF5555"
+  colors = true
+  interval = 5
+  color_good = "#50FA7B"
+  color_bad = "#FF5555"
 }
 
 order += "read_file pomodoro"
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "battery all"
-order += "disk /"
-order += "load"
-order += "memory"
+#order += "disk /"
+#order += "load"
+#order += "memory"
 order += "tztime local"
 
 wireless _first_ {
-        format_up = "W: (%quality at %essid) %ip"
-        format_down = "W: down"
+  format_up = "W: (%quality at %essid) %ip"
+# format_down = "W: down"
+  format_quality = "%d%s"
 }
 
 ethernet _first_ {
-        format_up = "E: %ip (%speed)"
-        format_down = "E: down"
+  format_up = "E: %ip (%speed)"
+  format_down = "E: down"
 }
 
 battery all {
-        format = "%status %percentage %remaining"
+  format = "%status %percentage %remaining"
+# emojis don't work well (falls back to bad default)
+# status_chr = "⚡"
+# status_bat = "🔋"
 }
 
 disk "/" {
-        format = "%avail"
+  format = "%avail"
 }
 
 load {
-        format = "%1min"
+  format = "%1min"
 }
 
 memory {
-        format = "%used/%available"
-        threshold_degraded = "1G"
-        format_degraded = "MEMORY < %available"
+ format = "%used/%available"
+ threshold_degraded = "1G"
+ format_degraded = "MEMORY < %available"
 }
 
 tztime local {
 	format = "%time"
-        format_time = "%Y-%m-%d %H:%M:%S"
+  format_time = "%d.%m %H:%M"
 }
 
 read_file pomodoro {
