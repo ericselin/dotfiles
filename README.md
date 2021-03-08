@@ -21,6 +21,7 @@ This is a repo of dotfiles, scripts and instructions for setting up a new system
 - [x] screen lock
 - [x] set background to #282a36
 - [x] `less` navigation
+- [ ] switch screen shortcut
 - [ ] keepass start on login
 - [x] emojis
 - [x] `mutt` with gmail (exchange not possible)
