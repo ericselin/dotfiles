@@ -11,17 +11,16 @@ vnoremap n k
 nnoremap l n
 nnoremap L N
 
-" DRACULA theme
-packadd! dracula
-syntax enable
-colorscheme dracula
-
-" scroll offset
-set scrolloff=5
-
 " fast scrolling with ctrl
 nnoremap <C-t> 10j
 nnoremap <C-n> 10k
+
+" ctrl+s save shortcut
+nmap <C-s> :w<cr>
+imap <C-s> <esc>:w<cr>
+
+" scroll offset
+set scrolloff=10
 
 " line numbers hybrid mode
 set number relativenumber
@@ -42,6 +41,14 @@ set smartindent
 " https://hackernoon.com/how-to-use-vim-for-frontend-development-2020-edition-dac83yyh
 
 " EMMET config
-autocmd FileType html,css :packadd emmet-vim 
+autocmd FileType html,css :packadd emmet-vim
 let g:user_emmet_leader_key=','
+
+" DRACULA theme
+packadd! dracula
+syntax enable
+colorscheme dracula
+
+" set runtimepath for ctrl p
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 

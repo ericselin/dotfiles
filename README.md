@@ -14,7 +14,12 @@ This is a repo of dotfiles, scripts and instructions for setting up a new system
 
 - [x] tabs as spaces
 - [x] indent based on text automatically
-- [ ] format document
+- [x] quick save
+  did this via key binding ctrl+s
+- [x] quick exit
+  this is ZQ, but might as well do :q
+- [x] format document
+  gg=G (go to top + format + until bottom)
 - [ ] hbs / go templating syntax highlighting
 - [ ] leader key?
 - commands

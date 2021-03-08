@@ -13,3 +13,9 @@
 [submodule ".themes/alacritty"]
 	path = .themes/alacritty
 	url = https://github.com/dracula/alacritty.git
+[submodule ".vim/pack/plugins/start/vim-airline"]
+	path = .vim/pack/plugins/start/vim-airline
+	url = https://github.com/vim-airline/vim-airline
+[submodule ".vim/bundle/ctrlp.vim"]
+	path = .vim/bundle/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
