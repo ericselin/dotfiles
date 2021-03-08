@@ -21,6 +21,9 @@ nnoremap <C-n> 10k
 nmap <C-s> :w<cr>
 imap <C-s> <esc>:w<cr>
 
+" search highlighting etc.
+set incsearch ignorecase smartcase hlsearch
+
 " scroll offset
 set scrolloff=10
 

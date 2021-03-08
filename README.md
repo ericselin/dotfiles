@@ -4,12 +4,6 @@ This is a repo of dotfiles, scripts and instructions for setting up a new system
 
 ## Wishlist
 
-### vscode
-
-- [x] css formatting
-- [ ] ctrl+shift+e problem
-- [ ] css variable intellisense
-
 ### vim
 
 - [x] tabs as spaces
@@ -21,18 +15,23 @@ This is a repo of dotfiles, scripts and instructions for setting up a new system
 - [x] format document
   gg=G (go to top + format + until bottom)
 - [ ] hbs / go templating syntax highlighting
-- leader key
-  leader is just for "namespaced" shortcuts
-- commands
-  - [x] select next occurence, like vscode ctrl+d
+  this should be done via the go-vim package, search features for `htmltmpl`
+- [x] select next occurence, like vscode ctrl+d
   this is the `gn` pattern, i.e. search, then `cgn` to change, and `.` to repeat
+- [ ] coc autocomplete insert
+- [x] delete many lines
+  `#dd`
 
 ### os
 
+- [ ] rofi, in particular search
 - [x] screen lock
 - [x] set background to #282a36
 - [x] `less` navigation
 - [ ] switch screen shortcut
+- [x] firefox blank bg
+  this can be done with the firefox home and disabling everything
+- [ ] firefox vim bindings
 - [ ] keepass start on login
 - [x] emojis
 - [x] `mutt` with gmail (exchange not possible)
