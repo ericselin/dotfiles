@@ -3,23 +3,28 @@
 " n is for normal mode, v is visual and select mode
 nnoremap s l
 vnoremap s l
+onoremap s l
 nnoremap t j
 vnoremap t j
+onoremap t j
 nnoremap n k
 vnoremap n k
+onoremap n k
 " remap next occurence to Look
 nnoremap l n
 nnoremap L N
 vnoremap l n
 vnoremap L N
 
-" fast scrolling with ctrl
-nnoremap <C-t> 10j
-nnoremap <C-n> 10k
-
 " ctrl+s save shortcut
 nmap <C-s> :w<cr>
 imap <C-s> <esc>:w<cr>
+
+" comma as leader key
+let mapleader=','
+
+" format typescript with deno
+autocmd FileType typescript nnoremap <buffer> <leader>f :%!deno fmt -<CR>
 
 " search highlighting etc.
 set incsearch ignorecase smartcase hlsearch

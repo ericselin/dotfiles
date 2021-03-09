@@ -21,6 +21,9 @@ This is a repo of dotfiles, scripts and instructions for setting up a new system
 - [ ] coc autocomplete insert
 - [x] delete many lines
   `#dd`
+- [ ] coc code completion navigation
+- [ ] format file ts
+  this is done with `:%!deno fmt -`, where % means whole file, ! means command, and - means write to stdout
 
 ### os
 
@@ -28,7 +31,7 @@ This is a repo of dotfiles, scripts and instructions for setting up a new system
 - [x] screen lock
 - [x] set background to #282a36
 - [x] `less` navigation
-- [ ] switch screen shortcut
+- [ ] switch screen shortcut / udev rule!
 - [x] firefox blank bg
   this can be done with the firefox home and disabling everything
 - [ ] firefox vim bindings

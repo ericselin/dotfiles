@@ -57,6 +57,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+# Make brightness control work for laptop display
+# https://bbs.archlinux.org/viewtopic.php?pid=1808941#p1808941
+# udevadm info -a /sys/class/backlight/intel_backlight
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -64,7 +68,7 @@ floating_modifier $mod
 focus_follows_mouse no
 
 # start a terminal
-bindsym $mod+Return exec alacritty 
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Escape kill
