@@ -1,6 +1,8 @@
-" make right hand home row navigate
-" just like in i3
+" Make right hand home row navigate, just like in i3.
 " n is for normal mode, v is visual and select mode
+" o is for operator pending mode, i.e. `d2t`
+" See the README for a discussion on why this has
+" been configured like it has.
 nnoremap s l
 vnoremap s l
 onoremap s l
@@ -10,32 +12,47 @@ onoremap t j
 nnoremap n k
 vnoremap n k
 onoremap n k
-" remap next occurence to Look
+" remap Next occurence to Look
 nnoremap l n
 nnoremap L N
 vnoremap l n
 vnoremap L N
+" Note that other keys now used for navigation
+" have not been remapped currently.
+" `T` could be remapped somehow, since it could be quite useful.
 
-" ctrl+s save shortcut
+" Ctrl+S save shortcut
+" In normal mode, this should just write the buffer
 nmap <C-s> :w<cr>
+" In insert mode, go to normal and write
 imap <C-s> <esc>:w<cr>
 
-" comma as leader key
+" Comma as leader key
+" The leader key is useful in custom shortcuts in order to make
+" good shortcuts that do not conflict with native commands.
 let mapleader=','
 
-" format typescript with deno
+" `,f` - format typescript with deno
+" % is a range and means replace the whole buffer
+" ! means run a command
+" - after the deno fmt command means read from STDIN
+" <buffer> means send the buffer to the command (I think!)
 autocmd FileType typescript nnoremap <buffer> <leader>f :%!deno fmt -<CR>
 
-" search highlighting etc.
+" Search highlighting etc.
+" Use `:noh` to remove highlighting
 set incsearch ignorecase smartcase hlsearch
 
-" scroll offset
+" Scroll offset, i.e. always display this many lines when scrolling
 set scrolloff=10
 
-" line numbers hybrid mode
+" Line numbers hybrid mode, i.e. show current line number and the rest
+" as relative to the current line. Makes e.g. navigation (`2t`) and
+" deleting (`5dd`) easier.
 set number relativenumber
 
-" tabs should be spaces - two of them
+" Tabs should be spaces - two of them; along with other smart things
+" Note that autoindent is done with `=` in normal mode.
 " tabstop:          Width of tab character
 " softtabstop:      Fine tunes the amount of white space to be added
 " shiftwidth        Determines the amount of whitespace to add in normal mode
@@ -47,9 +64,6 @@ set expandtab
 set autoindent
 set smartindent
 
-" some tips from
-" https://hackernoon.com/how-to-use-vim-for-frontend-development-2020-edition-dac83yyh
-
 " EMMET config
 autocmd FileType html,css :packadd emmet-vim
 let g:user_emmet_leader_key=','
@@ -59,6 +73,7 @@ packadd! dracula
 syntax enable
 colorscheme dracula
 
-" set runtimepath for ctrl p
+" CTRL-P fuzzy file searching
+" Set runtimepath, needed according to the docs
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
