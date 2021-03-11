@@ -118,7 +118,21 @@ Still to be done:
 - [ ] pomodoro: Make notification more like a message, and dismissable with keyboard
 - [ ] pomodoro: Change `i3status` font to non-ligatures so the progress bar looks nicer
 
-## Dvorak navigation (e.g. in `vim`)
+## Dvorak 
+
+Dvorak is pretty great. It has made my coding much more productive, because common keys like `/` and `[` are much more accessible than with a Finnish or Swedish keyboard. Also, it's much easier on the hands, I think. The problem is that some things don't work as well, since much of computing has been created around the QWERTY layout. Here are some thoughts for remedying those.
+
+### International characters
+
+One might of course switch keyboard layouts completely (to a international QWERTY version) when writing with international characters. But this is not nice. I'd rather have Dvorak with just the characters I need. The best solution is to have `ö` and the likes under `a`, `o` and `e` with an AltGr modifier.
+
+This can be (and has now been) accomplished by manually editing the symbol map for us dvorak under `/usr/share/X11/xkb/symbols/us`. The symbols under "dvorak" shold be edited for the appropriate keys with level 3 and 4 symbols matching the international characters. Like so:
+
+For reference, see:
+- https://www.linux.com/news/extending-x-keyboard-map-xkb/
+- https://www.x.org/wiki/XKB/
+
+### Navigation (e.g. in `vim`)
 
   Navigating in e.g. `vim` and `less` with a Dvorak layout is not very nice, since the navigation keys are not on the home row. In order to achieve proper navigation, just remap navigation to the home row keys. This of course means that we have to remap the now shadowed "original" key commands. Here are some thoughts on how to do this.
 
