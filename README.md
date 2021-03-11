@@ -126,7 +126,7 @@ Dvorak is pretty great. It has made my coding much more productive, because comm
 
 One might of course switch keyboard layouts completely (to a international QWERTY version) when writing with international characters. But this is not nice. I'd rather have Dvorak with just the characters I need. The best solution is to have `ö` and the likes under `a`, `o` and `e` with an AltGr modifier.
 
-This can be (and has now been) accomplished by manually editing the symbol map for us dvorak under `/usr/share/X11/xkb/symbols/us`. The symbols under "dvorak" shold be edited for the appropriate keys with level 3 and 4 symbols matching the international characters. Like so:
+This can be (and has now been) accomplished by manually editing the symbol map for us dvorak under `/usr/share/X11/xkb/symbols/us`. The symbols under "dvorak" shold be edited for the appropriate keys with level 3 and 4 symbols matching the international characters. However, it is also possible to extend a layout by including the original layout and making some changes. This is exactly what has been done in the "layout" named "scandi-dvorak" in `.xkb/symbols`. It is applied with `scripts/set-scandi-dvorak.sh`.
 
 For reference, see:
 - https://www.linux.com/news/extending-x-keyboard-map-xkb/
