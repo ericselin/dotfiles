@@ -63,9 +63,10 @@ Things that should still be done:
 
 Currently, `dmenu` is in use for launching apps. It is minimal, which is great, and can be used for many things. `rofi` is more extensible and has more "stuff", e.g. plugins for searching the web from within rofi and selecting emojis.
 
+For editing files in this repo, there is now a Win+c shortcut that opens up a menu of committed files for editing in vim.
+
 Things that would be pretty awesome to implement in the menu, coupled with an `i3` keyboard shortcut:
 
-- Keyboard layout switcher
 - Switch monitor
 - Emoji picker
 
