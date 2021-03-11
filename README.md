@@ -43,37 +43,80 @@ Using `vim` should come naturally and with muscle memory (at some point). This m
 
 - Remember `I` is insert at beginning of line, `A` append at end.
 - Select next occurence (like vscode ctrl+d): this is the `gn` pattern, i.e. search, then `cgn` to change, and `.` to repeat.
+- In visual block mode, insert on multiple lines with `I` (append with `A`).
 
-### os
+### `i3` - a window manager for hackers
 
-- [ ] rofi, in particular search
-- [x] screen lock
-- [x] set background to #282a36
-- [x] `less` navigation
-- [ ] switch screen shortcut / udev rule!
-- [x] firefox blank bg
-this can be done with the firefox home and disabling everything
-- [ ] firefox vim bindings
-- [ ] keepass start on login
-  - [x] emojis
-- [x] `mutt` with gmail (exchange not possible)
-  - [ ] emojis in i3status
-  - [ ] `gh` list project cards alias
-  - [ ] keyboard layout switching
-  - [ ] Make gdrive mount work on boot
-  - [ ] screen brightness
-  - [x] workspace names
-  - [x] i3status colors
+`i3` is a tiling window manager, which is *really* what you want. Some things to set up and note:
 
-### pomodoro app
+- **Screen locking** can be done by running `i3-lock`.
+- **Desktop background** is not really handled by i3, because the background is the root X window. Set it with `xsetroot`.
+- **Workspace renaming** is easy and set up with a simple input command (might switch this from `i3-input` to `dmenu`/`rofi`).
+- **Status bar** in use is `i3status` and can be configured quite well.
 
-  - [x] add i3 shortcut
-  - [x] remove file on kill
-  - [x] add i3 shortcut for killing
-  - [x] refresh i3status on update
-  - [x] nag on complete
-  - [ ] make notification more like a message, and dismissable with keyboard
-  - [ ] change font to non-ligatures
+Things that should still be done:
+
+- [ ] i3: Screen brightness keybinding: make a binding similar to the volume controls, and create a wrapper script around the screen brightness file (in /usr?) - this requires an udev rule to add write permissions for regular users
+- [ ] i3status: Add support for nicer looking emojis
+
+### `dmenu` and `rofi` - menus for everything
+
+Currently, `dmenu` is in use for launching apps. It is minimal, which is great, and can be used for many things. `rofi` is more extensible and has more "stuff", e.g. plugins for searching the web from within rofi and selecting emojis.
+
+Things that would be pretty awesome to implement in the menu, coupled with an `i3` keyboard shortcut:
+
+- Keyboard layout switcher
+- Switch monitor
+- Emoji picker
+
+### `Firefox` - the developer browser
+
+Firefox is pretty darn nice, and is not created by a huge advertising conglomerate. Some things to note:
+
+- Firefox and Google Chrome behave differently, so **remember to test pages also in Chrome**.
+- The new tab background is always white, but the "Firefox Homepage" uses a themed color. Luckily, that can be made blank by turning off all of its features. This way you get a blank new tab which is not white.
+
+### `GitHub CLI` - manage GitHub repos with ease
+
+`gh` is awesome! Need to use this all the time. It currently doesn't support projects, but querying the API for project info is possible indeed.
+
+Make it awesome:
+
+- [ ] gh: Create a `gh` alias for getting project cards.
+
+### `Arch Linux` - minimalistic Linux with a huge community
+
+So in reality I'm running Ububntu at the moment. Should switch to Arch, though, as it's not bloated like Ubuntu, has pretty awesome documentation and community, and the AUR package repository seems way better.
+
+Things to implement in the OS in any case:
+
+- [ ] os: Make udev rule to switch to work monitor when connected.
+- [ ] os: Make udev rule to switch to laptop monitor when any external screen is disconnected.
+- [ ] os: Make gdrive mount work on boot (or create startup script for mount and keepassxc).
+
+## Other tools and custom scripts
+
+### `keepassxc` - secure password manager
+
+Keepass is open source, and it can be made very secure. Also, it's recommended by the EFF. The setup is currently that the database is stored in Google Drive, and synced with `rclone`. There is a key file for the database, which has not and will not touch the network.
+
+### `mutt` - email in the console
+
+Gmail is set up with an app password, and the Dracula theme is enabled. Unfortunately, it still takes a while for `mutt` to connect to the IMAP folder and load everything, and this would be great to improve on. Maybe create a local copy of the inbox? Also, Office365 doens't work currently, but might be possible. In any case, see [Jonathan's setup](https://jonathanh.co.uk/blog/mutt-setup.html) for inspiration.
+
+### `scripts/pomodoro.sh` - pomodoro app for i3status
+
+This script will create a file `~/pomodoro` with a ascii progress bar. This file can then be read by `i3status` to output the bar. The following features are implemented:
+
+- Start pomodoro with the `Win-p` keyboard shortcut
+- Stop pomodoro with the `Win-Shift-P` keyboard shortcut (intercepts the SIGINT and removes the file)
+- Refresh i3status on update via the SIGUSR1 signal
+- Notify user of pomodoro completion with `i3-nagbar`
+
+Still to be done:
+
+- [ ] pomodoro: Make notification more like a message, and dismissable with keyboard
+- [ ] pomodoro: Change `i3status` font to non-ligatures so the progress bar looks nicer
 
 ## Dvorak navigation (e.g. in `vim`)
 
