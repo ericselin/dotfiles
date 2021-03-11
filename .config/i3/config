@@ -138,7 +138,7 @@ bindsym $mod+' focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: dev"
+set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
@@ -176,6 +176,8 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 # rename workspace
 bindsym $mod+Shift+R exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
+# edit (any dotfiles repo) config file
+bindsym $mod+c exec "$HOME/scripts/edit-config-file.sh"
 # reload the configuration file
 bindsym $mod+Shift+C reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
