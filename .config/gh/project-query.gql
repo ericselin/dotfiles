@@ -1,0 +1,31 @@
+query($owner: String = "reima-ecom", $columns: Int = 3, $after: String = "Y3Vyc29yOnYyOpICzgC_8Pw=") {
+  organization(login: $owner) {
+    projects(first: 1, states: OPEN) {
+      nodes {
+        name
+        columns(first: $columns, after: $after) {
+          nodes {
+            name
+            id
+            cards(archivedStates: NOT_ARCHIVED) {
+              nodes {
+                note
+                content {
+                  ... on Issue {
+                    number
+                    title
+                    bodyText
+                    url
+                    repository {
+                      nameWithOwner
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
