@@ -1,0 +1,16 @@
+{{range .data.organization.projects.nodes}}
+PROJECT: {{.name}}
+=====================
+{{range .columns.nodes}}
+COLUMN:  {{.name}}
+---------------------
+{{range .cards.nodes}}{{with .content}}
+{{.repository.nameWithOwner}}#{{.number}}
+{{.url}}
+{{.title}}
+{{else}}
+[no cards in column]
+{{end}}{{else}}
+[no cards]{{end}}
+{{end}}
+{{end}}

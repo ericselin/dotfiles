@@ -10,13 +10,4 @@ pager: cat
 aliases:
     co: pr checkout
 # need to run through shell (with !) to get $HOME expansion
-    headless: |
-      !gh api graphql -F query="@$HOME/.config/gh/project-query.gql" --template '
-      {{range .data.organization.projects.nodes}}{{.name}}
-      
-      {{range .columns.nodes}}  {{.name}}
-      
-      {{range .cards.nodes}}    {{with .content}}{{.repository.nameWithOwner}}#{{.number}}: {{.title}}{{end}}
-      {{end}}
-      {{end}}
-      {{end}}'
+    headless: '!gh api graphql -F query="@$HOME/.config/gh/project-query.gql" --template="$(cat $HOME/.config/gh/project-query.tmpl)"'
