@@ -6,6 +6,14 @@ It is also an attempt at creating the perfect Linux configurtion. Perfect for me
 
 This is all written mainly for myself, or more specifically a future version of myself (hi there, me!).
 
+## Installation
+
+```
+https://git.io/JYeUL | /bin/bash
+```
+
+The short link above links to `scripts/clone-dotfiles.sh`. It will clone this repo as a bare repo, backing up any existing files in the process.
+
 ## Development
 
 Development of documentation and configuration should follow sane development practices as much as possible. Try to commit early and often, use feature branches where applicable, and conventional commits. Try to commit one "feature" or "bug fix" at a time. All config files that matter (that have been edited) should be included in this repo.
