@@ -14,6 +14,10 @@ curl -L https://git.io/JYeUL | /bin/bash
 
 The short link above links to `scripts/clone-dotfiles.sh`. It will clone this repo as a bare repo, backing up any existing files in the process.
 
+- TODO install: add (recursive) submodule cloning
+- TODO install: create proper (indepodent) installer that installs with pacman and sets up everything
+- TODO install: add oh-my-zsh as a submodule
+
 ## Development
 
 Development of documentation and configuration should follow sane development practices as much as possible. Try to commit early and often, use feature branches where applicable, and conventional commits. Try to commit one "feature" or "bug fix" at a time. All config files that matter (that have been edited) should be included in this repo.
@@ -41,7 +45,9 @@ For inspiration, see also:
 
 **CtrP** for quickly opening files within the workspace. Select a file and press `<C-t>` to open in a new tab.
 
-**TODO: go-vim** for syntax highlighting go templates, which are used by `hugo`.
+Consider installing these as well:
+
+- TODO: vim: install go-vim for syntax highlighting go templates, which are used by `hugo`.
 
 #### Key combos and shortcuts
 
@@ -53,9 +59,9 @@ Using `vim` should come naturally and with muscle memory (at some point). This m
 - Select next occurence (like vscode ctrl+d): this is the `gn` pattern, i.e. search, then `cgn` to change, and `.` to repeat.
 - In visual block mode, insert on multiple lines with `I` (append with `A`).
 
-### `i3` - a window manager for hackers
+### `sway` - a wayland window manager for hackers
 
-`i3` is a tiling window manager, which is *really* what you want. Some things to set up and note:
+`sway` is a tiling window manager, which is *really* what you want. Some things to set up and note:
 
 - **Screen locking** can be done by running `i3-lock`.
 - **Desktop background** is not really handled by i3, because the background is the root X window. Set it with `xsetroot`.
@@ -64,19 +70,20 @@ Using `vim` should come naturally and with muscle memory (at some point). This m
 
 Things that should still be done:
 
-- [ ] i3: Screen brightness keybinding: make a binding similar to the volume controls, and create a wrapper script around the screen brightness file (in /usr?) - this requires an udev rule to add write permissions for regular users
-- [ ] i3status: Add support for nicer looking emojis
+- TODO sway: Screen brightness keybinding: make a binding similar to the volume controls, and create a wrapper script around the screen brightness file (in /usr?) - this requires an udev rule to add write permissions for regular users
+- TODO swaybar: Add support for nicer looking emojis
+- TODO sway: create locking with idle lock as well
 
-### `dmenu` and `rofi` - menus for everything
+### `bemenu` - menus for everything
 
-Currently, `dmenu` is in use for launching apps. It is minimal, which is great, and can be used for many things. `rofi` is more extensible and has more "stuff", e.g. plugins for searching the web from within rofi and selecting emojis.
+Currently, `bemenu` is in use for launching apps. It is minimal, which is great, and can be used for many things. `wofi` is more extensible and has more "stuff", e.g. plugins for searching the web from within rofi and selecting emojis.
 
 For editing files in this repo, there is now a Win+c shortcut that opens up a menu of committed files for editing in vim.
 
-Things that would be pretty awesome to implement in the menu, coupled with an `i3` keyboard shortcut:
+Things that would be pretty awesome to implement in the menu, coupled with an `sway` keyboard shortcut:
 
-- Switch monitor
-- Emoji picker
+- TODO bemenu: Switch monitor
+- TODO bemenu: Emoji picker
 
 ### `Firefox` - the developer browser
 
@@ -91,21 +98,27 @@ Firefox is pretty darn nice, and is not created by a huge advertising conglomera
 
 Make it awesome:
 
-- [ ] gh: Create a `gh` alias for getting project cards.
+- TODO gh: Create a `gh` alias for getting project cards.
 
 ### `Arch Linux` - minimalistic Linux with a huge community
 
 Arch Linux is pretty cool, check it out. It requires some setup, though. Things to still implement:
 
-- [ ] os: Make udev rule to switch to work monitor when connected.
-- [ ] os: Make udev rule to switch to laptop monitor when any external screen is disconnected.
-- [ ] os: Make gdrive mount work on boot (or create startup script for mount and keepassxc).
+- TODO os: Make udev rule to switch to work monitor when connected.
+- TODO os: Make udev rule to switch to laptop monitor when any external screen is disconnected.
+- TODO os: Make gdrive mount work on boot (or create startup script for mount and keepassxc).
+- TODO os: configure / research copy-paste between alacritty and e.g. firefox, and within alacritty same or different windows
+- TODO os: mount efi images to /boot for easy upgradability
+- TODO os: enable audio via pactl
 
 ## Other tools and custom scripts
 
 ### `keepassxc` - secure password manager
 
 Keepass is open source, and it can be made very secure. Also, it's recommended by the EFF. The setup is currently that the database is stored in Google Drive, and synced with `rclone`. There is a key file for the database, which has not and will not touch the network.
+
+- TODO keepass: enable docking keepass to tray
+- TODO keepass: enable auto-type on wayland
 
 ### `mutt` - email in the console
 
@@ -122,8 +135,8 @@ This script will create a file `~/pomodoro` with a ascii progress bar. This file
 
 Still to be done:
 
-- [ ] pomodoro: Make notification more like a message, and dismissable with keyboard
-- [ ] pomodoro: Change `i3status` font to non-ligatures so the progress bar looks nicer
+- TODO pomodoro: Make notification more like a message, and dismissable with keyboard
+- TODO pomodoro: Change `i3status` font to non-ligatures so the progress bar looks nicer
 
 ## Dvorak 
 
@@ -178,5 +191,6 @@ For reference, see:
 
 ### Logins
 
-  The login database should be backed up in the same way regular files are backed up. The keyfile should be backed up to a flashdrive together with the database password and instructions for unlocking in a sealed envelope in a secure location.
+The login database should be backed up in the same way regular files are backed up. The keyfile should be backed up to a flashdrive together with the database password and instructions for unlocking in a sealed envelope in a secure location.
 
+- TODO back up logins.key to a USB drive
