@@ -9,7 +9,7 @@ This is all written mainly for myself, or more specifically a future version of 
 ## Installation
 
 ```
-https://git.io/JYeUL | /bin/bash
+curl -L https://git.io/JYeUL | /bin/bash
 ```
 
 The short link above links to `scripts/clone-dotfiles.sh`. It will clone this repo as a bare repo, backing up any existing files in the process.
@@ -95,9 +95,7 @@ Make it awesome:
 
 ### `Arch Linux` - minimalistic Linux with a huge community
 
-So in reality I'm running Ububntu at the moment. Should switch to Arch, though, as it's not bloated like Ubuntu, has pretty awesome documentation and community, and the AUR package repository seems way better.
-
-Things to implement in the OS in any case:
+Arch Linux is pretty cool, check it out. It requires some setup, though. Things to still implement:
 
 - [ ] os: Make udev rule to switch to work monitor when connected.
 - [ ] os: Make udev rule to switch to laptop monitor when any external screen is disconnected.
@@ -161,7 +159,7 @@ For reference, see:
 ### Core tools
 
   - Themes: `dracula`
-  - Window manager: `i3`
+  - Window manager: `sway`
   - Terminal: `alacritty`
   - Shell: `zsh`, configured via `oh-my-zsh`
   - Browser: `firefox`

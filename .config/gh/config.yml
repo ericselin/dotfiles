@@ -9,5 +9,5 @@ pager: cat
 # Aliases allow you to create nicknames for gh commands
 aliases:
     co: pr checkout
-# need to run through shell (with !) to get $HOME expansion
+    # need to run through shell (with !) to get $HOME expansion
     headless: '!gh api graphql -F query="@$HOME/.config/gh/project-query.gql" --template="$(cat $HOME/.config/gh/project-query.tmpl)"'

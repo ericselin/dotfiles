@@ -20,6 +20,9 @@ export PATH="$HOME/utilities:$PATH"
 # Make alias for editing i3 configuration
 alias i3conf='vim ~/.config/i3/config'
 
+# Launch Firefox with wayland
+export GDK_BACKEND='wayland'
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -109,3 +112,15 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+export BEMENU_OPTS="--tb '#6272a4'\
+ --tf '#f8f8f2'\
+ --fb '#282a36'\
+ --ff '#f8f8f2'\
+ --nb '#282a36'\
+ --nf '#6272a4'\
+ --hb '#44475a'\
+ --hf '#50fa7b'\
+ --sb '#44475a'\
+ --sf '#50fa7b'\
+ --scb '#282a36'\
+ --scf '#ff79c6'"

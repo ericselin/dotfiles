@@ -19,3 +19,9 @@
 [submodule ".vim/bundle/ctrlp.vim"]
 	path = .vim/bundle/ctrlp.vim
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
+[submodule ".themes/zsh"]
+	path = .themes/zsh
+	url = https://github.com/dracula/zsh.git
+[submodule ".themes/bemenu"]
+	path = .themes/bemenu
+	url = https://github.com/dracula/bemenu.git
