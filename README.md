@@ -45,9 +45,7 @@ For inspiration, see also:
 
 **CtrP** for quickly opening files within the workspace. Select a file and press `<C-t>` to open in a new tab.
 
-Consider installing these as well:
-
-- TODO: vim: install go-vim for syntax highlighting go templates, which are used by `hugo`.
+**vim-go** for Go HTML template syntax highlighting (currently works with HTML files inside directories named "layouts").
 
 #### Key combos and shortcuts
 
