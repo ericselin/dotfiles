@@ -96,9 +96,7 @@ Firefox is pretty darn nice, and is not created by a huge advertising conglomera
 
 `gh` is awesome! Need to use this all the time. It currently doesn't support projects, but querying the API for project info is possible indeed.
 
-Make it awesome:
-
-- TODO gh: Create a `gh` alias for getting project cards.
+There is a custom alias `gh headless` that gets project issues from `reima-ecom`. See the config file for details.
 
 ### `Arch Linux` - minimalistic Linux with a huge community
 
@@ -113,12 +111,18 @@ Arch Linux is pretty cool, check it out. It requires some setup, though. Things 
 
 ## Other tools and custom scripts
 
+### `gopass` - gpg and pass based password manager
+
+This password manager is pretty cool, based on GPG-encrypted files and compatible with [pass](https://www.passwordstore.org/).
+
+- TODO gopass: install
+- TODO gopass: import keepass passwords
+
 ### `keepassxc` - secure password manager
 
 Keepass is open source, and it can be made very secure. Also, it's recommended by the EFF. The setup is currently that the database is stored in Google Drive, and synced with `rclone`. There is a key file for the database, which has not and will not touch the network.
 
-- TODO keepass: enable docking keepass to tray
-- TODO keepass: enable auto-type on wayland
+KeePass works nicely now, but I'm in the process of migrating to gopass (see above).
 
 ### `mutt` - email in the console
 
@@ -181,16 +185,10 @@ For reference, see:
 
   - Console email: `mutt`
 
-## Logins / Password management
-
-  Logins are managed with KeePassXC. The database is stored in Google Drive and the key file copied to each device separately.
-
-  On Linux, the database file is [mounted with rclone](https://rclone.org/commands/rclone_mount/) [on login](https://devsrealm.com/cloud-computing/ubuntu/mounting-and-unmounting-cloud-storage-with-rclone-in-linux/) using a script in `~/scripts/mount-gdrive-sync.sh`.
-
 ## Backups
 
 ### Logins
 
 The login database should be backed up in the same way regular files are backed up. The keyfile should be backed up to a flashdrive together with the database password and instructions for unlocking in a sealed envelope in a secure location.
 
-- TODO back up logins.key to a USB drive
+- TODO backup: gopass GPG keys
