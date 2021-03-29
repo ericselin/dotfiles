@@ -2,6 +2,7 @@
 input * {
   xkb_layout "us"
   xkb_variant "dvorak"
+  xkb_numlock enable
 }
 
 # Monitor identifiers
