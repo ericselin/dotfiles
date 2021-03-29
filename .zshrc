@@ -83,7 +83,7 @@ export GDK_BACKEND='wayland'
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git deno gh)
+plugins=(git deno)
 
 source $ZSH/oh-my-zsh.sh
 
