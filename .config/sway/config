@@ -4,6 +4,19 @@ input * {
   xkb_variant "dvorak"
 }
 
+# Monitor identifiers
+set $laptop eDP-1
+set $work 'Lenovo Group Limited LEN P27u-10 0x00005F41'
+# Turn off laptop output when closing lid (aka clamshell mode)
+# https://github.com/swaywm/sway/wiki#clamshell-mode
+bindswitch --reload --locked {
+  lid:on output $laptop disable
+  lid:off output $laptop enable
+}
+exec_always ~/scripts/set-laptop-output-based-on-lid.sh $laptop
+# Rotate work screen to portrait
+output $work transform 270
+
 # Windows key as modifier
 set $mod Mod4
 
