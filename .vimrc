@@ -77,3 +77,5 @@ colorscheme dracula
 " Set runtimepath, needed according to the docs
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
+" go vim for html files
+autocmd BufRead,BufNewFile */layouts/*/*.html set ft=gohtmltmpl

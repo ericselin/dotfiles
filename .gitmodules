@@ -25,3 +25,6 @@
 [submodule ".themes/bemenu"]
 	path = .themes/bemenu
 	url = https://github.com/dracula/bemenu.git
+[submodule ".vim/pack/plugins/start/vim-go"]
+	path = .vim/pack/plugins/start/vim-go
+	url = https://github.com/fatih/vim-go.git
