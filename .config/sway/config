@@ -1,7 +1,6 @@
 # US Dvorak keyboard layout
-input * {
-  xkb_layout "us"
-  xkb_variant "dvorak"
+input "type:keyboard" {
+  xkb_layout "scandi-dvorak"
   xkb_numlock enable
 }
 
