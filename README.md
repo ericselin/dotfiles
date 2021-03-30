@@ -59,18 +59,16 @@ Using `vim` should come naturally and with muscle memory (at some point). This m
 
 ### `sway` - a wayland window manager for hackers
 
-`sway` is a tiling window manager, which is *really* what you want. Some things to set up and note:
+`sway` is a tiling window manager, which is *really* what you want. Setup includes:
 
-- **Screen locking** can be done by running `i3-lock`.
-- **Desktop background** is not really handled by i3, because the background is the root X window. Set it with `xsetroot`.
-- **Workspace renaming** is easy and set up with a simple input command (might switch this from `i3-input` to `dmenu`/`rofi`).
+- **Screen locking** is done via `swayidle` and `swaylock`.
 - **Status bar** in use is `i3status` and can be configured quite well.
 
 Things that should still be done:
 
 - TODO sway: Screen brightness keybinding: make a binding similar to the volume controls, and create a wrapper script around the screen brightness file (in /usr?) - this requires an udev rule to add write permissions for regular users
 - TODO swaybar: Add support for nicer looking emojis
-- TODO sway: create locking with idle lock as well
+- TODO sway: create `swaylock` dracula theme
 
 ### `bemenu` - menus for everything
 

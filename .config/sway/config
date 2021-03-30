@@ -48,7 +48,7 @@ exec scripts/set-scandi-dvorak.sh
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -c 383a59
 
 # lock screen
-bindsym $mod+l exec i3lock -c 383a59
+bindsym $mod+l exec swaylock
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -227,7 +227,11 @@ bar {
   }
 }
 
+# Idle management and locking
+exec swayidle -w \
+  timeout 300 'swaylock' \
+  timeout 600 'swaymsg "output * dpms off"' \
+  resume 'swaymsg "output * dpms on"' \
+  before-sleep 'swaylock'
+
 include /etc/sway/config.d/*
-# US Dvorak keyboard layout
-input * {
-  xkb_layout "us"
