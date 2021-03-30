@@ -1,5 +1,5 @@
 #!/bin/bash
-git clone --bare https://bitbucket.org/durdn/cfg.git $HOME/.dot.git
+git clone --recurse-submodules --bare https://github.com/ericselin/dotfiles.git $HOME/.dot.git
 function config {
    /usr/bin/git --git-dir=$HOME/.dot.git/ --work-tree=$HOME $@
 }

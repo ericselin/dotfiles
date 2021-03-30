@@ -14,7 +14,6 @@ curl -L https://git.io/JYeUL | /bin/bash
 
 The short link above links to `scripts/clone-dotfiles.sh`. It will clone this repo as a bare repo, backing up any existing files in the process.
 
-- TODO install: add (recursive) submodule cloning
 - TODO install: create proper (indepodent) installer that installs with pacman and sets up everything
 - TODO install: add oh-my-zsh as a submodule
 
