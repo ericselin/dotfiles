@@ -78,7 +78,6 @@ For editing files in this repo, there is now a Win+c shortcut that opens up a me
 Things that would be pretty awesome to implement in the menu, coupled with an `sway` keyboard shortcut:
 
 - TODO bemenu: Switch monitor
-- TODO bemenu: Emoji picker
 
 ### `Firefox` - the developer browser
 

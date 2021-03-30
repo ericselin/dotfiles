@@ -79,6 +79,9 @@ focus_follows_mouse no
 # start a terminal
 bindsym $mod+Return exec alacritty
 
+# emoji picker
+bindsym $mod+period exec ~/scripts/emoji-picker.sh
+
 # kill focused window
 bindsym $mod+Escape kill
 
