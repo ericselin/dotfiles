@@ -97,12 +97,9 @@ There is a custom alias `gh headless` that gets project issues from `reima-ecom`
 
 Arch Linux is pretty cool, check it out. It requires some setup, though. Things to still implement:
 
-- TODO os: Make udev rule to switch to work monitor when connected.
-- TODO os: Make udev rule to switch to laptop monitor when any external screen is disconnected.
-- TODO os: Make gdrive mount work on boot (or create startup script for mount and keepassxc).
+- TODO os: bluetooth error on login
+- TODO os: bluetooth headset audio
 - TODO os: configure / research copy-paste between alacritty and e.g. firefox, and within alacritty same or different windows
-- TODO os: mount efi images to /boot for easy upgradability
-- TODO os: enable audio via pactl
 
 ## Other tools and custom scripts
 
