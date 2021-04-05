@@ -207,12 +207,9 @@ TODO status email: ANNOYING
 
 ### Work chat and calls - `teams`
 
-So I need to use teams for work. Tough life. For this, just run the official teams app on demand. People chat way too much anyway, and notifications come to the phone.
+So I need to use teams for work. Tough life. For this, just run the official teams app on demand. People chat way too much anyway, and notifications come to the phone. Disable auto-starting (it probably won't work anyway) and stay running when closing. The "tray" is not enabled for Teams anyway.
 
-TODO status teams: CRITICAL
-
-- TODO teams: install
-- TODO teams: check microphone and camera
+Teams needs XWayland, and fail silently if GDK_BACKEND is set to wayland, so don't set that. Also, the internal microphone on at least ThinkPad T480s produces a lot of static if mic boost is on, so make sure to disable that. There are some docs on how to do this in the Arch wiki, but you can set it via `alsamixer` as well. (Not sure how persistent these changes are, though.)
 
 ### Knackeriet chat - `slack`
 

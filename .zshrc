@@ -21,7 +21,7 @@ export PATH="$HOME/utilities:$PATH"
 alias i3conf='vim ~/.config/i3/config'
 
 # Launch Firefox with wayland
-export GDK_BACKEND='wayland'
+export MOZ_ENABLE_WAYLAND=1
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
