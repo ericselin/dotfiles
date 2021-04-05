@@ -79,6 +79,12 @@ focus_follows_mouse no
 # start a terminal
 bindsym $mod+Return exec alacritty
 
+# pick password to copy (G for gopass)
+bindsym $mod+g exec ~/scripts/copy-password.sh
+
+# open browser
+bindsym $mod+b exec firefox
+
 # emoji picker
 bindsym $mod+period exec ~/scripts/emoji-picker.sh
 
