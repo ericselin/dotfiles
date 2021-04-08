@@ -38,4 +38,4 @@ echo "Ran for $(( $SECONDS - $start_time )) seconds"
 rm ~/pomodoro
 refresh_i3status
 # notify the user
-i3-nagbar -m 'Pomodoro finishd! Take a well deserved break :)' -t warning
+notify-send 'Pomodoro finished!' 'Now take a well deserved break :)'

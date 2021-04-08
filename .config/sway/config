@@ -22,8 +22,9 @@ set $mod Mod4
 
 # draculatheme.com
 # class                 border  bground text
-client.focused          #6272A4 #6272A4 #F8F8F2
-client.focused_inactive #44475A #44475A #F8F8F2
+#client.focused          #6272A4 #6272A4 #F8F8F2
+client.focused          #44475A #44475A #F8F8F2
+client.focused_inactive #282A36 #282A36 #BFBFBF
 client.unfocused        #282A36 #282A36 #BFBFBF
 
 # Background for all outputs

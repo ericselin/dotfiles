@@ -101,9 +101,51 @@ TODO status gopass: DEGRADED
 
 ### Back everything up (rule of three)
 
+What do I have and where:
+
+- Passwords
+  These are stored in encrypted files, see below. Keepass db in gdrive. Can be cloud-synced.
+- Secret keys
+  GPG and keepass keys. Should never touch the network, at least not things I don't own myself.
+- Emails
+  Only in gmail at the moment. Work emails can be disregarded.
+- Photos
+  In Google Photos, with older photos on an external HDD.
+- Files
+  Stuff I care about are in GDrive.
+- Git repositories
+  Includes personal code things, as well as e.g. this dotfile repo. These are in GitHub, with some wip things on the computer.
+- Notes
+  Only in Keep. Should be moved to git.
+- Contacts
+  On Google.
+- Calendar
+  On Google.
+- 2FA backup codes
+  On paper or non-existing.
+- Bookmarks
+  In Firefox or Chrome, backed up to the cloud.
+- Bought music
+  On external HDD.
+- Verros stuff
+  All of the above, basically.
+
+Physical locations of working copies:
+
+- Cloud: majority of data
+- External HDD: old photos, movies, music
+- Laptop/phone: GPG keys and other key files
+
+How to backup
+
+- Create a script to back everything up to a specific folder
+- Phase 1: this folder is just the mount of a backup drive
+  - Everything that has its working copy in the cloud is safe here (one copy in the cloud, two backup drives)
+- Phase 2: this folder is on a NAS
+
 TODO status backup: CRITICAL
 
-- TODO backup: plan backup next steps
+- TODO backup: determine how to back everything up and where
 - TODO backup: secure backups for e.g. gpg keys
 
 ### Disaster recovery
@@ -179,11 +221,12 @@ This script will create a file `~/pomodoro` with a ascii progress bar. This file
 - Start pomodoro with the `Win-p` keyboard shortcut
 - Stop pomodoro with the `Win-Shift-P` keyboard shortcut (intercepts the SIGINT and removes the file)
 - Refresh i3status on update via the SIGUSR1 signal
-- Notify user of pomodoro completion with `i3-nagbar`
+- Notify user of pomodoro completion with `notify-send`
 
 TODO status pomodoro: ANNOYING
 
-- TODO pomodoro: Make notification more like a message, and dismissable with keyboard
+- TODO pomodoro: make notification dismissable with keyboard
+- TODO pomodoro: make break timer action for notification
 
 ### Calendar - google -> `khal`
 
@@ -210,6 +253,12 @@ TODO status email: ANNOYING
 So I need to use teams for work. Tough life. For this, just run the official teams app on demand. People chat way too much anyway, and notifications come to the phone. Disable auto-starting (it probably won't work anyway) and stay running when closing. The "tray" is not enabled for Teams anyway.
 
 Teams needs XWayland, and fail silently if GDK_BACKEND is set to wayland, so don't set that. Also, the internal microphone on at least ThinkPad T480s produces a lot of static if mic boost is on, so make sure to disable that. There are some docs on how to do this in the Arch wiki, but you can set it via `alsamixer` as well. (Not sure how persistent these changes are, though.)
+
+In order to do screen sharing in Wayland, special care needs to be taken.
+
+TODO status teams: DEGRADED
+
+- TODO teams: make screen sharing work e.g. with pipewire
 
 ### Knackeriet chat - `slack`
 
