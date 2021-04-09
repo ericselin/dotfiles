@@ -101,6 +101,17 @@ TODO status gopass: DEGRADED
 
 ### Back everything up (rule of three)
 
+Every original copy of everything should live in the "cloud" (personal file share or cloud storage provider). This means e.g. Google Drive for documents, and GitHub for code. Thus, in the base case of a device failing or becoming lost, data can easily be restored from the "cloud". A basic backup setup would then be to back up everything to two external drives that rotate off-site (to work).
+
+The backup drives of course contain everything, so those need to be encrypted. The best cross-OS block device encryption tool seems to be [VeraCrypt](https://veracrypt.fr/en/Home.html) (fork of TrueCrypt). To be safe, it seems reasonable that the backup could be read in Windows. However, right now Linux is my main OS, and installing Linux is possible if only just to recover a backup. Plus, backups are by their nature ephemeral, which means it's enough if it works now, it needn't work in a year. Bottom line: just backup with [dm-crypt](https://wiki.archlinux.org/index.php/Dm-crypt).
+
+TODO status backup: CRITICAL
+
+- TODO backup: determine how to back everything up and where
+- TODO backup: secure backups for e.g. gpg keys
+
+Below are some very WIP notes
+
 What do I have and where:
 
 - Passwords
@@ -133,20 +144,30 @@ What do I have and where:
 Physical locations of working copies:
 
 - Cloud: majority of data
+  - gmail
+  - github
+  - google photos
+  - google drive
+  - google keep
+  - google calendar
+  - google contacts
+  - bookmarks
 - External HDD: old photos, movies, music
 - Laptop/phone: GPG keys and other key files
+- Paper: 2FA backup codes
 
 How to backup
 
 - Create a script to back everything up to a specific folder
-- Phase 1: this folder is just the mount of a backup drive
+- Phase 1: this folder is just the mount of a backup drive, copy with rclone
   - Everything that has its working copy in the cloud is safe here (one copy in the cloud, two backup drives)
-- Phase 2: this folder is on a NAS
+- Phase 2: this folder is on a NAS, can be a sync or mount or something, to create a personal "cloud file system"
 
-TODO status backup: CRITICAL
+### Encrypt anything important
 
-- TODO backup: determine how to back everything up and where
-- TODO backup: secure backups for e.g. gpg keys
+TODO status encryption: CRITICAL
+
+- TODO encryption: plan next steps
 
 ### Disaster recovery
 
