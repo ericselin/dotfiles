@@ -1,0 +1,63 @@
+IMAPAccount gmail
+# Address to connect to
+Host imap.gmail.com
+User eric.selin@gmail.com
+# Pass ***************
+# To store the password in an encrypted file use PassCmd instead of Pass
+PassCmd "gopass show --password misc/gmail-app-password"
+#
+# Use SSL
+SSLType IMAPS
+# The following line should work. If get certificate errors, uncomment the two following lines and read the "Troubleshooting" section.
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+#CertificateFile ~/.cert/imap.gmail.com.pem
+#CertificateFile ~/.cert/Equifax_Secure_CA.pem
+
+IMAPStore gmail-remote
+Account gmail
+
+MaildirStore gmail-local
+SubFolders Verbatim
+# The trailing "/" is important
+Path ~/.mail/gmail/
+Inbox ~/.mail/gmail/Inbox
+
+Channel gmail
+Far :gmail-remote:
+Near :gmail-local:
+# Exclude everything under the internal [Gmail] folder, except the interesting folders
+Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail"
+# Or include everything
+#Patterns *
+# Automatically create missing mailboxes, both locally and on the server
+Create Both
+# Save the synchronization state files in the relevant directory
+SyncState *
+
+Channel sync-googlemail-default
+Far :gmail-remote:
+Near :gmail-local:
+# Select some mailboxes to sync
+Patterns "INBOX" "arch"
+
+Channel sync-googlemail-sent
+Far :gmail-remote:"[GMail]/Sent Mail"
+Near :gmail-local:sent
+Create Near
+
+Channel sync-googlemail-trash
+Far :gmail-remote:"[GMail]/Trash"
+Near :gmail-local:trash
+Create Near
+
+Channel sync-googlemail-starred
+Far :gmail-remote:"[GMail]/Starred"
+Near :gmail-local:starred
+Create Near
+
+# Get all the channels together into a group.
+Group googlemail
+Channel sync-googlemail-default
+Channel sync-googlemail-starred
+Channel sync-googlemail-sent
+Channel sync-googlemail-trash

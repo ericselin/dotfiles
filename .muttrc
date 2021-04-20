@@ -1,21 +1,37 @@
-source .muttrc.password
-source .mutt/dracula/dracula.muttrc
+#source ~/.muttrc.password
+source ~/.mutt/dracula/dracula.muttrc
 
 set from = "eric.selin@gmail.com"
 set realname = "Eric Selin"
 
 # Imap settings
-set imap_user = "eric.selin@gmail.com"
+#set imap_user = "eric.selin@gmail.com"
 
 # Smtp settings
 set smtp_url = "smtps://eric.selin@smtp.gmail.com"
 
+# Maildir settings
+set mbox_type=Maildir
+set folder=~/.mail/gmail
+set spoolfile=+Inbox
+set header_cache=~/.cache/mutt
+
 # Remote gmail folders
-set folder = "imaps://imap.gmail.com/"
-set spoolfile = "+INBOX"
-set postponed = "+[Gmail]/Drafts"
-set record = "+[Gmail]/Sent Mail"
-set trash = "+[Gmail]/Trash"
+#set folder = "imaps://imap.gmail.com/"
+#set spoolfile = "+INBOX"
+#set postponed = "+[Gmail]/Drafts"
+#set record = "+[Gmail]/Sent Mail"
+#set trash = "+[Gmail]/Trash"
 
 # vim editor
 set editor = "vim"
+
+# More (dvorak) vim like keybindings
+bind pager t next-line
+bind pager n previous-line
+bind attach,index,pager \CD next-page
+bind attach,index,pager \CU previous-page
+bind pager g top
+bind pager G bottom
+bind attach,index g first-entry
+bind attach,index G last-entry
