@@ -2,5 +2,10 @@ font:
   normal:
     family: Source Code Pro
   size: 11
+window:
+  padding:
+    x: 5
+    y: 5
+  dynamic_padding: true
 import:
   - ~/.themes/alacritty/dracula.yml

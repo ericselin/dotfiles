@@ -95,6 +95,8 @@ Right now, `keepassxc` is in use, but it should be migrated to `gopass`. Keepass
 
 This password manager is pretty cool, based on GPG-encrypted files and compatible with [pass](https://www.passwordstore.org/).
 
+There is a script based on `bemenu` that searches and copies passwords. `gopass` uses `gpg`, and key passphrases are used via `gpg-agent`. Passphrases are entered via a `pinentry` program, more specifically `pinentry-gnome3`. See optional dependencies for `pinentry` for the proper dependencies for that `pinentry` backend.
+
 TODO status gopass: DEGRADED
 
 - TODO gopass: plan migration from keepass
