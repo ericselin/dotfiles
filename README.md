@@ -97,9 +97,13 @@ This password manager is pretty cool, based on GPG-encrypted files and compatibl
 
 There is a script based on `bemenu` that searches and copies passwords. `gopass` uses `gpg`, and key passphrases are used via `gpg-agent`. Passphrases are entered via a `pinentry` program, more specifically `pinentry-gnome3`. See optional dependencies for `pinentry` for the proper dependencies for that `pinentry` backend.
 
+#### Migration from `keypass`
+
+Currently, passwords are stored in a `keypass` database. Keep this database alive in Google Drive, and the key file safe and backed up. Whenever a password is needed that is not in `gopass`, add it there. This should work fine for common passwords. The fate of rarer passwords should be considered in a few months, either choose what to migrate, or just keep the system as-is. Do this at the very latest after the summer.
+
 TODO status gopass: DEGRADED
 
-- TODO gopass: plan migration from keepass
+- TODO gopass: install gopass on android
 
 ### Back everything up (rule of three)
 
