@@ -101,10 +101,6 @@ There is a script based on `bemenu` that searches and copies passwords. `gopass`
 
 Currently, passwords are stored in a `keypass` database. Keep this database alive in Google Drive, and the key file safe and backed up. Whenever a password is needed that is not in `gopass`, add it there. This should work fine for common passwords. The fate of rarer passwords should be considered in a few months, either choose what to migrate, or just keep the system as-is. Do this at the very latest after the summer.
 
-TODO status gopass: DEGRADED
-
-- TODO gopass: switch android password store to ssh key
-
 ### Back everything up (rule of three)
 
 Every original copy of everything should live in the "cloud" (personal file share or cloud storage provider). This means e.g. Google Drive for documents, and GitHub for code. Thus, in the base case of a device failing or becoming lost, data can easily be restored from the "cloud". A basic backup setup would then be to back up everything to two external drives that rotate off-site (to work).
