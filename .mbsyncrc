@@ -1,3 +1,5 @@
+SyncState *
+
 IMAPAccount gmail
 # Address to connect to
 Host imap.gmail.com
@@ -22,42 +24,36 @@ SubFolders Verbatim
 Path ~/.mail/gmail/
 Inbox ~/.mail/gmail/Inbox
 
-Channel gmail
-Far :gmail-remote:
-Near :gmail-local:
-# Exclude everything under the internal [Gmail] folder, except the interesting folders
-Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail"
-# Or include everything
-#Patterns *
-# Automatically create missing mailboxes, both locally and on the server
-Create Both
-# Save the synchronization state files in the relevant directory
-SyncState *
-
-Channel sync-googlemail-default
+Channel sync-gmail-default
 Far :gmail-remote:
 Near :gmail-local:
 # Select some mailboxes to sync
-Patterns "INBOX" "arch"
+Patterns "INBOX"
 
-Channel sync-googlemail-sent
-Far :gmail-remote:"[GMail]/Sent Mail"
+Channel sync-gmail-all
+Far :gmail-remote:"[Gmail]/All Mail"
+Near :gmail-local:all
+Create Near
+
+Channel sync-gmail-sent
+Far :gmail-remote:"[Gmail]/Sent Mail"
 Near :gmail-local:sent
 Create Near
 
-Channel sync-googlemail-trash
-Far :gmail-remote:"[GMail]/Trash"
+Channel sync-gmail-trash
+Far :gmail-remote:"[Gmail]/Trash"
 Near :gmail-local:trash
 Create Near
 
-Channel sync-googlemail-starred
-Far :gmail-remote:"[GMail]/Starred"
+Channel sync-gmail-starred
+Far :gmail-remote:"[Gmail]/Starred"
 Near :gmail-local:starred
 Create Near
 
 # Get all the channels together into a group.
-Group googlemail
-Channel sync-googlemail-default
-Channel sync-googlemail-starred
-Channel sync-googlemail-sent
-Channel sync-googlemail-trash
+Group gmail
+Channel sync-gmail-default
+Channel sync-gmail-all
+Channel sync-gmail-starred
+Channel sync-gmail-sent
+Channel sync-gmail-trash

@@ -26,9 +26,15 @@ set header_cache=~/.cache/mutt
 # vim editor
 set editor = "vim"
 
+# messages that are of a todo nature
+unset confirmappend
+macro index,pager a "<save-message>=starred<enter><enter-command>echo 'Starred'<enter>" "Star message"
+
 # More (dvorak) vim like keybindings
 bind pager t next-line
 bind pager n previous-line
+bind attach,index t next-entry
+bind attach,index n previous-entry
 bind attach,index,pager \CD next-page
 bind attach,index,pager \CU previous-page
 bind pager g top

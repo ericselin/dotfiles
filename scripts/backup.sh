@@ -32,8 +32,11 @@ for repo in $repos; do
 done
 cd ..
 
-echo 'WARNING! Not backing up: gmail'
-echo 'WARNING! Not backing up: google photos'
+log 'Backing up: gmail'
+
+mbsync -a
+mkdir -p mail
+rclone sync ~/.mail mail
 
 log 'Backing up: google drive'
 
@@ -45,6 +48,7 @@ then
   rclone sync gdrive:/ google-drive
 fi
 
+echo 'WARNING! Not backing up: google photos'
 echo 'WARNING! Not backing up: google keep'
 echo 'WARNING! Not backing up: google calendar'
 echo 'WARNING! Not backing up: google contacts'

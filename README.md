@@ -103,7 +103,7 @@ Currently, passwords are stored in a `keypass` database. Keep this database aliv
 
 TODO status gopass: DEGRADED
 
-- TODO gopass: install gopass on android
+- TODO gopass: switch android password store to ssh key
 
 ### Back everything up (rule of three)
 
@@ -267,11 +267,10 @@ TODO status calendar: ANNOYING
 
 Gmail is set up with an app password, and the Dracula theme is enabled. Unfortunately, it still takes a while for `mutt` to connect to the IMAP folder and load everything, and this would be great to improve on. Maybe create a local copy of the inbox? Also, Office365 doens't work currently, but might be possible. In any case, see [Jonathan's setup](https://jonathanh.co.uk/blog/mutt-setup.html) for inspiration.
 
-[Mail retrieval](https://wiki.archlinux.org/index.php/Category:Mail_retrieval_agents) should probably be done using `isync`. Unclear how this works with Office365, though.
+[Mail retrieval](https://wiki.archlinux.org/index.php/Category:Mail_retrieval_agents) is done using `isync`. This also synchronizes changes done in `mutt`. Note that email deleted (and purged) from `mutt` is still visible in the Gmail "All Mail" folder (this behavior can be changed in Gmail settings).
 
 TODO status email: ANNOYING
 
-- TODO email: set up local retrieval of gmail
 - TODO email: set up local retrieval of office365
   this should probably be done using `davmail` as in [this example](https://movementarian.org/blog/posts/mutt-and-office365/)
 
