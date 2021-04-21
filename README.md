@@ -267,7 +267,7 @@ TODO status calendar: ANNOYING
 
 Gmail is set up with an app password, and the Dracula theme is enabled. Unfortunately, it still takes a while for `mutt` to connect to the IMAP folder and load everything, and this would be great to improve on. Maybe create a local copy of the inbox? Also, Office365 doens't work currently, but might be possible. In any case, see [Jonathan's setup](https://jonathanh.co.uk/blog/mutt-setup.html) for inspiration.
 
-[Mail retrieval](https://wiki.archlinux.org/index.php/Category:Mail_retrieval_agents) is done using `isync`. This also synchronizes changes done in `mutt`. Note that email deleted (and purged) from `mutt` is still visible in the Gmail "All Mail" folder (this behavior can be changed in Gmail settings).
+[Mail retrieval](https://wiki.archlinux.org/index.php/Category:Mail_retrieval_agents) is done using `isync`. This also synchronizes changes done in `mutt`. Note that email deleted (and purged) from `mutt` is still visible in the Gmail "All Mail" folder (this behavior can be changed in Gmail settings). Currently `isync` uses `gopass` for the password, if this doesn't work with the automatic sync timer systemd unit, just create a plain text file with the gmail app password.
 
 TODO status email: ANNOYING
 
