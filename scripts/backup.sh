@@ -17,7 +17,7 @@ log "Starting backup to $1"
 # Go to backup dir
 cd $1
 
-echo 'Backing up: GitHub'
+log 'Backing up: GitHub'
 
 # Pull changes from remote or clone if not existing
 # Takes the name of a personal repo as an argument
@@ -34,7 +34,17 @@ cd ..
 
 echo 'WARNING! Not backing up: gmail'
 echo 'WARNING! Not backing up: google photos'
-echo 'WARNING! Not backing up: google drive'
+
+log 'Backing up: google drive'
+
+mkdir -p google-drive
+rclone sync gdrive:/ google-drive
+if [ $? -gt 0 ]
+then
+  rclone config reconnect gdrive:
+  rclone sync gdrive:/ google-drive
+fi
+
 echo 'WARNING! Not backing up: google keep'
 echo 'WARNING! Not backing up: google calendar'
 echo 'WARNING! Not backing up: google contacts'
