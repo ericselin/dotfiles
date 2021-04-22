@@ -269,8 +269,6 @@ Gmail is set up with an app password, and the Dracula theme is enabled. Unfortun
 
 TODO status email: ANNOYING
 
-- TODO email: set up mail sending with password
-- TODO email: set up plain file with gmail app password to get rid of annoying passphrase input
 - TODO email: set up local retrieval of office365
   this should probably be done using `davmail` as in [this example](https://movementarian.org/blog/posts/mutt-and-office365/)
 
