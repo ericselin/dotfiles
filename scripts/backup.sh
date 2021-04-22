@@ -4,7 +4,7 @@ LOG="$HOME/.backup_log"
 BACKUP_MOUNT="/backup"
 
 log() {
-  echo "$(date +'%Y-%m-%d %H:%M:%S') - $1" | tee -a $LOG
+  echo "INFO:    $(date +'%Y-%m-%d %H:%M:%S') - $1" | tee -a $LOG
 }
 
 warn() {
@@ -69,4 +69,5 @@ warn 'Not backing up: bookmarks'
 
 log 'Unmounting backup drive'
 sudo systemctl stop systemd-cryptsetup@backup.service
+sleep 2
 sudo umount $BACKUP_MOUNT
