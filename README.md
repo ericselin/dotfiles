@@ -255,9 +255,11 @@ TODO status pomodoro: ANNOYING
 
 Calendaring should be possible through the terminal. For this, `khal` with syncing seems like a good solution. The google calendar works pretty well, especially on Android, and can be used with any device or service (e.g. zapier), so the main "back-end" can probably live on Google. At least for now.
 
+Syncing is now set up with `vdirsyncer`. This is a manual process at the moment, though.
+
 TODO status calendar: ANNOYING
 
-- TODO calendar: set up khal with local syncing
+- TODO calendar: set up automatic cron sync with vdirsyncer 
 
 ### Email - mutt, gmail, outlook -> `mutt`
 
@@ -267,6 +269,8 @@ Gmail is set up with an app password, and the Dracula theme is enabled. Unfortun
 
 TODO status email: ANNOYING
 
+- TODO email: set up mail sending with password
+- TODO email: set up plain file with gmail app password to get rid of annoying passphrase input
 - TODO email: set up local retrieval of office365
   this should probably be done using `davmail` as in [this example](https://movementarian.org/blog/posts/mutt-and-office365/)
 
