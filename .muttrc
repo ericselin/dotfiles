@@ -1,11 +1,8 @@
-#source ~/.muttrc.password
+source ~/.muttrc.password
 source ~/.mutt/dracula/dracula.muttrc
 
 set from = "eric.selin@gmail.com"
 set realname = "Eric Selin"
-
-# Imap settings
-#set imap_user = "eric.selin@gmail.com"
 
 # Smtp settings
 set smtp_url = "smtps://eric.selin@smtp.gmail.com"
@@ -15,13 +12,6 @@ set mbox_type=Maildir
 set folder=~/.mail/gmail
 set spoolfile=+Inbox
 set header_cache=~/.cache/mutt
-
-# Remote gmail folders
-#set folder = "imaps://imap.gmail.com/"
-#set spoolfile = "+INBOX"
-#set postponed = "+[Gmail]/Drafts"
-#set record = "+[Gmail]/Sent Mail"
-#set trash = "+[Gmail]/Trash"
 
 # vim editor
 set editor = "vim"
