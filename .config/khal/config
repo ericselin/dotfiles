@@ -3,9 +3,20 @@
 [[google]]
 path = ~/.calendars/google/eric.selin@gmail.com
 
+[[reima]]
+path = ~/.calendars/reima
+readonly = True
+
+[default]
+default_calendar = google
+timedelta = 5d
+
+[view]
+agenda_event_format = "{calendar-color}{cancelled}{start-end-time-style} {title}{repeat-symbol} ({calendar}){reset}"
+
 [locale]
 timeformat = %H:%M
-dateformat = %d/%m/%Y
-longdateformat = %d/%m/%Y
-datetimeformat = %d/%m/%Y %H:%M
-longdatetimeformat = %d/%m/%Y %H:%M
+dateformat = %d.%m
+longdateformat = %d.%m.%Y
+datetimeformat = %d.%m %H:%M
+longdatetimeformat = %d.%m.%Y %H:%M
