@@ -5,7 +5,6 @@ path = ~/.calendars/google/eric.selin@gmail.com
 
 [[reima]]
 path = ~/.calendars/reima
-readonly = True
 
 [default]
 default_calendar = google
