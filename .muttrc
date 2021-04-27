@@ -20,6 +20,9 @@ set editor = "vim"
 unset confirmappend
 macro index,pager a "<save-message>=starred<enter><enter-command>echo 'Starred'<enter>" "Star message"
 
+# specific functions
+bind pager,index R group-reply
+
 # More (dvorak) vim like keybindings
 bind pager t next-line
 bind pager n previous-line
