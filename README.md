@@ -259,7 +259,7 @@ Syncing is now set up with `vdirsyncer`. This is a manual process at the moment,
 
 TODO status calendar: ANNOYING
 
-- TODO calendar: set up automatic cron sync with vdirsyncer 
+- TODO calendar: set up automatic cron sync with vdirsyncer
 
 ### Email - mutt, gmail, outlook -> `mutt`
 
@@ -302,7 +302,26 @@ TODO status notes: ANNOYING
 
 - vim registers?
 
-### Printing documents - cups
+### Printing documents - `cups`
+
+[Printing](https://wiki.archlinux.org/index.php/CUPS) needs the `cups` package. In order to enable printing, a queue needs to be added and enabled. These were the steps taken to install the printer at the Knackeriet office:
+
+```bash
+# get printers
+lpinfo -v
+# the hostname for the printer is "Bellman"
+# add the queue, noting that AirPrint is enabled, so model can be "everywhere"
+lpadmin -p knackeriet-bellman -E -v 'ipp://Bellman/ipp/print' -m everywhere
+# set as default
+lpoptions -d knackeriet-bellman
+# acivate and set to accept jobs
+cupsenable knackeriet-bellman
+cupsaccept knackeriet-bellman
+```
+
+Note that this particular printer driver needs Ghostscript, so the `ghostscript` package needs to be installed. (This message/error was visible in the local CUPS web admin.)
+
+Now it's possible to print to this default destination.
 
 ### Listening to music - spotify
 
