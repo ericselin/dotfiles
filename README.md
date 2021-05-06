@@ -20,13 +20,7 @@ These are the thins that are needed in order to run things - the infrastructure 
 
 ### Minimalistic Linux OS - `Arch Linux`
 
-Arch Linux is pretty cool, check it out. It requires some setup, though. Things to still implement:
-
-TODO status os: ANNOYING
-
-- TODO os: bluetooth error on login
-- TODO os: bluetooth headset audio
-- TODO os: configure / research copy-paste between alacritty and e.g. firefox, and within alacritty same or different windows
+Arch Linux is pretty cool, check it out. It requires some setup, though. This repo should help in setting everything up.
 
 ### Window manager for Wayland - `sway`
 
@@ -34,11 +28,6 @@ TODO status os: ANNOYING
 
 - **Screen locking** is done via `swayidle` and `swaylock`.
 - **Status bar** in use is `i3status` and can be configured quite well.
-
-TODO status sway: GOOD
-
-- TODO swaybar: Add support for nicer looking emojis
-- TODO sway: create `swaylock` dracula theme
 
 ### Fast terminal with vim mode - `alacritty`
 
@@ -107,11 +96,6 @@ Every original copy of everything should live in the "cloud" (personal file shar
 
 The backup drives of course contain everything, so those need to be encrypted. The best cross-OS block device encryption tool seems to be [VeraCrypt](https://veracrypt.fr/en/Home.html) (fork of TrueCrypt). To be safe, it seems reasonable that the backup could be read in Windows. However, right now Linux is my main OS, and installing Linux is possible if only just to recover a backup. Plus, backups are by their nature ephemeral, which means it's enough if it works now, it needn't work in a year. Bottom line: just backup with [dm-crypt](https://wiki.archlinux.org/index.php/Dm-crypt).
 
-TODO status backup: CRITICAL
-
-- TODO backup: determine how to back everything up and where
-- TODO backup: secure backups for e.g. gpg keys
-
 Below are some very WIP notes
 
 What do I have and where:
@@ -167,15 +151,11 @@ How to backup
 
 ### Encrypt anything important
 
-TODO status encryption: CRITICAL
-
-- TODO encryption: plan next steps
+Encryption of the whole disk is just best for everything. No need to encrypt the boot partition, though.
 
 ### Disaster recovery
 
-- TODO recovery: plan restoring backups W/F backup
-- TODO recovery: create proper (indepodent) installer that installs with pacman and sets up everything
-- TODO recovery: add oh-my-zsh as a submodule
+There should be a clear and tested process for disaster recovery of any important device.
 
 ## Daily drivers
 
@@ -231,11 +211,9 @@ There is a custom alias `gh headless` that gets project issues from `reima-ecom`
 
 ### Todo management - humla, gh-cli, text -> custom
 
-Personal todos are now mainly in humla.app, save for todos in this file. Work todos are mainly issues in GitHub, with some additions in humla. There should pretty obviously be only one source of truth, accessible from all devices. A CLI would be extremely awesome for Linux environments (possibly Deno in order to make it OS-independent). This could be coupled with note taking, which would make it easy to turn a note into a todo.
+Personal todos are now in humla.app. Work todos are mainly issues in GitHub, with some additions in humla. There should pretty obviously be only one source of truth, accessible from all devices. A CLI would be extremely awesome for Linux environments (possibly Deno in order to make it OS-independent). This could be coupled with note taking, which would make it easy to turn a note into a todo.
 
-TODO status todo: DEGRADED
-
-- TODO todo: plan unified todos next steps
+Probably best to just continue with humla, or rather, the new version of humla. It needs to include GitHub issues as well in the long term.
 
 ### Pomodoros - custom script `scripts/pomodoro.sh`
 
@@ -246,31 +224,17 @@ This script will create a file `~/pomodoro` with a ascii progress bar. This file
 - Refresh i3status on update via the SIGUSR1 signal
 - Notify user of pomodoro completion with `notify-send`
 
-TODO status pomodoro: ANNOYING
-
-- TODO pomodoro: make notification dismissable with keyboard
-- TODO pomodoro: make break timer action for notification
-
 ### Calendar - google -> `khal`
 
 Calendaring should be possible through the terminal. For this, `khal` with syncing seems like a good solution. The google calendar works pretty well, especially on Android, and can be used with any device or service (e.g. zapier), so the main "back-end" can probably live on Google. At least for now.
 
 Syncing is now set up with `vdirsyncer`. This is a manual process at the moment, though.
 
-TODO status calendar: ANNOYING
-
-- TODO calendar: set up automatic cron sync with vdirsyncer
-
 ### Email - mutt, gmail, outlook -> `mutt`
 
 Gmail is set up with an app password, and the Dracula theme is enabled. Unfortunately, it still takes a while for `mutt` to connect to the IMAP folder and load everything, and this would be great to improve on. Maybe create a local copy of the inbox? Also, Office365 doens't work currently, but might be possible. In any case, see [Jonathan's setup](https://jonathanh.co.uk/blog/mutt-setup.html) for inspiration.
 
 [Mail retrieval](https://wiki.archlinux.org/index.php/Category:Mail_retrieval_agents) is done using `isync`. This also synchronizes changes done in `mutt`. Note that email deleted (and purged) from `mutt` is still visible in the Gmail "All Mail" folder (this behavior can be changed in Gmail settings). Currently `isync` uses `gopass` for the password, if this doesn't work with the automatic sync timer systemd unit, just create a plain text file with the gmail app password.
-
-TODO status email: ANNOYING
-
-- TODO email: set up local retrieval of office365
-  this should probably be done using `davmail` as in [this example](https://movementarian.org/blog/posts/mutt-and-office365/)
 
 ### Work chat and calls - `teams`
 
@@ -280,10 +244,6 @@ Teams needs XWayland, and fail silently if GDK_BACKEND is set to wayland, so don
 
 In order to do screen sharing in Wayland, special care needs to be taken.
 
-TODO status teams: DEGRADED
-
-- TODO teams: make screen sharing work e.g. with pipewire
-
 ### Knackeriet chat - `slack`
 
 Slack is usable by phone, and that is probably good enough. When in need, there is a slack CLI that can be used.
@@ -291,10 +251,6 @@ Slack is usable by phone, and that is probably good enough. When in need, there 
 ### Notes - keep -> `git`
 
 Notes are now in Google Keep = no good. They should be moved to a private git repository. The main issue here is that notes need to be easily editable from the phone. This can perhaps happen via forestry.io, but it might be nice to create a custom solution for this.
-
-TODO status notes: ANNOYING
-
-- TODO notes: plan next steps
 
 ## User stories
 

@@ -17,9 +17,6 @@ alias dot='git --git-dir=$HOME/.dot.git/ --work-tree=$HOME'
 # Add utilities to the path
 export PATH="$HOME/utilities:$PATH"
 
-# Make alias for editing i3 configuration
-alias i3conf='vim ~/.config/i3/config'
-
 # Launch Firefox with wayland
 export MOZ_ENABLE_WAYLAND=1
 

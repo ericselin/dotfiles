@@ -17,16 +17,53 @@ exec_always ~/scripts/set-laptop-output-based-on-lid.sh $laptop
 # Rotate work screen to portrait
 output $work transform 270
 
-# class                 border  bground text    indicator child border
-client.focused          #bd93f9 #44475A #F8F8F2 #bd93f9   #bd93f9
-client.focused_inactive #282A36 #282A36 #BFBFBF
-client.unfocused        #282A36 #282A36 #BFBFBF
+# nord theme colors
+set $nord0 #2e3440
+set $nord1 #3b4252
+set $nord2 #434c5e
+set $nord3 #4c566a
+set $nord4 #d8dee9
+set $nord5 #e5e9f0
+set $nord6 #eceff4
+set $nord7 #8fbcbb
+set $nord8 #88c0d0
+set $nord9 #81a1c1
+set $nord10 #5e81ac
+set $nord11 #bf616a
+set $nord12 #d08770
+set $nord13 #ebcb8b
+set $nord14 #a3be8c
+set $nord15 #b48ead
+
+# base colors
+set $colbg $nord0
+
+# class                 border  bground text    indicator child_border
+client.focused          $nord4  #44475A #F8F8F2 $nord4    $nord4
+client.focused_inactive $nord3  #282A36 #BFBFBF
+client.unfocused        $nord1  #282A36 #BFBFBF
 
 # Background for all outputs
-output * background #44475a solid_color
+output * background $nord0 solid_color
 
-default_border pixel 2
-gaps inner 5
+default_border pixel 1
+#gaps inner 5
+
+bar {
+  status_command i3status
+  colors {
+    background $nord0
+    statusline $nord4
+    separator  $nord3
+
+    # workspaces       border  bg      text
+    focused_workspace  $nord0  $nord4  $nord0
+    active_workspace   $nord0  $nord0  $nord4
+    inactive_workspace $nord0  $nord0  $nord4
+    urgent_workspace   $nord12 $nord12 $nord0
+    binding_mode       $nord15 $nord15 $nord0
+  }
+}
 
 # is used in the bar {} block below.
 font Source Code Pro 11
@@ -212,23 +249,6 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-  status_command i3status
-  colors {
-    background #282A36
-    statusline #F8F8F2
-    separator  #44475A
-
-    focused_workspace  #44475A #44475A #F8F8F2
-    active_workspace   #282A36 #44475A #F8F8F2
-    inactive_workspace #282A36 #282A36 #BFBFBF
-    urgent_workspace   #FF5555 #FF5555 #F8F8F2
-    binding_mode       #FF5555 #FF5555 #F8F8F2
-  }
-}
 
 # Idle management and locking
 exec swayidle -w \

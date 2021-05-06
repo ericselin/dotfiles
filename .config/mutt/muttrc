@@ -1,5 +1,5 @@
 source ~/.muttrc.password
-source ~/.mutt/dracula/dracula.muttrc
+source ~/.config/mutt/nord.theme
 
 set from = "eric.selin@gmail.com"
 set realname = "Eric Selin"

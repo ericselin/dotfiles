@@ -68,10 +68,10 @@ set smartindent
 autocmd FileType html,css :packadd emmet-vim
 let g:user_emmet_leader_key=','
 
-" DRACULA theme
-packadd! dracula
+" theme
+packadd! nord-vim
 syntax enable
-colorscheme dracula
+colorscheme nord
 
 " CTRL-P fuzzy file searching
 " Set runtimepath, needed according to the docs
