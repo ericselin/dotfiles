@@ -1,0 +1,47 @@
+@define-color nord0 #2e3440;
+@define-color nord1 #3b4252;
+@define-color nord4 #d8dee9;
+@define-color nord9 #81a1c1;
+
+@define-color bg @nord1;
+@define-color fg @nord4;
+
+/* Reset all styles */
+* {
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* The whole bar */
+#waybar {
+  background: @bg;
+  font-family: Source Code Pro;
+  font-size: 14px;
+  color: @fg;
+}
+
+#workspaces button {
+  padding: 5px;
+  color: @fg;
+}
+
+#workspaces button.focused {
+  background: @nord9;
+  color: @nord0;
+}
+
+.modules-right label {
+  padding: 5px;
+}
+
+#custom-pomodoro.running {
+  background: @nord9;
+  color: @nord0;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
