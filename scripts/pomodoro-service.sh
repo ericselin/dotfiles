@@ -26,7 +26,7 @@ start_pomodoro()
     echo "{\"text\": \"$text\", \"tooltip\": \"$tooltip\", \"class\": \"$class\"}"
 
     # wait for a sleep
-    sleep 60 & 
+    sleep 60 &
     id=$!
     wait $id
   done
