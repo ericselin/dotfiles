@@ -109,15 +109,18 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export BEMENU_OPTS="--tb '#6272a4'\
- --tf '#f8f8f2'\
- --fb '#282a36'\
- --ff '#f8f8f2'\
- --nb '#282a36'\
- --nf '#6272a4'\
- --hb '#44475a'\
- --hf '#50fa7b'\
- --sb '#44475a'\
- --sf '#50fa7b'\
- --scb '#282a36'\
- --scf '#ff79c6'"
+
+# bemenu config (colors)
+export BEMENU_OPTS="--tb '#81a1c1'\
+ --tf '#2e3440'\
+ --fb '#3b4252'\
+ --ff '#d8dee9'\
+ --nb '#3b4252'\
+ --nf '#d8dee9'\
+ --hb '#81a1c1'\
+ --hf '#2e3440'\
+ --sb '#81a1c1'\
+ --sf '#2e3440'\
+ --scb '#434c5e'\
+ --scf '#4c566a'\
+ --fn monospace 12"
