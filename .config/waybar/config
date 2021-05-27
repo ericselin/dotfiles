@@ -2,7 +2,7 @@
   "position": "bottom",
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["custom/pomodoro", "network", "battery", "pulseaudio", "idle_inhibitor", "clock", "tray"],
+    "modules-right": ["custom/pomodoro", "network", "battery", "pulseaudio", "idle_inhibitor", "custom/sync", "clock", "tray"],
 
     "sway/workspaces": {
       "disable-scroll": true,
@@ -16,6 +16,11 @@
       "exec": "$HOME/scripts/pomodoro-service.sh",
       "return-type": "json",
       "on-click": "$HOME/scripts/pomodoro.sh"
+    },
+    "custom/sync": {
+      "exec": "$HOME/scripts/sync-status.sh",
+      "return-type": "json",
+      "interval": 300
     },
     "idle_inhibitor": {
       "format": "{icon}",
