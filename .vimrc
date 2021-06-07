@@ -17,6 +17,9 @@ nnoremap l n
 nnoremap L N
 vnoremap l n
 vnoremap L N
+" remap Until to untiL
+onoremap l n
+onoremap L N
 " Note that other keys now used for navigation
 " have not been remapped currently.
 " `T` could be remapped somehow, since it could be quite useful.
