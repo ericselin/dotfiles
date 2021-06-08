@@ -13,6 +13,9 @@ set folder=~/.mail/gmail
 set spoolfile=+Inbox
 set header_cache=~/.cache/mutt
 
+# do not save sent messages, these are saved by gmail automatically
+unset record
+
 # vim editor
 set editor = "vim"
 
