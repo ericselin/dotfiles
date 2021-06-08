@@ -6,7 +6,7 @@ Host imap.gmail.com
 User eric.selin@gmail.com
 # Pass ***************
 # To store the password in an encrypted file use PassCmd instead of Pass
-PassCmd "grep -o '\".*\"' .muttrc.password | tr -d '\"'"
+PassCmd "cat .gmail-app-pw"
 #
 # Use SSL
 SSLType IMAPS
