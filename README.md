@@ -9,10 +9,10 @@ This is all written mainly for myself, or more specifically a future version of 
 ## Installation
 
 ```
-curl -L https://git.io/JYeUL | /bin/bash
+curl -L https://git.io/JnYvI | /bin/bash
 ```
 
-The short link above links to `scripts/clone-dotfiles.sh`. It will clone this repo as a bare repo, backing up any existing files in the process.
+The short link above links to `scripts/restore-system.sh`. It will install everything and clone this repo as a bare repo, backing up any existing files in the process.
 
 ## Environment
 
