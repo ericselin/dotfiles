@@ -31,6 +31,7 @@ else
     echo "Backing up pre-existing dot files...";
     mkdir -p .dotfiles-backup
     _dot checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .dotfiles-backup/{}
+    _dot checkout
   fi;
   _dot config status.showUntrackedFiles no
 fi;
