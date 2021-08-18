@@ -30,16 +30,26 @@ log "Starting backup to $BACKUP_MOUNT"
 # Go to backup dir
 cd $BACKUP_MOUNT
 
+log 'Backing up: gpg'
+mkdir -p gnupg
+rclone sync ~/.gnupg gnupg
+
+log 'Backing up: ssh'
+rclone sync ~/.ssh ssh
+
 log 'Backing up: GitHub'
+
+warn 'Not pushing potential git changes'
 
 # Pull changes from remote or clone if not existing
 # Takes the name of a personal repo as an argument
 pull_or_clone() {
-  (cd $1 && git pull && cd ..) || gh repo clone $1 || warn "Could not backup github repo $1"
+  local giturl="ssh://git@github.com/$1.git"
+  (cd $1 2> /dev/null && git pull && cd ..) || git clone $giturl || warn "Could not backup github repo $1"
 }
 mkdir -p github
 cd github
-repos=$(gh repo list | sed -nr 's/^\S+\/(\S+).*$/\1/p')
+repos=$(gh repo list | grep -Eo '^\w+/\w+')
 for repo in $repos; do
   pull_or_clone $repo
 done
@@ -69,5 +79,4 @@ warn 'Not backing up: bookmarks'
 
 log 'Unmounting backup drive'
 sudo systemctl stop systemd-cryptsetup@backup.service
-sleep 2
-sudo umount $BACKUP_MOUNT
+sudo umount -l $BACKUP_MOUNT

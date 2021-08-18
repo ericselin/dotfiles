@@ -40,12 +40,29 @@ _log 'Installing packages...'
 sudo pacman -S --needed - < ~/.packages/explicit
 
 _log 'Installing yay and AUR packages...'
-mkdir -p ~/builds
-cd ~/builds
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
+if [[ ! $(yay -V) ]]; then
+  mkdir -p ~/builds
+  cd ~/builds
+  git clone https://aur.archlinux.org/yay.git
+  cd yay
+  makepkg -si
+  cd
+fi
 yay -S --needed - < ~/.packages/aur
 
-_log 'Setting zsh as default shell'
-chsh -s /bin/zsh
+_log 'Mounting backup drive...'
+BACKUP_MOUNT="/backup"
+# open backup drive
+# this assumes that backup is defined in crypttab
+sudo systemctl start systemd-cryptsetup@backup.service
+# mount backup drive
+sudo mount /dev/mapper/backup $BACKUP_MOUNT
+
+_log 'Copying gpg keys...'
+rclone sync -i $BACKUP_MOUNT/gnupg ~/.gnupg
+
+_log 'Copying ssh keys...'
+rclone sync -i $BACKUP_MOUNT/ssh ~/.ssh
+
+_log 'WARN: should add ssh key to ssh-agent here'
+_log 'WARN: should clone passwords here (via ssh)'
