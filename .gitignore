@@ -1,1 +1,6 @@
+# these entries exist mainly to make the untracked files adder more relevant
+/.dot.git
+/.gnupg
+/.cache
+
 **/*.swp

@@ -10,9 +10,18 @@
 
 alias ls='ls --color=auto'
 
+# easier agenda
+alias k='khal list'
+
+# todo.txt
+alias t='todo.sh'
+export TODOTXT_DEFAULT_ACTION='next'
+
 # Set alias for managing the dotfiles git repo as per
 # https://www.atlassian.com/git/tutorials/dotfiles
 alias dot='git --git-dir=$HOME/.dot.git/ --work-tree=$HOME'
+# Source dotfiles adding function `dotadd`
+source ~/scripts/dotfiles-add.sh
 
 # Install packages with yay and fzf
 alias yays='yay -Slq | fzf --multi --preview "yay -Si {1}" | xargs -ro yay -S'
