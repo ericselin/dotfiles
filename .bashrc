@@ -26,7 +26,7 @@ source ~/scripts/dotfiles-add.sh
 # Install packages with yay and fzf
 alias yays='yay -Slq | fzf --multi --preview "yay -Si {1}" | xargs -ro yay -S'
 # Remove packages with yay and fzf
-alias yayr='yay -Qq | fzf --multi --preview "yay -Qi {1}" | xargs -ro yay -Rns'
+alias yayr='yay -Qqe | fzf --multi --preview "yay -Qi {1}" | xargs -ro yay -Rns'
 
 alias l='ls -l'
 alias ll='ls -la'
@@ -35,25 +35,45 @@ alias ll='ls -la'
 # PROMPT
 #
 
-BLUE='\e[34m'
-GREEN='\e[32m'
-RED='\e[31m'
-BOLD='\e[1m'
-RESET='\e[0m'
+PROMPT_COMMAND=__prompt_command
 
-gitinfo() {
+__prompt_command() {
+  # grab previous exit code here before it's overridden
+  local exit="$?"
+
+  # colors
+  local blue='\e[34m'
+  local green='\e[32m'
+  local red='\e[31m'
+  local bold='\e[1m'
+  local reset='\e[0m'
+
+  # clear prompt
+  PS1=''
+
+  # if exit code > 0, add that on its own line in red
+  [ $exit -gt 0 ] && PS1="${blue}Exit code: $red$bold$exit$reset\n"
+
+  # add default user@host and working dir
+  PS1="$PS1$blue\u@\h$reset \w"
+
+  # if we're in a git folder, get the branch name
   if git rev-parse --git-dir > /dev/null 2>&1; then
+    # set style based on git status
     if [[ `git status --porcelain` ]]
     then
-      STYLE='\e[1;31m'
+      local style="$red$bold"
     else
-      STYLE='\e[1;32m'
+      local style="$green$bold"
     fi
-    printf "$STYLE %s$RESET" $(git branch --show-current)
+    # add branch name
+    PS1="$PS1 $style$(git branch --show-current)$reset"
   fi
+
+  # final line with prompt char $
+  PS1="$PS1\n\$ "
 }
 
-PS1="$BLUE\u@\h$RESET \w\$(gitinfo)\n\$ "
 
 #
 # AUTOCOMPLETIONS
