@@ -52,7 +52,7 @@ __prompt_command() {
   PS1=''
 
   # if exit code > 0, add that on its own line in red
-  [ $exit -gt 0 ] && PS1="${blue}Exit code: $red$bold$exit$reset\n"
+  [ $exit -gt 0 ] && PS1="$red$bold$exit$reset\n"
 
   # add default user@host and working dir
   PS1="$PS1$blue\u@\h$reset \w"
