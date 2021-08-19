@@ -4,10 +4,10 @@
 # This script should be indepodent, so it can be run
 # on an existing system as well
 
-_log 'Installing packages...'
+echo 'Installing packages...'
 sudo pacman -S --needed - < ~/.packages/explicit
 
-_log 'Installing yay and AUR packages...'
+echo 'Installing yay and AUR packages...'
 if [[ ! $(yay -V) ]]; then
   mkdir -p ~/builds
   cd ~/builds
@@ -19,23 +19,19 @@ if [[ ! $(yay -V) ]]; then
 fi
 yay -S --needed - < ~/.packages/aur
 
-_log 'Mounting backup drive...'
+# mount backup drive if not already mounted
+# this is needed in order to restore ssh and gpg keys
 BACKUP_MOUNT="/backup"
-# open backup drive
-# this assumes that backup is defined in crypttab
-sudo systemctl start systemd-cryptsetup@backup.service
-# mount backup drive
-sudo mount /dev/mapper/backup $BACKUP_MOUNT
+if [ -f "$BACKUP_MOUNT/.backup_drive" ]; then
+  echo 'Backup drive already mounted'
+else
+  echo 'Mounting backup drive...'
+  # open backup drive
+  # this assumes that backup is defined in crypttab
+  sudo systemctl start systemd-cryptsetup@backup.service
+  # mount backup drive
+  sudo mount /dev/mapper/backup $BACKUP_MOUNT
+fi
 
-_log 'Copying gpg keys...'
-rclone sync -i $BACKUP_MOUNT/gnupg ~/.gnupg
-
-_log 'Copying ssh keys...'
-rclone sync -i $BACKUP_MOUNT/ssh ~/.ssh
-
-_log 'Adding ssh key to ssh-agent'
-source ~/.bashrc # to make sure ssh-agent is running
-ssh-add
-
-_log 'Cloning passwords with gopass'
-gopass clone ssh://git@github.com/ericselin/passwords.git
+# run scripts in backup.d with the restore option
+run-parts ~/scripts/backup.d --arg=restore
