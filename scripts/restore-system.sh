@@ -64,5 +64,9 @@ rclone sync -i $BACKUP_MOUNT/gnupg ~/.gnupg
 _log 'Copying ssh keys...'
 rclone sync -i $BACKUP_MOUNT/ssh ~/.ssh
 
-_log 'WARN: should add ssh key to ssh-agent here'
-_log 'WARN: should clone passwords here (via ssh)'
+_log 'Adding ssh key to ssh-agent'
+source ~/.bashrc # to make sure ssh-agent is running
+ssh-add
+
+_log 'Cloning passwords with gopass'
+gopass clone ssh://git@github.com/ericselin/passwords.git
