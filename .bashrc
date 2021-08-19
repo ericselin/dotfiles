@@ -138,9 +138,13 @@ fi
 # SSH AGENT
 #
 
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-  ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
+user=$USER
+rundir=$XDG_RUNTIME_DIR
+[ -z "$user" ] && user=$(whoami)
+[ -z "$rundir" ] && mkdir -p $HOME/.cache && user="$HOME/.cache/ssh-agent.env"
+if ! pgrep -u "$user" ssh-agent > /dev/null; then
+  ssh-agent -t 1h > "$rundir/ssh-agent.env"
 fi
 if [[ ! "$SSH_AUTH_SOCK" ]]; then
-  source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+  source "$rundir/ssh-agent.env" >/dev/null
 fi
