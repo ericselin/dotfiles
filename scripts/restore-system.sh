@@ -45,7 +45,8 @@ if [[ ! $(yay -V) ]]; then
   cd ~/builds
   git clone https://aur.archlinux.org/yay.git
   cd yay
-  makepkg -si
+  makepkg -sc
+  sudo pacman -U yay-*.pkg.tar.zst
   cd
 fi
 yay -S --needed - < ~/.packages/aur
