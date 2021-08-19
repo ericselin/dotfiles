@@ -18,7 +18,7 @@ _log 'Starting system restore'
 _log 'Installing git...'
 sudo pacman -Sy --needed git
 
-if [ _dot status ]; then
+if _dot status; then
   _log 'Found dotfiles repository, pulling...'
   _dot pull
 else
