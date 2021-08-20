@@ -1,14 +1,14 @@
 #!/bin/bash
 
-LOG="$HOME/.backup_log"
-BACKUP_MOUNT="/backup"
+export BACKUP_LOG="$HOME/.backup_log"
+export BACKUP_MOUNT="/backup"
 
 log() {
-  echo "INFO:    $(date +'%Y-%m-%d %H:%M:%S') - $1" | tee -a $LOG
+  echo "INFO:    $(date +'%Y-%m-%d %H:%M:%S') - $1" | tee -a $BACKUP_LOG
 }
 
 warn() {
-  echo "WARNING: $(date +'%Y-%m-%d %H:%M:%S') - $1" | tee -a $LOG
+  echo "WARNING: $(date +'%Y-%m-%d %H:%M:%S') - $1" | tee -a $BACKUP_LOG
 }
 
 log 'Mounting backup drive'
@@ -27,33 +27,9 @@ fi
 
 log "Starting backup to $BACKUP_MOUNT"
 
-# Go to backup dir
-cd $BACKUP_MOUNT
+run-parts ~/scripts/backup.home.d --arg=backup
 
-log 'Backing up: gpg'
-mkdir -p gnupg
-rclone sync ~/.gnupg gnupg
-
-log 'Backing up: ssh'
-rclone sync ~/.ssh ssh
-
-log 'Backing up: GitHub'
-
-warn 'Not pushing potential git changes'
-
-# Pull changes from remote or clone if not existing
-# Takes the name of a personal repo as an argument
-pull_or_clone() {
-  local giturl="ssh://git@github.com/$1.git"
-  (cd $1 2> /dev/null && git pull && cd ..) || git clone $giturl || warn "Could not backup github repo $1"
-}
-mkdir -p github
-cd github
-repos=$(gh repo list | grep -Eo '^\w+/\w+')
-for repo in $repos; do
-  pull_or_clone $repo
-done
-cd ..
+run-parts ~/scripts/backup.cloud.d
 
 log 'Backing up: gmail'
 
