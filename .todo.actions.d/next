@@ -1,0 +1,14 @@
+#!/bin/bash
+
+action=$1
+shift
+
+[ "$action" = "usage" ] && {
+  echo "    next"
+  echo "      List next actions, i.e. with project +next."
+  echo "      Additional arguments are passed to \`ls\`."
+  echo ""
+  exit
+}
+
+"$TODO_FULL_SH" ls +next "$@"
