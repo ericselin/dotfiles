@@ -141,7 +141,7 @@ fi
 user=$USER
 rundir=$XDG_RUNTIME_DIR
 [ -z "$user" ] && user=$(whoami)
-[ -z "$rundir" ] && mkdir -p $HOME/.cache && user="$HOME/.cache/ssh-agent.env"
+[ -z "$rundir" ] && rundir="$HOME/.cache" && mkdir -p "$rundir" 
 if ! pgrep -u "$user" ssh-agent > /dev/null; then
   ssh-agent -t 1h > "$rundir/ssh-agent.env"
 fi
