@@ -1,0 +1,39 @@
+#!/bin/bash
+
+action=$1
+shift
+
+[ "$action" = "usage" ] && {
+  echo "    do"
+  echo "      Complete task(s) and check for next steps."
+  echo ""
+  exit
+}
+
+# find first completed item projects (excl. +next)
+projects=$(sed -n "$1p" $TODO_DIR/todo.txt | grep -Eo '\B\+\S+' | grep -v '+next')
+
+$TODO_FULL_SH command do $@
+
+echo
+echo Projects
+echo $projects
+echo
+
+$TODO_FULL_SH command ls $projects
+
+echo
+echo 'Which task is the new next task?'
+echo 'Write a new task if needed.'
+echo 'Leave empty for no next task.'
+
+read next
+
+# exit if nothing specified
+[ -z "$next" ] && echo 'No new next task selected' && exit
+
+# workaround check to see if number, and append in this case
+[ "$next" -eq "$next" ] 2>/dev/null && $TODO_FULL_SH command app $next +next && exit
+
+# add if neither of the above
+$TODO_FULL_SH add "$next"
