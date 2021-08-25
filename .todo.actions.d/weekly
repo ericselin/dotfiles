@@ -1,0 +1,40 @@
+#!/bin/bash
+
+action=$1
+shift
+
+[ "$action" = "usage" ] && {
+  echo "    weekly"
+  echo "      Check for projects without next tasks and act accordingly."
+  echo ""
+  exit
+}
+
+regex='\B\+\S+'
+
+all=$(grep -Eo "$regex" "$TODO_DIR/todo.txt" | sort | uniq)
+next=$(grep '+next' "$TODO_DIR/todo.txt" | grep -Eo "$regex" | sort | uniq)
+
+nonext=$(comm -3 <(echo "$all") <(echo "$next"))
+echo Projects with no next task
+echo "$nonext"
+echo
+
+while IFS= read -r project <&3; do
+  echo "Project $project:"
+  $TODO_FULL_SH command ls "$project"
+  echo
+  echo 'Which task is the new next task?'
+  echo 'Write a new task if needed (do not include project name or "+next").'
+  echo 'Leave empty for no next task.'
+  read next
+  if [ "$next" -eq "$next" ] 2>/dev/null; then
+    $TODO_FULL_SH command app $next +next
+  elif [ -n "$next" ]; then
+    $TODO_FULL_SH command add "$project $next +next"
+  else
+    echo No next task selected
+  fi
+  echo
+done 3<<< "$nonext"
+
