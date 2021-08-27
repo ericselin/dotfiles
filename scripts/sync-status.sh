@@ -1,6 +1,6 @@
 #!/bin/bash
 
-services="mbsync outlook-calendar-sync vdirsyncer"
+services="mbsync outlook-calendar-sync vdirsyncer todo-sync"
 
 output() {
   local status=$(systemctl --user show $services -p Id,ExecMainStatus,ActiveState,ExecMainStartTimestamp)
