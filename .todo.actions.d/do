@@ -36,4 +36,4 @@ read next
 [ "$next" -eq "$next" ] 2>/dev/null && $TODO_FULL_SH command app $next +next && exit
 
 # add if neither of the above
-$TODO_FULL_SH add "$next"
+$TODO_FULL_SH add "$next +next"
