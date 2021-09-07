@@ -16,3 +16,9 @@
 [submodule ".vim/pack/themes/start/nord-vim"]
 	path = .vim/pack/themes/start/nord-vim
 	url = https://github.com/arcticicestudio/nord-vim.git
+[submodule ".vim/pack/plugins/start/ultisnips"]
+	path = .vim/pack/plugins/start/ultisnips
+	url = git@github.com:SirVer/ultisnips.git
+[submodule ".vim/pack/plugins/start/vim-snippets"]
+	path = .vim/pack/plugins/start/vim-snippets
+	url = git@github.com:honza/vim-snippets.git

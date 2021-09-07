@@ -106,6 +106,13 @@ set updatetime=300
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
+" ultisnip key commands
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-t>"
+let g:UltiSnipsJumpBackwardTrigger="<c-n>"
+let g:UltiSnipsListSnippets="<c-l>"
+let g:UltiSnipsEditSplit="tabdo"
+
 " use <c-space> to trigger completion
 inoremap <silent><expr> <c-@> coc#refresh()
 
