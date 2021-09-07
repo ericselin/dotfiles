@@ -31,6 +31,9 @@ alias yayr='yay -Qqe | fzf --multi --preview "yay -Qi {1}" | xargs -ro yay -Rns'
 alias l='ls -l'
 alias ll='ls -la'
 
+# sync email before opening mutt
+alias mutts='mbsync -a && mutt'
+
 #
 # PROMPT
 #
