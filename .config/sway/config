@@ -85,7 +85,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+g exec ~/scripts/copy-password.sh
 
 # open browser
-bindsym $mod+b exec firefox
+bindsym $mod+space exec firefox
 
 # emoji picker
 bindsym $mod+period exec ~/scripts/emoji-picker.sh
@@ -138,10 +138,10 @@ bindsym $mod+o layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+apostrophe floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+apostrophe focus mode_toggle
 
 # focus the parent container
 #bindsym $mod+' focus parent
