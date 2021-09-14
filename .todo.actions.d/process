@@ -1,0 +1,24 @@
+#!/bin/bash
+
+action=$1
+shift
+
+[ "$action" = "usage" ] && {
+  echo "    process"
+  echo "      Check for task without a project and replace if needed."
+  echo ""
+  exit
+}
+
+noproject=$(TODOTXT_VERBOSE=0 $TODO_FULL_SH command ls '-\B+\w')
+
+echo "Tasks without a project:"
+echo "$noproject"
+echo
+
+numbers=$(echo -n "$noproject" | grep -Po '^\d+')
+
+while read -r task <&3; do
+  $TODO_FULL_SH command replace $task
+  echo
+done 3<<< "$numbers"

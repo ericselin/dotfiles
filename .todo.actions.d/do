@@ -4,41 +4,27 @@ action=$1
 shift
 
 [ "$action" = "usage" ] && {
-  echo "    do"
+  echo "    do ITEM#[, ITEM#, ITEM#, ...]"
   echo "      Complete task(s) and check for next steps."
   echo ""
   exit
 }
 
-# find first completed item projects (excl. +next)
-projects=$(sed -n "$1p" $TODO_DIR/todo.txt | grep -Eo '\B\+\S+' | grep -v '+next' | grep -v '+wf')
+completed="$@"
 
+# list projects
+for task_num; do
+# find first completed item projects (excl. +next and +wf)
+  project=$(sed -n "$task_num"p $TODO_DIR/todo.txt | grep -Eo '\B\+\S+' | grep -Ev '+next|+wf')
+  projects="$projects $project"
+done
+
+# complete tasks here to make sure task numbers are right
 $TODO_FULL_SH command do $@
 
-echo
-echo Projects
-echo $projects
-echo
+source "$(dirname $0)/_getnext.sh"
 
-$TODO_FULL_SH command ls $projects
-
-echo
-echo 'Which task is the new next task?'
-echo 'Write a new task if needed.'
-echo 'Leave empty for no next task.'
-
-read next
-
-# exit if nothing specified
-[ -z "$next" ] && echo 'No new next task selected' && exit
-
-# workaround check to see if number, and append in this case
-[ "$next" -eq "$next" ] 2>/dev/null && $TODO_FULL_SH command app $next +next && exit
-
-# add if neither of the above
-# add project if not in input
-if ! echo "$next" | grep -q "$projects"; then next="$next $projects"; fi
-# add +next if not in input and if not +wf
-if ! echo "$next" | grep -q '+next' && ! echo "$next" | grep -q '+wf'; then next="$next +next"; fi
-# add natively
-$TODO_FULL_SH command add "$next"
+# go through projects and ask for next tasks
+for project in $projects; do
+  _getnext $project
+done
