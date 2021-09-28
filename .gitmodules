@@ -23,3 +23,6 @@
 [submodule ".vim/pack/plugins/start/vim-snippets"]
 	path = .vim/pack/plugins/start/vim-snippets
 	url = git@github.com:honza/vim-snippets.git
+[submodule ".todo"]
+	path = .todo
+	url = ssh://git@github.com/ericselin/todo
