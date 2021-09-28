@@ -82,8 +82,7 @@ __prompt_command() {
 # AUTOCOMPLETIONS
 #
 
-source ~/.git-completion.bash
-
+source /usr/share/git/completion/git-completion.bash
 source /usr/share/fzf/completion.bash
 source /usr/share/fzf/key-bindings.bash
 
