@@ -15,6 +15,7 @@ brightnessctl
 btrfs-progs
 cups
 deno
+docker
 efibootmgr
 fakeroot
 firefox
@@ -33,6 +34,7 @@ hugo
 isync
 iw
 iwd
+jq
 keepassxc
 khal
 ldns
