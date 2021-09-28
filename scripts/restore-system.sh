@@ -6,7 +6,7 @@
 
 # mount backup drive if not already mounted
 # this is needed in order to restore ssh and gpg keys
-BACKUP_MOUNT="/backup"
+export BACKUP_MOUNT="/backup"
 if [ -f "$BACKUP_MOUNT/.backup_drive" ]; then
   echo 'Backup drive already mounted'
 else
