@@ -1,0 +1,35 @@
+#!/bin/bash
+
+[ -z $BACKUP_MOUNT ] && >&2 echo 'BACKUP_MOUNT not set'
+
+case "$1" in
+'backup')
+  echo
+  echo 'Starting backup of package list'
+  echo
+
+  ~/scripts/update-package-lists.sh
+  ;;
+'restore')
+  echo 'Installing packages...'
+  sudo pacman -S --needed - < ~/.packages/explicit
+
+  >&2 echo 'WORKAROUND for ncspot: Installing rust stable'
+  rustup install stable
+
+  echo 'Installing yay and AUR packages...'
+  if ! yay -V; then
+    mkdir -p ~/builds
+    cd ~/builds
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -sc
+    sudo pacman -U yay-*.pkg.tar.zst
+    cd
+  fi
+  yay -S --needed - < ~/.packages/aur
+  ;;
+*)
+  echo 'Supported commands: backup, restore'
+  ;;
+esac

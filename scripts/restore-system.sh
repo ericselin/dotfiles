@@ -4,21 +4,6 @@
 # This script should be indepodent, so it can be run
 # on an existing system as well
 
-echo 'Installing packages...'
-sudo pacman -S --needed - < ~/.packages/explicit
-
-echo 'Installing yay and AUR packages...'
-if [[ ! $(yay -V) ]]; then
-  mkdir -p ~/builds
-  cd ~/builds
-  git clone https://aur.archlinux.org/yay.git
-  cd yay
-  makepkg -sc
-  sudo pacman -U yay-*.pkg.tar.zst
-  cd
-fi
-yay -S --needed - < ~/.packages/aur
-
 # mount backup drive if not already mounted
 # this is needed in order to restore ssh and gpg keys
 BACKUP_MOUNT="/backup"
@@ -34,4 +19,4 @@ else
 fi
 
 # run scripts in backup.d with the restore option
-run-parts ~/scripts/backup.d --arg=restore
+run-parts ~/scripts/backup.home.d --arg=restore
