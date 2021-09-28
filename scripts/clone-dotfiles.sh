@@ -17,7 +17,7 @@ if _dot status; then
   _dot pull
 else
   echo 'Dotfiles repository not found, cloning...'
-  git clone --bare https://github.com/ericselin/dotfiles.git $HOME/.dot.git
+  git clone --bare ssh://git@github.com/ericselin/dotfiles.git $HOME/.dot.git
   _dot checkout
   if [ $? = 0 ]; then
     echo "Checked out config";
