@@ -2,8 +2,11 @@
 Description=Outlook calendar synchronization timer
 
 [Timer]
-OnBootSec=5m
-OnUnitActiveSec=15m
+OnCalendar=*-*-* *:00:00
+OnCalendar=*-*-* *:15:00
+OnCalendar=*-*-* *:30:00
+OnCalendar=*-*-* *:45:00
+Persistent=true
 Unit=outlook-calendar-sync.service
 
 [Install]

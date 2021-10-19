@@ -1,0 +1,6 @@
+[Unit]
+Description=Todo git repo synchronization service
+
+[Service]
+Type=oneshot
+ExecStart=bash -c %h/scripts/todo-sync.sh

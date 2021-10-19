@@ -1,5 +1,5 @@
 [Unit]
-Description=Mailbox synchronization timer
+Description=Todo git repo synchronizing
 
 [Timer]
 OnCalendar=*-*-* *:00:00
@@ -7,7 +7,7 @@ OnCalendar=*-*-* *:15:00
 OnCalendar=*-*-* *:30:00
 OnCalendar=*-*-* *:45:00
 Persistent=true
-Unit=mbsync.service
+Unit=todo-sync.service
 
 [Install]
 WantedBy=timers.target
