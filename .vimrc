@@ -41,6 +41,7 @@ let mapleader=','
 " - after the deno fmt command means read from STDIN
 " <buffer> means send the buffer to the command (I think!)
 autocmd FileType typescript nnoremap <buffer> <leader>f :%!deno fmt -<CR>
+autocmd FileType typescriptreact nnoremap <buffer> <leader>f :%!deno fmt -<CR>
 
 " Search highlighting etc.
 " Use `:noh` to remove highlighting
