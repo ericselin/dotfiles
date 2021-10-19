@@ -93,6 +93,9 @@ source /usr/share/fzf/key-bindings.bash
 # Add utilities to the path
 export PATH="$HOME/utilities:$PATH"
 
+# Add deno installs to the path
+export PATH="$HOME/.deno/bin:$PATH"
+
 # Launch Firefox with wayland
 export MOZ_ENABLE_WAYLAND=1
 
