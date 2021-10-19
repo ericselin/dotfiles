@@ -5,7 +5,7 @@ set realname = "Eric Selin"
 
 # Smtp settings
 set smtp_url = "smtps://eric.selin@smtp.gmail.com"
-set smtp_pass = `cat ~/.gmail-app-pw`
+set smtp_pass = `gopass show -o misc/gmail-app-password`
 
 # Maildir settings
 set mbox_type=Maildir
