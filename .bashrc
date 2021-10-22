@@ -138,18 +138,3 @@ if [ "$TERM" = "linux" ]; then
     echo -en "\e]PFeceff4"
     clear #for background artifacting
 fi
-
-#
-# SSH AGENT
-#
-
-user=$USER
-rundir=$XDG_RUNTIME_DIR
-[ -z "$user" ] && user=$(whoami)
-[ -z "$rundir" ] && rundir="$HOME/.cache" && mkdir -p "$rundir" 
-if ! pgrep -u "$user" ssh-agent > /dev/null; then
-  ssh-agent -t 1h > "$rundir/ssh-agent.env"
-fi
-if [[ ! "$SSH_AUTH_SOCK" ]]; then
-  source "$rundir/ssh-agent.env" >/dev/null
-fi

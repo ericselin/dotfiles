@@ -2,5 +2,6 @@
 Description=Todo git repo synchronization service
 
 [Service]
+Environment=SSH_AUTH_SOCK=%t/gnupg/S.gpg-agent.ssh
 Type=oneshot
 ExecStart=bash -c %h/scripts/todo-sync.sh
