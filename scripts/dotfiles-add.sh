@@ -1,9 +1,15 @@
 # Add selected file or directery to the dotfiles repo
 
+GIT_OPTS="--git-dir=$HOME/.dot.git/ --work-tree=$HOME"
+
 function dotadd() {
+  # unstaged changes
+  local unstaged=$(dot diff --name-only)
+  # get untracked files
+  local untracked=$(dot ls-files --others --directory --exclude-standard --empty-directory :/)
   # get directory where the file lives
   # the preview command shows dir contents if its a dir, otherwise file contents with bat
-  path=$(dot ls-files --others --directory --exclude-standard --empty-directory :/ | fzf --preview='[ -d {} ] && ls -la {} || bat {}')
+  local path=$(printf "$unstaged\n\n$untracked" | fzf --preview="[ -d {} ] && ls -la {} || ([ -z {} ] && echo 'Unstaged below, untracked above' || (! git $GIT_OPTS diff --exit-code --color -- {} || bat --color=always {}))")
 
   # if selected was a directory, get file names from there
   if [ $path ] && [ -d $path ]; then
