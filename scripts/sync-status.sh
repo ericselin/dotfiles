@@ -2,6 +2,11 @@
 
 services="mbsync outlook-calendar-sync vdirsyncer todo-sync"
 
+if [ "$1" == "sync" ]; then
+  systemctl --user start $services
+  exit $?
+fi
+
 output() {
   local status=$(systemctl --user show $services -p Id,ExecMainStatus,ActiveState,ExecMainStartTimestamp)
   # first replace newline with tab to get everything on one line so sed is happy

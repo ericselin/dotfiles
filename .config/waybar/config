@@ -20,7 +20,8 @@
     "custom/sync": {
       "exec": "$HOME/scripts/sync-status.sh",
       "return-type": "json",
-      "interval": 300
+      "interval": 300,
+      "on-click": "$HOME/scripts/sync-status.sh sync"
     },
     "idle_inhibitor": {
       "format": "{icon}",
