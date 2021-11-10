@@ -13,6 +13,7 @@ bluez
 bluez-utils
 brightnessctl
 btrfs-progs
+ccid
 cups
 deno
 docker
@@ -40,6 +41,7 @@ khal
 ldns
 libnotify
 libreoffice-fresh
+libusb-compat
 linux
 linux-firmware
 lynx
@@ -54,10 +56,12 @@ noto-fonts-cjk
 noto-fonts-emoji
 npm
 ntfs-3g
+opensc
 openssh
 otf-font-awesome
 patch
 pavucontrol
+pcsc-tools
 pipewire-pulse
 pkgconf
 python-requests-oauthlib
@@ -79,3 +83,4 @@ wget
 wl-clipboard
 wofi
 xorg-xwayland
+zip
