@@ -1,3 +1,5 @@
+key_bindings:
+  - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
 font:
   normal:
     family: Source Code Pro
