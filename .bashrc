@@ -138,3 +138,12 @@ if [ "$TERM" = "linux" ]; then
     echo -en "\e]PFeceff4"
     clear #for background artifacting
 fi
+
+#
+# STARTUP
+#
+
+# auto-start sway on tty1
+if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+    exec sway
+fi
