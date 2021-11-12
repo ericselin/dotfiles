@@ -1,4 +1,5 @@
 source ~/.config/mutt/nord.theme
+source ~/.config/mutt/gpg.rc
 
 set from = "eric.selin@gmail.com"
 set realname = "Eric Selin"
