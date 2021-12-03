@@ -14,7 +14,8 @@ alias ls='ls --color=auto'
 alias k='khal list'
 
 # todo.txt
-alias t='todo.sh'
+# preserve line numbers with -N
+alias t='todo.sh -N'
 export TODOTXT_DEFAULT_ACTION='next'
 
 # Set alias for managing the dotfiles git repo as per
