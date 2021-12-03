@@ -13,7 +13,6 @@ bluez
 bluez-utils
 brightnessctl
 btrfs-progs
-ccid
 cups
 deno
 docker
@@ -31,6 +30,7 @@ git-lfs
 github-cli
 go
 gopass
+grim
 hugo
 isync
 iw
@@ -56,19 +56,19 @@ noto-fonts-cjk
 noto-fonts-emoji
 npm
 ntfs-3g
-opensc
 openssh
 otf-font-awesome
 patch
 pavucontrol
-pcsc-tools
 pipewire-pulse
 pkgconf
+playerctl
 python-requests-oauthlib
 qt5-wayland
 qt6-wayland
 rclone
 rustup
+slurp
 sudo
 sway
 swayidle
