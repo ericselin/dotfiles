@@ -47,18 +47,16 @@ client.unfocused        $nord1  #282A36 #BFBFBF
 output * background $nord0 solid_color
 
 default_border pixel 1
-#gaps inner 5
 
 font Source Code Pro 11
 
 # Special button handling
-set $refresh_i3status killall -SIGUSR1 i3status
 bindsym {
   # Use pactl to adjust volume in PulseAudio.
-  XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
-  XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
-  XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-  XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+  XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+  XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+  XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+  XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
   # Use playerctl for play-pause and next, prev
   XF86AudioPlay exec --no-startup-id playerctl play-pause
   XF86AudioPause exec --no-startup-id playerctl play-pause
@@ -71,37 +69,49 @@ bindsym {
 
 # Windows key as modifier
 set $mod Mod4
+# command used to launch popups
+set $popup ~/scripts/launch-popup.sh
 
-# lock screen
-bindsym $mod+l exec "swaylock -f"
+# shortcuts for launching things etc.
+bindsym {
+  # lock screen
+  $mod+l exec "swaylock -f"
 
-bindsym $mod+m exec "bemenu-run --fn monospace 10 -p 'launch'"
+  # launch program
+  $mod+m exec "bemenu-run --fn monospace 10 -p 'launch'"
+
+  # start a terminal
+  $mod+Return exec alacritty
+
+  # pick password to copy (G for gopass)
+  $mod+g exec ~/scripts/copy-password.sh
+
+  # open browser
+  $mod+space exec firefox
+  $mod+Shift+space exec firefox -P sandbox
+
+  # emoji picker
+  $mod+period exec $popup ~/scripts/emoji-picker.sh
+
+  # connect to bluetooth
+  $mod+b exec $popup ~/scripts/connect-bluetooth.sh
+
+  # pomodoro starting and stopping
+  $mod+p exec --no-startup-id $HOME/scripts/pomodoro.sh
+  $mod+Shift+P exec --no-startup-id $HOME/scripts/pomodoro.sh stop
+
+  # kill focused window
+  $mod+Escape kill
+}
+
+# styling of popup windows
+for_window [app_id="popup"] floating enable, resize set width 50 ppt height 25 ppt
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # Focus deos not follow mouse
 focus_follows_mouse no
-
-# start a terminal
-bindsym $mod+Return exec alacritty
-
-# pick password to copy (G for gopass)
-bindsym $mod+g exec ~/scripts/copy-password.sh
-
-# open browser
-bindsym $mod+space exec firefox
-bindsym $mod+Shift+space exec firefox -P sandbox
-
-# emoji picker
-bindsym $mod+period exec ~/scripts/emoji-picker.sh
-
-# kill focused window
-bindsym $mod+Escape kill
-
-# bind pomodoro starting and stopping
-bindsym $mod+p exec --no-startup-id $HOME/scripts/pomodoro.sh
-bindsym $mod+Shift+P exec --no-startup-id $HOME/scripts/pomodoro.sh stop
 
 # change focus
 bindsym $mod+h focus left
