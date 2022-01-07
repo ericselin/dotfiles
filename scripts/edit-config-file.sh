@@ -9,5 +9,5 @@ dotfile_paths=$(/usr/bin/git --git-dir=$DOTS_GIT --work-tree=$HOME ls-files)
 chosen="$(echo -e "$dotfile_paths" | fzf --info=hidden --layout=reverse --prompt='Edit config file > ')"
 
 # Launch vim via bash, and make it interactive so it'll all work (trial and error)
-[ -f "$chosen" ] && alacritty -e /bin/bash -ic "vim $chosen" || dunstify "No such file"
+[ -f "$chosen" ] && swaymsg exec "alacritty -e /bin/bash -ic 'vim $chosen'"
 
