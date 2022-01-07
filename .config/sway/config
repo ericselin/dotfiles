@@ -96,6 +96,9 @@ bindsym {
   # connect to bluetooth
   $mod+b exec $popup ~/scripts/connect-bluetooth.sh
 
+  # connect to wifi
+  $mod+w exec $popup ~/scripts/connect-wifi.sh
+
   # pomodoro starting and stopping
   $mod+p exec --no-startup-id $HOME/scripts/pomodoro.sh
   $mod+Shift+P exec --no-startup-id $HOME/scripts/pomodoro.sh stop
