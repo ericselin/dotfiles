@@ -3,3 +3,5 @@ n   back-line
 ^t  forw-scroll
 ^n  back-scroll
 
+l   repeat-search
+L   reverse-search

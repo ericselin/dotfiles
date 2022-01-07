@@ -100,21 +100,6 @@ export PATH="$HOME/.deno/bin:$PATH"
 # Launch Firefox with wayland
 export MOZ_ENABLE_WAYLAND=1
 
-# bemenu config (colors)
-export BEMENU_OPTS="--tb '#81a1c1'\
- --tf '#2e3440'\
- --fb '#3b4252'\
- --ff '#d8dee9'\
- --nb '#3b4252'\
- --nf '#d8dee9'\
- --hb '#81a1c1'\
- --hf '#2e3440'\
- --sb '#81a1c1'\
- --sf '#2e3440'\
- --scb '#434c5e'\
- --scf '#4c566a'\
- --fn monospace 12"
-
 #
 # COLORS
 #
