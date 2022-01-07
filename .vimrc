@@ -1,28 +1,28 @@
 " Make right hand home row navigate, just like in i3.
 " n is for normal mode, v is visual and select mode
 " o is for operator pending mode, i.e. `d2t`
+" map without a mode specifier means n, v, o modes
 " See the README for a discussion on why this has
 " been configured like it has.
-nnoremap s l
-vnoremap s l
-onoremap s l
-nnoremap t j
-vnoremap t j
-onoremap t j
-nnoremap n k
-vnoremap n k
-onoremap n k
+noremap s l
+noremap t j
+noremap n k
 " remap Next occurence to Look
 nnoremap l n
-nnoremap L N
 vnoremap l n
+nnoremap L N
 vnoremap L N
 " remap Until to untiL
 onoremap l t
 onoremap L T
-" Note that other keys now used for navigation
-" have not been remapped currently.
-" `T` could be remapped somehow, since it could be quite useful.
+" remap window navigation and moving
+noremap <C-w>s <C-w>l
+noremap <C-w>t <C-w>j
+noremap <C-w>n <C-w>k
+noremap <C-w>S <C-w>L
+noremap <C-w>T <C-w>J
+noremap <C-w>N <C-w>K
+" remap window Split to spLit
 
 " Ctrl+S save shortcut
 " In normal mode, this should just write the buffer
@@ -98,7 +98,7 @@ set nobackup
 set nowritebackup
 
 " Give more space for displaying messages.
-set cmdheight=2
+"set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
