@@ -77,9 +77,8 @@ packadd! nord-vim
 syntax enable
 colorscheme nord
 
-" CTRL-P fuzzy file searching
-" Set runtimepath, needed according to the docs
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+" fzf shortcut
+noremap <C-p> :FZF<CR>
 
 " go vim for html files
 autocmd BufRead,BufNewFile */layouts/*/*.html set ft=gohtmltmpl
