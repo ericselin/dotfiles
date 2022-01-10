@@ -20,3 +20,6 @@
 [submodule ".vim/pack/plugins/start/vim-snippets"]
 	path = .vim/pack/plugins/start/vim-snippets
 	url = git@github.com:honza/vim-snippets.git
+[submodule ".vim/pack/plugins/start/fugitive"]
+	path = .vim/pack/plugins/start/fugitive
+	url = https://tpope.io/vim/fugitive.git
