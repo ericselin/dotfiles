@@ -131,6 +131,10 @@ if [ "$TERM" = "linux" ]; then
     clear #for background artifacting
 fi
 
+# GTK nord theme
+gsettings set org.gnome.desktop.interface gtk-theme "Nordic"
+gsettings set org.gnome.desktop.wm.preferences theme "Nordic"
+
 #
 # STARTUP
 #
