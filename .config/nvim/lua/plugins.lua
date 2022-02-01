@@ -8,5 +8,6 @@ require('packer').startup(function()
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
   use 'airblade/vim-gitgutter' -- git status in gutter
   use 'nvim-lualine/lualine.nvim' -- statusline plugin with icons
+  use 'ggandor/lightspeed.nvim' -- quick jumping
 end)
 

@@ -133,9 +133,16 @@ nnoremap l n
 vnoremap l n
 nnoremap L N
 vnoremap L N
-" remap Until to untiL
+" remap unTil to untiL
 onoremap l t
 onoremap L T
+" lightspeed edition
+nmap l <Plug>Lightspeed_t
+nmap L <Plug>Lightspeed_T
+" lightspeed Seach as Jump
+" (forward, i.e. down) and k (up)
+nmap j <Plug>Lightspeed_s
+nmap k <Plug>Lightspeed_S
 " remap window navigation and moving
 noremap <C-w>s <C-w>l
 noremap <C-w>t <C-w>j
