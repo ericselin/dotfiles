@@ -7,3 +7,11 @@ xkb_symbols "dvorak" {
   key <AC02> { [ o,   O,  odiaeresis,  Odiaeresis ] };
   key <AC03> { [ e,   E,  aring,       Aring ] };
 };
+xkb_symbols "dvp" {
+  name[Group1]= "US Programmers Dvorak with Scandis";
+  include "us(dvp)"
+  include "level3(ralt_switch)"
+  key <AC01> { [ a,   A,  adiaeresis,  Adiaeresis ] };
+  key <AC02> { [ o,   O,  odiaeresis,  Odiaeresis ] };
+  key <AC03> { [ e,   E,  aring,       Aring ] };
+};

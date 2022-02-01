@@ -1,6 +1,6 @@
 # US Dvorak keyboard layout
 input "type:keyboard" {
-  xkb_layout "scandi-dvorak"
+  xkb_layout "scandi-dvorak(dvorak),scandi-dvorak(dvp)"
   xkb_numlock enable
 }
 
@@ -74,6 +74,11 @@ set $popup ~/scripts/launch-popup.sh
 
 # shortcuts for launching things etc.
 bindsym {
+  # switch keeb layout
+  # need to specify input here because otherwise next keyword won't work
+  # layout will still be applied to all keyboards
+  $mod+delete input "1:1:AT_Translated_Set_2_keyboard" xkb_switch_layout next
+
   # lock screen
   $mod+l exec "swaylock -f"
 
