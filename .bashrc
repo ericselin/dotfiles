@@ -35,7 +35,7 @@ alias l='ls -l'
 alias ll='ls -la'
 
 # sync email before opening mutt
-alias mutts='mbsync -a && mutt'
+alias mutts='mbsync --pull --new sync-mailfence-default && mutt'
 
 # use fd in fzf
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'

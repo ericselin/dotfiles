@@ -1,6 +1,6 @@
 #!/bin/bash
 
-services="mbsync outlook-calendar-sync vdirsyncer todo-sync"
+services="mbsync vdirsyncer todo-sync"
 
 if [ "$1" == "sync" ]; then
   systemctl --user start $services

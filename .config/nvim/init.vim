@@ -52,15 +52,39 @@ lspconfig.denols.setup {
     unstable = true,
   },
 }
+lspconfig.jsonls.setup{}
+-- emmet as per https://github.com/aca/emmet-ls
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+lspconfig.emmet_ls.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    filetypes = { "html", "css", "typescriptreact", "javascriptreact" },
+})
 
 -- luasnip setup
 local luasnip = require 'luasnip'
 local s = luasnip.snippet
 local t = luasnip.text_node
+local i = luasnip.insert_node
 luasnip.snippets = {
   typescript = {
     s("noti", {
       t("throw new Error(\"Not implemented\");")
+    }),
+    s("im", {
+      t("import { "),
+      i(0),
+      t(" } from \""),
+      i(1),
+      t("\";"),
+    }),
+    s("imt", {
+      t("import type { "),
+      i(0),
+      t(" } from \""),
+      i(1),
+      t("\";"),
     })
   }
 }
@@ -133,14 +157,10 @@ nnoremap l n
 vnoremap l n
 nnoremap L N
 vnoremap L N
-" remap unTil to untiL
+" remap unTil to untiL in operator pending mode
 onoremap l t
 onoremap L T
-" lightspeed edition
-nmap l <Plug>Lightspeed_t
-nmap L <Plug>Lightspeed_T
-" lightspeed Seach as Jump
-" (forward, i.e. down) and k (up)
+" lightspeed Seach as Jump (forward, i.e. down) and k (up)
 nmap j <Plug>Lightspeed_s
 nmap k <Plug>Lightspeed_S
 " remap window navigation and moving

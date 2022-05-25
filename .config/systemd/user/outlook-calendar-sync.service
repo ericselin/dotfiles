@@ -1,6 +1,0 @@
-[Unit]
-Description=Outlook calendar synchronization service
-
-[Service]
-Type=oneshot
-ExecStart=bash -c %h/scripts/outlook-calendar-sync.sh

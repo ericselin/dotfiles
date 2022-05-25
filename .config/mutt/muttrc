@@ -1,24 +1,30 @@
 source ~/.config/mutt/nord.theme
 source ~/.config/mutt/gpg.rc
 
-set from = "eric.selin@gmail.com"
+set from = "me@ericselin.dev"
 set realname = "Eric Selin"
+alternates me@ericselin.dev
+alternates eric@ericselin.dev
+alternates eric@statichost.eu
+alternates team@statichost.eu
 
 # Smtp settings
-set smtp_url = "smtps://eric.selin@smtp.gmail.com"
-set smtp_pass = `gopass show -o misc/gmail-app-password`
+set smtp_url = "smtps://eric.selin@smtp.mailfence.com:465"
+set smtp_pass = `gopass show -o websites/mailfence.com/eric.selin`
 
 # Maildir settings
 set mbox_type=Maildir
-set folder=~/.mail/gmail
-set spoolfile=+Inbox
+set folder=~/.mail/mailfence
+set spoolfile=+inbox
+set record=+sent
+set postponed=+drafts
 set header_cache=~/.cache/mutt
 
 # do not save sent messages, these are saved by gmail automatically
-unset record
+#unset record
 
-# vim editor
-set editor = "vim"
+# nvim editor
+set editor = "nvim"
 
 # messages that are of a todo nature
 unset confirmappend

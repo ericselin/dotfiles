@@ -1,19 +1,22 @@
 [general]
 status_path = "~/.vdirsyncer/status/"
 
-[pair personal_calendar]
-a = "google_calendar"
+[pair mailfence]
+a = "mailfence_calendar"
 b = "local_calendar"
 collections = ["from a", "from b"]
 metadata = ["color"]
 
 [storage local_calendar]
 type = "filesystem"
-path = "~/.calendars/google"
+path = "~/.calendars/mailfence"
 fileext = ".ics"
 
-[storage google_calendar]
-type = "google_calendar"
-token_file = "~/.vdirsyncer/google_token"
-client_id = "415112145974-ok6ej087gdl0nhuhhjj00i3m5i33ibs2.apps.googleusercontent.com"
-client_secret = "AFA_1BlTvK3pJtZF22MNu-ID"
+[storage mailfence_calendar]
+type = "caldav"
+item_types = ["VEVENT"]
+start_date = "datetime.now() - timedelta(days=31)"
+end_date = "datetime.now() + timedelta(days=31)"
+url = "https://mailfence.com/dav/eric.selin/private/events"
+username = "eric.selin"
+password.fetch = ["command", "gopass", "show", "-o", "websites/mailfence.com/eric.selin"]

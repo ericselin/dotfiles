@@ -1,59 +1,20 @@
 SyncState *
 
-IMAPAccount gmail
-# Address to connect to
-Host imap.gmail.com
-User eric.selin@gmail.com
-# Pass ***************
-# To store the password in an encrypted file use PassCmd instead of Pass
-PassCmd "gopass show -o misc/gmail-app-password"
-#
-# Use SSL
+IMAPAccount mailfence-account
+Host imap.mailfence.com
+User eric.selin
+PassCmd "gopass show -o websites/mailfence.com/eric.selin"
 SSLType IMAPS
-# The following line should work. If get certificate errors, uncomment the two following lines and read the "Troubleshooting" section.
 CertificateFile /etc/ssl/certs/ca-certificates.crt
-#CertificateFile ~/.cert/imap.gmail.com.pem
-#CertificateFile ~/.cert/Equifax_Secure_CA.pem
 
-IMAPStore gmail-remote
-Account gmail
+IMAPStore mailfence-remote
+Account mailfence-account
 
-MaildirStore gmail-local
+MaildirStore mailfence-local
 SubFolders Verbatim
-# The trailing "/" is important
-Path ~/.mail/gmail/
-Inbox ~/.mail/gmail/Inbox
+Path ~/.mail/mailfence/
+Inbox ~/.mail/mailfence/inbox
 
-Channel sync-gmail-default
-Far :gmail-remote:
-Near :gmail-local:
-# Select some mailboxes to sync
-Patterns "INBOX"
-
-Channel sync-gmail-all
-Far :gmail-remote:"[Gmail]/All Mail"
-Near :gmail-local:all
-Create Near
-
-Channel sync-gmail-sent
-Far :gmail-remote:"[Gmail]/Sent Mail"
-Near :gmail-local:sent
-Create Near
-
-Channel sync-gmail-trash
-Far :gmail-remote:"[Gmail]/Trash"
-Near :gmail-local:trash
-Create Near
-
-Channel sync-gmail-starred
-Far :gmail-remote:"[Gmail]/Starred"
-Near :gmail-local:starred
-Create Near
-
-# Get all the channels together into a group.
-Group gmail
-Channel sync-gmail-default
-Channel sync-gmail-all
-Channel sync-gmail-starred
-Channel sync-gmail-sent
-Channel sync-gmail-trash
+Channel mailfence
+Far :mailfence-remote:
+Near :mailfence-local:
