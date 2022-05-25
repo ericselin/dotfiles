@@ -1,0 +1,6 @@
+[Unit]
+Description=Sync gopass
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/gopass sync
