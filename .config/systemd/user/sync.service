@@ -1,0 +1,8 @@
+[Unit]
+Description=Umbrella synchronization service
+Requires=mbsync.service vdirsyncer.service todo-sync.service
+After=mbsync.service vdirsyncer.service todo-sync.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/echo Done
