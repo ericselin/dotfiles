@@ -20,4 +20,5 @@ echo "$output" | grep -i server
 ip=$(echo "$output" | tail -n 1)
 echo
 echo 'Server reverse DNS:'
-drill -Qx $ip
+# get all output and show relevant line and column
+drill -x $ip | grep -E 'IN\s\w+\s\w' | awk '{print $5}'
