@@ -262,3 +262,6 @@ include /etc/sway/config.d/*
 # start waybar
 exec waybar
 
+# configure screen sharing
+# https://github.com/emersion/xdg-desktop-portal-wlr#running
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
