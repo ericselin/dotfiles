@@ -7,6 +7,8 @@ alternates me@ericselin.dev
 alternates eric@ericselin.dev
 alternates eric@statichost.eu
 alternates team@statichost.eu
+# reply from alternate
+set reverse_name=yes
 
 # Smtp settings
 set smtp_url = "smtps://eric.selin@smtp.mailfence.com:465"
