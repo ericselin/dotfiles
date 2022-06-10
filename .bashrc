@@ -35,18 +35,6 @@ alias ll='ls -la'
 # sync email before opening mutt
 alias mutts='mbsync --pull --new mailfence && mutt'
 
-# reverse lookup of actual domain ip
-# use to check where a domain is actually hosted
-function hostedat() {
-  if [ ! "$1" ]; then
-    echo "Usage: hostedat DOMAIN"
-    return 1
-  fi
-  while read ip; do
-    drill -xQ $ip
-  done < <(drill -Q $1)
-}
-
 # use fd in fzf
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"

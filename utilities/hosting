@@ -1,0 +1,23 @@
+#!/bin/sh
+
+if [ ! "$1" ]
+then
+  echo 'Show where a site is actually hosted.'
+  echo 'Usage: hosting DOMAIN'
+  exit 1
+fi
+
+# this will contain the headers, and the ip on the last line
+output=$(curl -LIsw 'Last IP:\n%{remote_ip}' $1)
+echo -e "$output"
+
+# for convenience, list servers here
+echo
+echo 'Server headers:'
+echo "$output" | grep -i server
+
+# get the reverse dns lookup of the server ip
+ip=$(echo "$output" | tail -n 1)
+echo
+echo 'Server reverse DNS:'
+drill -Qx $ip
