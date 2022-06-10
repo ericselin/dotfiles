@@ -67,6 +67,7 @@ local luasnip = require 'luasnip'
 local s = luasnip.snippet
 local t = luasnip.text_node
 local i = luasnip.insert_node
+luasnip.filetype_extend("typescript", { "typescriptreact" })
 luasnip.snippets = {
   typescript = {
     s("noti", {
@@ -85,6 +86,13 @@ luasnip.snippets = {
       t(" } from \""),
       i(1),
       t("\";"),
+    }),
+    s("dete", {
+      t("Deno.test(\""),
+      i(1),
+      t({ "\", () => {", "\t" }),
+      i(0),
+      t({ "", "});" });
     })
   }
 }
