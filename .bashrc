@@ -17,8 +17,6 @@ alias k='khal list'
 alias t='todo.sh'
 export TODOTXT_DEFAULT_ACTION='next'
 export TODOTXT_PRESERVE_LINE_NUMBERS='1'
-# don't auto archive, but do remember to run it every once in a while
-export TODOTXT_AUTO_ARCHIVE='0'
 
 # Set alias for managing the dotfiles git repo as per
 # https://www.atlassian.com/git/tutorials/dotfiles
