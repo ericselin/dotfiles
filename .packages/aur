@@ -1,9 +1,13 @@
 cloudflare-wrangler
 cloudflared
 google-chrome
-ncspot
+ncspot-bin
+ngrok
+nordic-theme
+nvim-packer-git
 shopify-themekit-bin
 slack-term
-teams
 todotxt
+vscode-langservers-extracted
+wl-clipboard-git
 yay
