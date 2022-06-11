@@ -13,8 +13,13 @@ Account mailfence-account
 MaildirStore mailfence-local
 SubFolders Verbatim
 Path ~/.mail/mailfence/
-Inbox ~/.mail/mailfence/inbox
+Inbox ~/.mail/mailfence/Inbox
 
 Channel mailfence
 Far :mailfence-remote:
 Near :mailfence-local:
+
+Channel mailfence-all
+Far :mailfence-remote:
+Near :mailfence-local:
+Pattern * !INBOX !Trash !Spam?
