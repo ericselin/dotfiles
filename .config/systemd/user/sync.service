@@ -5,4 +5,4 @@ After=mbsync.service vdirsyncer.service todo-sync.service sync.gopass.service
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/echo Done
+ExecStart=/usr/bin/echo Done!
