@@ -22,3 +22,8 @@ echo
 echo 'Server reverse DNS:'
 # get all output and show relevant line and column
 drill -x $ip | grep -E 'IN\s\w+\s\w' | awk '{print $5}'
+
+# get the generator from meta tag
+echo
+echo 'Generator from meta tag:'
+curl -Ls $1 | htmlq -a content 'meta[name=generator]'
