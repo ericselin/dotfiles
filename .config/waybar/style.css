@@ -57,7 +57,7 @@
   margin-right: 10px;
 }
 
-.error {
+.critical {
   background: @nord11;
   color: @nord4;
   padding-left: 10px;
