@@ -1,0 +1,6 @@
+gapless = true
+[keybindings]
+h = "move left 1"
+s = "move right 1"
+t = "move down 1"
+n = "move up 1"
