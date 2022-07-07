@@ -1,8 +1,13 @@
 #
 # ~/.bashrc
 #
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+
+# Readline vi mode
+# Move this to inputrc to use elsewhere?
+# Try out https://bbs.archlinux.org/viewtopic.php?id=5573
+set -o vi
+bind -m vi-command '"h": backward-char'
+bind -m vi-command '"s": forward-char'
 
 #
 # ALIASES
