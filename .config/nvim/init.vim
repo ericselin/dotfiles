@@ -61,6 +61,9 @@ lspconfig.emmet_ls.setup({
     capabilities = capabilities,
     filetypes = { "html", "css", "typescriptreact", "javascriptreact" },
 })
+lspconfig.gopls.setup{
+  on_attach = on_attach,
+}
 
 -- luasnip setup
 local luasnip = require 'luasnip'
