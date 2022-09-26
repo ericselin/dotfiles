@@ -95,10 +95,15 @@ __prompt_command() {
 # AUTOCOMPLETIONS
 #
 
-if command -v fzf-share >/dev/null; then
-  source "$(fzf-share)/key-bindings.bash"
-  source "$(fzf-share)/completion.bash"
-fi
+__source_completion() {
+  local file="$1"
+  if [ -f "$file" ]; then
+    source "$file"
+  fi
+}
+__source_completion /usr/share/git/completion/git-completion.bash
+__source_completion /usr/share/fzf/completion.bash
+__source_completion /usr/share/fzf/key-bindings.bash
 
 # Add completion for dot
 __git_complete dot __git_main
