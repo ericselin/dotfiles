@@ -8,9 +8,6 @@
 [submodule ".vim/pack/plugins/start/vim-airline"]
 	path = .vim/pack/plugins/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline
-[submodule ".vim/pack/plugins/start/vim-go"]
-	path = .vim/pack/plugins/start/vim-go
-	url = https://github.com/fatih/vim-go.git
 [submodule ".vim/pack/themes/start/nord-vim"]
 	path = .vim/pack/themes/start/nord-vim
 	url = https://github.com/arcticicestudio/nord-vim.git
