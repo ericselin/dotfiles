@@ -104,6 +104,12 @@ __source_completion() {
 __source_completion /usr/share/git/completion/git-completion.bash
 __source_completion /usr/share/fzf/completion.bash
 __source_completion /usr/share/fzf/key-bindings.bash
+# freebsd bash-completion
+[[ $PS1 && -f /usr/local/share/bash-completion/bash_completion.sh ]] && \
+	source /usr/local/share/bash-completion/bash_completion.sh
+# freebsd paths for the above
+__source_completion /usr/local/share/examples/fzf/shell/completion.bash
+__source_completion /usr/local/share/examples/fzf/shell/key-bindings.bash
 
 # Add completion for dot
 __git_complete dot __git_main
