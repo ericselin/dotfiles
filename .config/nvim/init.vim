@@ -53,15 +53,23 @@ lspconfig.denols.setup {
   },
 }
 lspconfig.jsonls.setup{}
--- emmet as per https://github.com/aca/emmet-ls
+-- gopls
+lspconfig.gopls.setup{
+  on_attach = on_attach,
+}
+-- snippet capabilities for emmet and css
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- emmet as per https://github.com/aca/emmet-ls
 lspconfig.emmet_ls.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    filetypes = { "html", "css", "typescriptreact", "javascriptreact" },
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "html", "typescriptreact", "javascriptreact" },
 })
-lspconfig.gopls.setup{
+-- html (vscode language server)
+lspconfig.html.setup{}
+lspconfig.cssls.setup{
+  capabilities = capabilities,
   on_attach = on_attach,
 }
 
@@ -119,24 +127,24 @@ cmp.setup {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-    ['<Tab>'] = function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      else
-        fallback()
-      end
-    end,
-    ['<S-Tab>'] = function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end,
+    --['<Tab>'] = function(fallback)
+    --  if cmp.visible() then
+    --    cmp.select_next_item()
+    --  elseif luasnip.expand_or_jumpable() then
+    --    luasnip.expand_or_jump()
+    --  else
+    --    fallback()
+    --  end
+    --end,
+    --['<S-Tab>'] = function(fallback)
+    --  if cmp.visible() then
+    --    cmp.select_prev_item()
+    --  elseif luasnip.jumpable(-1) then
+    --    luasnip.jump(-1)
+    --  else
+    --    fallback()
+    --  end
+    --end,
   },
   sources = {
     { name = 'nvim_lsp' },
@@ -219,12 +227,5 @@ set expandtab
 set autoindent
 set smartindent
 
-" EMMET config
-autocmd FileType html,css :packadd emmet-vim
-let g:user_emmet_leader_key=','
-
 " fzf shortcut
 noremap <C-p> :FZF<CR>
-
-" go vim for html files
-autocmd BufRead,BufNewFile */layouts/*/*.html set ft=gohtmltmpl

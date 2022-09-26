@@ -1,5 +1,6 @@
 local use = require('packer').use
 require('packer').startup(function()
+  use 'github/copilot.vim' -- CoPilot
   use 'shaunsingh/nord.nvim' -- Nord theme
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
