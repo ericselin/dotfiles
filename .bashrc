@@ -9,6 +9,8 @@ set -o vi
 bind -m vi-command '"h": backward-char'
 bind -m vi-command '"s": forward-char'
 
+export EDITOR=nvim
+
 #
 # ALIASES
 #
@@ -97,12 +99,18 @@ source /usr/share/git/completion/git-completion.bash
 source /usr/share/fzf/completion.bash
 source /usr/share/fzf/key-bindings.bash
 
+# Add completion for dot
+__git_complete dot __git_main
+
 #
 # SETTINGS
 #
 
 # Add utilities to the path
 export PATH="$HOME/utilities:$PATH"
+
+# Add go bin to path
+export PATH="$HOME/go/bin:$PATH"
 
 # Add deno installs to the path
 export PATH="$HOME/.deno/bin:$PATH"
