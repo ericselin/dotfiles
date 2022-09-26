@@ -62,6 +62,7 @@ __prompt_command() {
   local green='\e[32m'
   local red='\e[31m'
   local bold='\e[1m'
+  local magenta='\e[35m'
   local reset='\e[0m'
 
   # clear prompt
@@ -72,6 +73,11 @@ __prompt_command() {
 
   # add default user@host and working dir
   PS1="$PS1$blue\u@\h$reset \w"
+
+  # add battery status and percentage
+  local bat=[`sysctl -n hw.acpi.battery.state`:`sysctl -n hw.acpi.battery.life`]
+  # columns forward and backward ansi codes used
+  PS1="$PS1$magenta\033[${COLUMNS}C\033[$((${#bat}-1))D$bat$reset"
 
   # if we're in a git folder, get the branch name
   if git rev-parse --git-dir > /dev/null 2>&1; then
@@ -127,6 +133,16 @@ export PATH="$HOME/go/bin:$PATH"
 # Add deno installs to the path
 export PATH="$HOME/.deno/bin:$PATH"
 
+# wayland runtime dir
+export XDG_RUNTIME_DIR=/var/run/user/`id -u`
+
+# GPG SSH settings
+if [ -z "$SSH_AUTH_SOCK" ];
+then
+  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+  gpgconf --launch gpg-agent
+fi
+
 # Launch Firefox with wayland
 export MOZ_ENABLE_WAYLAND=1
 
@@ -162,9 +178,6 @@ gsettings set org.gnome.desktop.wm.preferences theme "Nordic"
 #
 # STARTUP
 #
-
-# wayland runtime dir
-export XDG_RUNTIME_DIR=/var/run/user/`id -u`
 
 # auto-start sway on tty1
 if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
