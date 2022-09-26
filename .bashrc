@@ -144,6 +144,9 @@ gsettings set org.gnome.desktop.wm.preferences theme "Nordic"
 # STARTUP
 #
 
+# wayland runtime dir
+export XDG_RUNTIME_DIR=/var/run/user/`id -u`
+
 # auto-start sway on tty1
 if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
     exec sway
