@@ -257,6 +257,10 @@ exec swayidle -w \
   resume 'swaymsg "output * dpms on"' \
   before-sleep 'swaylock -f'
 
+# Sync before sleep
+exec swayidle -w \
+  before-sleep '~/scripts/sync-if-card-unlocked.sh'
+
 include /etc/sway/config.d/*
 
 # start waybar
