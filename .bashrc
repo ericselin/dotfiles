@@ -74,11 +74,6 @@ __prompt_command() {
   # add default user@host and working dir
   PS1="$PS1$blue\u@\h$reset \w"
 
-  # add battery status and percentage
-  local bat=[`sysctl -n hw.acpi.battery.state`:`sysctl -n hw.acpi.battery.life`]
-  # columns forward and backward ansi codes used
-  PS1="$PS1$magenta\033[${COLUMNS}C\033[$((${#bat}-1))D$bat$reset"
-
   # if we're in a git folder, get the branch name
   if git rev-parse --git-dir > /dev/null 2>&1; then
     # set style based on git status
