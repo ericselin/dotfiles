@@ -16,7 +16,7 @@ bindswitch --reload --locked {
 }
 exec_always ~/scripts/set-laptop-output-based-on-lid.sh $laptop
 # Rotate work screen to portrait
-output $work transform 270
+#output $work transform 270
 
 # nord theme colors
 set $nord0 #2e3440
