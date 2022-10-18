@@ -62,6 +62,7 @@ __prompt_command() {
   local green='\e[32m'
   local red='\e[31m'
   local bold='\e[1m'
+  local magenta='\e[35m'
   local reset='\e[0m'
 
   # clear prompt
@@ -72,6 +73,11 @@ __prompt_command() {
 
   # add default user@host and working dir
   PS1="$PS1$blue\u@\h$reset \w"
+
+  # add battery status and percentage
+  local bat=[`sysctl -n hw.acpi.battery.state`:`sysctl -n hw.acpi.battery.life`]
+  # columns forward and backward ansi codes used
+  PS1="$PS1$magenta\033[${COLUMNS}C\033[$((${#bat}-1))D$bat$reset"
 
   # if we're in a git folder, get the branch name
   if git rev-parse --git-dir > /dev/null 2>&1; then
@@ -104,6 +110,12 @@ __source_completion() {
 __source_completion /usr/share/git/completion/git-completion.bash
 __source_completion /usr/share/fzf/completion.bash
 __source_completion /usr/share/fzf/key-bindings.bash
+# freebsd bash-completion
+[[ $PS1 && -f /usr/local/share/bash-completion/bash_completion.sh ]] && \
+	source /usr/local/share/bash-completion/bash_completion.sh
+# freebsd paths for the above
+__source_completion /usr/local/share/examples/fzf/shell/completion.bash
+__source_completion /usr/local/share/examples/fzf/shell/key-bindings.bash
 
 # Add completion for dot
 __git_complete dot __git_main
@@ -120,6 +132,16 @@ export PATH="$HOME/go/bin:$PATH"
 
 # Add deno installs to the path
 export PATH="$HOME/.deno/bin:$PATH"
+
+# wayland runtime dir
+export XDG_RUNTIME_DIR=/var/run/user/`id -u`
+
+# GPG SSH settings
+if [ -z "$SSH_AUTH_SOCK" ];
+then
+  export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+  gpgconf --launch gpg-agent
+fi
 
 # Launch Firefox with wayland
 export MOZ_ENABLE_WAYLAND=1
