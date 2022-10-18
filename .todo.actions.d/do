@@ -15,7 +15,7 @@ completed="$@"
 # list projects
 for task_num; do
 # find first completed item projects (excl. +next and +wf)
-  project=$(sed -n "$task_num"p $TODO_DIR/todo.txt | grep -Eo '\B\+\S+' | grep -Ev '\+next|+wf')
+  project=$(sed -n "$task_num"p $TODO_DIR/todo.txt | grep -Eo '\B\+\S+' | grep -Ev '\+next|\+wf')
   projects="$projects $project"
 done
 
