@@ -118,6 +118,9 @@ bindsym {
   $mod+Shift+C reload
   # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
   $mod+Shift+Z restart
+
+  # grab a screenshot
+  $mod+semicolon exec grim -g "$(slurp)"
 }
 
 # styling of popup windows
