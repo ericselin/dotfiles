@@ -16,7 +16,7 @@ bindswitch --reload --locked {
 }
 exec_always ~/scripts/set-laptop-output-based-on-lid.sh $laptop
 # Rotate work screen to portrait
-#output $work transform 270
+output $work transform 270
 
 # nord theme colors
 set $nord0 #2e3440
@@ -51,6 +51,9 @@ default_border pixel 1
 
 font Source Code Pro 11
 
+# Windows key as modifier
+set $mod Mod4
+
 # Special button handling
 bindsym {
   # Use pactl to adjust volume in PulseAudio.
@@ -66,10 +69,14 @@ bindsym {
   # Use brightnessctl for adjusting backlight
   XF86MonBrightnessDown exec brightnessctl set 10%-
   XF86MonBrightnessUp exec brightnessctl set +10%
+
+  # use rotary encoder to resize
+  $mod+XF86AudioRaiseVolume resize grow height 10
+  $mod+XF86AudioLowerVolume resize shrink height 10
+  $mod+shift+XF86AudioRaiseVolume resize grow width 10
+  $mod+shift+XF86AudioLowerVolume resize shrink width 10
 }
 
-# Windows key as modifier
-set $mod Mod4
 # command used to launch popups
 set $popup ~/scripts/launch-popup.sh
 
@@ -240,15 +247,15 @@ mode "resize" {
   bindsym s resize grow width 10 px or 10 ppt
 
   # same bindings, but for the arrow keys
-  bindsym Left resize shrink width 10 px or 10 ppt
-  bindsym Down resize grow height 10 px or 10 ppt
-  bindsym Up resize shrink height 10 px or 10 ppt
-  bindsym Right resize grow width 10 px or 10 ppt
+  bindsym Left resize shrink width 10
+  bindsym Down resize grow height 10
+  bindsym Up resize shrink height 10
+  bindsym Right resize grow width 10
 
   # back to normal: Enter or Escape or $mod+r
   bindsym Return mode "default"
   bindsym Escape mode "default"
-  bindsym $mod+p mode "default"
+  bindsym $mod+r mode rdefault"
 }
 
 bindsym $mod+r mode "resize"
