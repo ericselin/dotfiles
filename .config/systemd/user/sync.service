@@ -1,7 +1,7 @@
 [Unit]
 Description=Umbrella synchronization service
-Requires=mbsync.service vdirsyncer.service todo-sync.service sync.gopass.service
-After=mbsync.service vdirsyncer.service todo-sync.service sync.gopass.service
+Requires=mbsync.service vdirsyncer.service sync.gopass.service
+After=mbsync.service vdirsyncer.service sync.gopass.service
 
 [Service]
 Type=oneshot
