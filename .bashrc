@@ -19,6 +19,7 @@ alias ls='ls --color=auto'
 
 # easier agenda
 alias k='khal list'
+alias cdt='cd $(mktemp -d)'
 
 # todo.txt
 alias t='todo.sh'
