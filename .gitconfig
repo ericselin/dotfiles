@@ -9,9 +9,10 @@
 	process = git-lfs filter-process
 	required = true
 [alias]
+	pusht = push --follow-tags
 	lg = !git --no-pager log --graph --oneline --all -20
-  lod = log --graph --all --format='%C(auto)%h %C(blue ul)%ad%Creset %C(magenta ul)%cd%C(auto) %d %s' --date=format:'%a %d.%m %H:%M:%S'
-  unreleased = !git log $(git describe --tags --abbrev=0)..HEAD
+	lod = log --graph --all --format='%C(auto)%h %C(blue ul)%ad%Creset %C(magenta ul)%cd%C(auto) %d %s' --date=format:'%a %d.%m %H:%M:%S'
+	unreleased = !git log $(git describe --tags --abbrev=0)..HEAD
 [init]
 	defaultBranch = main
 [core]

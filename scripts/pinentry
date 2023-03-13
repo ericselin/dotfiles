@@ -1,0 +1,7 @@
+#!/bin/bash
+echo "$@" > /tmp/args
+env >> /tmp/args
+#alacritty -e pinentry-curses "$@"
+#alacritty -e gpg-connect-agent updatestartuptty &
+exec pinentry-curses "$@"
+#exec /usr/bin/pinentry-curses "$@"

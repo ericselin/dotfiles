@@ -16,7 +16,7 @@ bindswitch --reload --locked {
 }
 exec_always ~/scripts/set-laptop-output-based-on-lid.sh $laptop
 # Rotate work screen to portrait
-output $work transform 270
+output $work transform 90
 
 # nord theme colors
 set $nord0 #2e3440
@@ -90,27 +90,19 @@ bindsym {
   # lock screen
   $mod+l exec "swaylock -f"
 
-  # launch program
-  $mod+m exec $popup ~/scripts/launch-program.sh
+  # launch fzmenu
+  $mod+m exec $popup '~/scripts/fzmenu.sh ~/scripts/fzmenu'
 
   # start a terminal
   $mod+Return exec alacritty
 
   # pick password to copy (G for gopass)
-  $mod+g exec $popup ~/scripts/copy-password.sh
+  # (all kinds of escaping needed for the spaces to work)
+  $mod+g exec $popup "~/scripts/fzmenu/Copy\ password\ using\ GoPass"
 
   # open browser
   $mod+space exec firefox
   $mod+Shift+space exec firefox -P sandbox
-
-  # emoji picker
-  $mod+period exec $popup ~/scripts/emoji-picker.sh
-
-  # connect to bluetooth
-  $mod+b exec $popup ~/scripts/connect-bluetooth.sh
-
-  # connect to wifi
-  $mod+w exec $popup ~/scripts/connect-wifi.sh
 
   # pomodoro starting and stopping
   $mod+p exec --no-startup-id $HOME/scripts/pomodoro.sh

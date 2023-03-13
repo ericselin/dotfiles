@@ -1,0 +1,27 @@
+#!/bin/bash
+
+bluetoothctl power on
+clear
+
+fzfopts='--layout=reverse --info=hidden'
+newcmd='[Pair with new device]'
+
+device=$((echo -e "$newcmd\n"; bluetoothctl devices) | fzf $fzfopts --prompt='Connect to bluetooth device > ')
+
+[ -z "$device" ] && exit
+
+if [ "$device" == "$newcmd" ]; then
+  # bluetoothctl scan on 1>/dev/null &
+  # echo 'Finding devices...'
+  # echo '(In the fzf window, press CTRL-R)'
+  # sleep 5
+  bluetoothctl --timeout 5 scan on
+  device=$(bluetoothctl devices | fzf $fzfopts --prompt='Pair with device > ')
+  # kill %1
+fi
+
+[ -z "$device" ] && exit
+
+devicemac=$(echo "$device" | grep -Eo '(\w{2}:?){6}')
+
+bluetoothctl connect $devicemac

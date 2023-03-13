@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo 'Syncing (running sync.service)...'
+systemctl --user --wait start sync.service
+pkill -RTMIN+8 waybar
