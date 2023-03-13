@@ -111,8 +111,6 @@ bindsym {
   # kill focused window
   $mod+Escape kill
 
-  # edit (any dotfiles repo) config file
-  $mod+c exec $popup ~/scripts/edit-config-file.sh
   # reload the configuration file
   $mod+Shift+C reload
   # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
