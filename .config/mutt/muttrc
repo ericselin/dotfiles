@@ -22,11 +22,8 @@ set record=+"Sent Items"
 set postponed=+Drafts
 set header_cache=~/.cache/mutt
 
-# do not save sent messages, these are saved by gmail automatically
-#unset record
-
-# nvim editor
-set editor = "nvim"
+# helix editor
+set editor = "helix"
 
 # messages that are of a todo nature
 unset confirmappend
@@ -46,3 +43,6 @@ bind pager g top
 bind pager G bottom
 bind attach,index g first-entry
 bind attach,index G last-entry
+
+# save to archive
+macro index,pager S "<save-message>=Archive\n"

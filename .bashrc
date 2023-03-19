@@ -9,7 +9,7 @@ set -o vi
 bind -m vi-command '"h": backward-char'
 bind -m vi-command '"s": forward-char'
 
-export EDITOR=nvim
+export EDITOR=helix
 
 #
 # ALIASES
