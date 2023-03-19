@@ -31,7 +31,7 @@ run-parts ~/scripts/backup.home.d --arg=backup
 
 run-parts ~/scripts/backup.cloud.d
 
-log 'Backing up: gmail'
+log 'Backing up: email'
 
 mbsync -a
 mkdir -p mail
