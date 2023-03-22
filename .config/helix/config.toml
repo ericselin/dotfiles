@@ -1,0 +1,35 @@
+theme = "nord"
+
+[editor]
+line-number = "relative"
+mouse = false
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[keys.normal]
+t = "move_line_down"
+n = "move_line_up"
+s = "move_char_right"
+# untiL
+l = "find_till_char"
+L = "till_prev_char"
+# seleKt
+k = "select_regex"
+K = "split_selection"
+# search Jump
+j = "search_next"
+# reflow (wrapping)
+R = ":reflow"
+
+[keys.select]
+t = "extend_line_down"
+n = "extend_line_up"
+s = "extend_char_right"
+# untiL
+l = "extend_till_char"
+L = "extend_till_prev_char"
+# search Jump
+j = "extend_search_next"
