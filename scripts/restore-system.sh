@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Restore system according to dotfiles
 # This script should be indepodent, so it can be run

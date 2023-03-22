@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 # This script turns the internal screen on or off based
 # on the current state of the lid

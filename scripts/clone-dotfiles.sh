@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Clone dotfiles repository as a bare repo in the home directory
 

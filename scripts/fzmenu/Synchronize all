@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo 'Syncing (running sync.service)...'
 systemctl --user --wait start sync.service

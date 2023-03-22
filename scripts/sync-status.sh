@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 output() {
   echo "{\"text\": \"$1\", \"tooltip\": \"$2\", \"class\": \"$3\"}"

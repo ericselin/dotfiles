@@ -9,7 +9,7 @@ set -o vi
 bind -m vi-command '"h": backward-char'
 bind -m vi-command '"s": forward-char'
 
-export EDITOR=helix
+export EDITOR=hx
 
 #
 # ALIASES
@@ -19,12 +19,8 @@ alias ls='ls --color=auto'
 
 # easier agenda
 alias k='khal list'
-alias cdt='cd $(mktemp -d)'
 
-# todo.txt
-alias t='todo.sh'
-export TODOTXT_DEFAULT_ACTION='next'
-export TODOTXT_PRESERVE_LINE_NUMBERS='1'
+alias cdt='cd $(mktemp -d)'
 
 # Set alias for managing the dotfiles git repo as per
 # https://www.atlassian.com/git/tutorials/dotfiles
@@ -43,14 +39,27 @@ alias ll='ls -la'
 # sync email before opening mutt
 alias mutts='mbsync --pull --new mailfence && mutt'
 
-# use fd in fzf
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND='fd --type d --hidden --exclude .git'
 
 # use screenshot dir for grim
 mkdir -p ~/screenshots
 export GRIM_DEFAULT_DIR=~/screenshots
+
+#
+# FZF
+#
+
+# source keybindings and completion
+if command -v fzf-share >/dev/null; then
+  source "$(fzf-share)/key-bindings.bash"
+  source "$(fzf-share)/completion.bash"
+fi
+
+# use fd in fzf (if available)
+if command -v fd >/dev/null; then
+  export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_ALT_C_COMMAND='fd --type d --hidden --exclude .git'
+fi
 
 #
 # PROMPT
@@ -76,8 +85,12 @@ __prompt_command() {
   # if exit code > 0, add that on its own line in red
   [ $exit -gt 0 ] && PS1="$red$bold$exit$reset\n"
 
-  # add default user@host and working dir
-  PS1="$PS1$blue\u@\h$reset \w"
+  # add default user@host
+  PS1="$PS1$blue\u@\h"
+  # add special note in red if in nix-shell
+  [ "$IN_NIX_SHELL" ] && PS1="$PS1$magenta:nix-shell"
+  # add working dir
+  PS1="$PS1$reset \w"
 
   # if we're in a git folder, get the branch name
   if git rev-parse --git-dir > /dev/null 2>&1; then
@@ -107,15 +120,18 @@ __source_completion() {
     source "$file"
   fi
 }
-__source_completion /usr/share/git/completion/git-completion.bash
+
 __source_completion /usr/share/fzf/completion.bash
 __source_completion /usr/share/fzf/key-bindings.bash
+__source_completion /usr/share/git/completion/git-completion.bash
 # freebsd bash-completion
 [[ $PS1 && -f /usr/local/share/bash-completion/bash_completion.sh ]] && \
 	source /usr/local/share/bash-completion/bash_completion.sh
 # freebsd paths for the above
 __source_completion /usr/local/share/examples/fzf/shell/completion.bash
 __source_completion /usr/local/share/examples/fzf/shell/key-bindings.bash
+# nix paths
+__source_completion /run/current-system/sw/share/bash-completion/completions/git
 
 # Add completion for dot
 __git_complete dot __git_main
@@ -172,14 +188,7 @@ if [ "$TERM" = "linux" ]; then
 fi
 
 # GTK nord theme
-gsettings set org.gnome.desktop.interface gtk-theme "Nordic"
-gsettings set org.gnome.desktop.wm.preferences theme "Nordic"
-
-#
-# STARTUP
-#
-
-# auto-start sway on tty1
-if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
-    exec sway
+if command -v gsettings >/dev/null; then
+  gsettings set org.gnome.desktop.interface gtk-theme "Nordic"
+  gsettings set org.gnome.desktop.wm.preferences theme "Nordic"
 fi

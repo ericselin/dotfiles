@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 # This is the directory where the .git folder lives
 DOTS_GIT=$HOME/.dot.git
@@ -10,5 +10,5 @@ chosen="$(echo -e "$dotfile_paths" | fzf --info=hidden --layout=reverse --prompt
 
 # Launch vim via bash, and make it interactive so it'll all work (trial and error)
 chosen="$HOME/$chosen"
-[ -f "$chosen" ] && swaymsg exec "alacritty -e /bin/sh -ic 'helix $chosen'"
+[ -f "$chosen" ] && swaymsg exec "alacritty -e /bin/sh -ic 'hx $chosen'"
 

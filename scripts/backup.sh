@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 export BACKUP_LOG="$HOME/.backup_log"
 export BACKUP_MOUNT="/backup"

@@ -16,7 +16,7 @@
 [init]
 	defaultBranch = main
 [core]
-	editor = nvim
+	editor = hx
 [pull]
 	rebase = false
 [merge]
