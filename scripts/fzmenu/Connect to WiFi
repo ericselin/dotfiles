@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 
+set -e
+
 ssid=$(iwctl station wlan0 get-networks | fzf --layout=reverse --header-lines 4 --ansi | awk '{print $1}')
 [ -n "$ssid" ] && iwctl station wlan0 connect $ssid

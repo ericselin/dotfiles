@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 # Original from Luke Smith:
 # https://github.com/LukeSmithxyz/voidrice/blob/master/.local/bin/dmenuunicode
 # The famous "get a menu of emojis to copy" script.

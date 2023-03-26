@@ -1,3 +1,5 @@
 #!/bin/sh
 
+set -e
+
 swaymsg output DP-2 transform 0
