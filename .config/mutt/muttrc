@@ -26,6 +26,7 @@ set header_cache=~/.cache/mutt
 set editor = "hx"
 
 # view html emails (from arch wiki)
+set mailcap_path = ~/.config/mutt/mailcap
 auto_view text/html
 alternative_order text/plain text/html
 macro attach 'V' "<pipe-entry>iconv -c --to-code=UTF8 > /tmp/mutt.html<enter><shell-escape>firefox /tmp/mutt.html<enter>"
