@@ -1,6 +1,24 @@
-# these entries exist mainly to make the untracked files adder more relevant
-/.dot.git
+# source code is already in git
+/src
+# firefox settings
+/.mozilla
+/Downloads
+# mail, calendar and other important
+/.mail
+/.calendars
+/.ssh
 /.gnupg
+# cache and other local files
+/.nix-profile
+/.pki
+/.local
 /.cache
-
+/.vdirsyncer
+/go
 **/*.swp
+# history
+/.bash_history
+/.lesshst
+/.sqlite_history
+# exclude the git folder itself
+/.dot.git
