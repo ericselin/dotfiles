@@ -1,8 +1,0 @@
-[Unit]
-Description=Sync gopass
-
-[Service]
-Type=oneshot
-ExecStartPre=/usr/bin/gpg --card-status
-ExecStart=/usr/bin/gopass sync
-Environment="GOPASS_NO_NOTIFY=true"
