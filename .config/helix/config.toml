@@ -22,7 +22,7 @@ K = "split_selection"
 # search Jump
 j = "search_next"
 # reflow (wrapping)
-R = ":reflow"
+"," = ":reflow"
 
 [keys.select]
 t = "extend_line_down"

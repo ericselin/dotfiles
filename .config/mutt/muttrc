@@ -23,7 +23,12 @@ set postponed=+Drafts
 set header_cache=~/.cache/mutt
 
 # helix editor
-set editor = "helix"
+set editor = "hx"
+
+# view html emails (from arch wiki)
+auto_view text/html
+alternative_order text/plain text/html
+macro attach 'V' "<pipe-entry>iconv -c --to-code=UTF8 > /tmp/mutt.html<enter><shell-escape>firefox /tmp/mutt.html<enter>"
 
 # messages that are of a todo nature
 unset confirmappend
