@@ -22,7 +22,10 @@ K = "split_selection"
 # search Jump
 j = "search_next"
 # reflow (wrapping)
-"," = ":reflow"
+"minus" = ":reflow"
+# paragraph jumping
+"}" = "goto_next_paragraph"
+"{" = "goto_prev_paragraph"
 
 [keys.select]
 t = "extend_line_down"
