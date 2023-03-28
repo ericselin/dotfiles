@@ -41,8 +41,8 @@ alias mutts='mbsync --pull --new mailfence && mutt'
 
 
 # use screenshot dir for grim
-mkdir -p ~/screenshots
-export GRIM_DEFAULT_DIR=~/screenshots
+mkdir -p /tmp/screenshots
+export GRIM_DEFAULT_DIR=/tmp/screenshots
 
 #
 # FZF
