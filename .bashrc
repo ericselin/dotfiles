@@ -192,3 +192,6 @@ if command -v gsettings >/dev/null; then
   gsettings set org.gnome.desktop.interface gtk-theme "Nordic"
   gsettings set org.gnome.desktop.wm.preferences theme "Nordic"
 fi
+
+# use direnv to get auto-loading nix-shell
+eval "$(direnv hook bash)"
