@@ -18,8 +18,10 @@ Inbox ~/.mail/mailfence/Inbox
 Channel mailfence
 Far :mailfence-remote:
 Near :mailfence-local:
+Create Near
 
 Channel mailfence-all
 Far :mailfence-remote:
 Near :mailfence-local:
 Pattern * !INBOX !Trash !Spam?
+Create Near
