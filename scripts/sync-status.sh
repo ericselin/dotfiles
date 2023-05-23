@@ -17,9 +17,9 @@ if ! gpg --card-status > /dev/null 2>&1; then
 fi
 
 # see if sync more than 20 min age
-now=$(date +%s)
-lastsync=$(systemctl --user show sync -P ExecMainStartTimestamp)
-lastsyncepoch=$(date -d "$lastsync" +%s)
-if (( $now - $lastsyncepoch > 20 * 60 )) ; then
-  output 'sync delay' "last sync at $lastsync" warning
+twenty_min_ago=$(date -d '20 minutes ago' +%s)
+last_log=$(journalctl --user -u sync -n 1 -o short-iso-precise | awk '{print $1}')
+last_log_epoch=$(date -d "$last_log" +%s)
+if (( last_log_epoch < twenty_min_ago )) ; then
+  output 'sync delay' "last sync at $last_log" warning
 fi
