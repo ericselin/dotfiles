@@ -1,24 +1,13 @@
 [Unit]
-Description=Umbrella synchronization service
+Description=Synchronization service calling sync script
 
 [Service]
 Type=oneshot
-# set path to enable gopass bin to work for retrieving passwords
+# set path, otherwise commands will not work
 Environment="PATH=/etc/profiles/per-user/eric/bin:/run/current-system/sw/bin"
 # do not notify status from gopass
 # Environment="GOPASS_NO_NOTIFY=true"
 # gopass uses ssh and so needs the ssh auth sock
 Environment="SSH_AUTH_SOCK=/run/user/1000/gnupg/S.gpg-agent.ssh"
 
-# only sync when key inserted
-ExecStartPre=/run/current-system/sw/bin/gpg --card-status
-
-# sync calendar
-ExecStart=/etc/profiles/per-user/eric/bin/vdirsyncer sync
-# sync mail
-ExecStart=/etc/profiles/per-user/eric/bin/mbsync -Va
-# sync passwords
-ExecStart=/etc/profiles/per-user/eric/bin/gopass sync
-
-# update waybar
-ExecStartPost=/run/current-system/sw/bin/pkill -RTMIN+8 waybar
+ExecStart=%h/scripts/sync-if-card-unlocked.sh
