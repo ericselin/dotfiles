@@ -56,9 +56,9 @@ fi
 
 # use fd in fzf (if available)
 if command -v fd >/dev/null; then
-  export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
+  export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git --exclude node_modules'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-  export FZF_ALT_C_COMMAND='fd --type d --hidden --exclude .git'
+  export FZF_ALT_C_COMMAND='fd --type d --hidden --exclude .git --exclude node_modules'
 fi
 
 #
@@ -144,7 +144,7 @@ __git_complete dot __git_main
 export PATH="$HOME/utilities:$PATH"
 
 # Add go bin to path
-export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/.local/go/bin:$PATH"
 
 # Add deno installs to the path
 export PATH="$HOME/.deno/bin:$PATH"

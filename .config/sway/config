@@ -102,7 +102,7 @@ bindsym {
 
   # open browser
   $mod+space exec firefox
-  $mod+Shift+space exec firefox -P sandbox
+  $mod+Shift+space exec chromium
 
   # pomodoro starting and stopping
   $mod+p exec --no-startup-id $HOME/scripts/pomodoro.sh
