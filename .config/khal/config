@@ -1,10 +1,10 @@
 [calendars]
 
-[[mailfence]]
-path = ~/.calendars/mailfence/events
+[[personal]]
+path = ~/.calendars/personal
 
 [default]
-default_calendar = mailfence
+default_calendar = personal
 timedelta = 5d
 
 [view]

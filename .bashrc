@@ -58,7 +58,7 @@ fi
 if command -v fd >/dev/null; then
   export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git --exclude node_modules'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-  export FZF_ALT_C_COMMAND='fd --type d --hidden --exclude .git --exclude node_modules'
+  export FZF_ALT_C_COMMAND='fd --type d --no-ignore --exclude node_modules'
 fi
 
 #

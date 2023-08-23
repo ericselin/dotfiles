@@ -22,3 +22,4 @@
 /.sqlite_history
 # exclude the git folder itself
 /.dot.git
+/cloud

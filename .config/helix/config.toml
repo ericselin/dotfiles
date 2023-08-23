@@ -27,6 +27,9 @@ j = "search_next"
 "}" = "goto_next_paragraph"
 "{" = "goto_prev_paragraph"
 
+[keys.normal."space"]
+o = "file_picker_in_current_buffer_directory"
+
 [keys.select]
 t = "extend_line_down"
 n = "extend_line_up"

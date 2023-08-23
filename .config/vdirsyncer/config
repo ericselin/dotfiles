@@ -1,22 +1,22 @@
 [general]
 status_path = "~/.vdirsyncer/status/"
 
-[pair mailfence]
-a = "mailfence_calendar"
-b = "local_calendar"
-collections = ["from a", "from b"]
+[pair personal]
+a = "cloud"
+b = "local"
+collections = ["personal"]
 metadata = ["color"]
 
-[storage local_calendar]
+[storage local]
 type = "filesystem"
-path = "~/.calendars/mailfence"
+path = "~/.calendars"
 fileext = ".ics"
 
-[storage mailfence_calendar]
+[storage cloud]
 type = "caldav"
 item_types = ["VEVENT"]
 start_date = "datetime.now() - timedelta(days=31)"
-end_date = "datetime.now() + timedelta(days=31)"
-url = "https://mailfence.com/dav/eric.selin/private/events"
-username = "eric.selin"
-password.fetch = ["command", "gopass", "show", "-o", "websites/mailfence.com/eric.selin"]
+end_date = "datetime.now() + timedelta(days=365) * 10"
+url = "https://cloud.ericselin.dev/remote.php/dav/calendars/admin/personal/"
+username = "admin"
+password.fetch = ["command", "gopass", "show", "-o", "websites/cloud.ericselin.dev/admin"]

@@ -15,14 +15,20 @@ __heading () {
   echo
 }
 
-__heading 'syncing calendar...'
-vdirsyncer sync
-
 __heading 'syncing email...'
 mbsync -Va
 
+__heading 'syncing calendar...'
+vdirsyncer sync
+
 __heading 'syncing passwords...'
 gopass sync
+
+__heading 'syncing files...'
+nextcloudcmd \
+  --user admin \
+  --password "$(gopass show -o 'websites/cloud.ericselin.dev/admin')" \
+  ~/cloud https://cloud.ericselin.dev
 
 __heading 'updating date and waybar...'
 date -Iseconds > ~/.cache/sync-date
