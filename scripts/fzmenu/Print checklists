@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -e
+
+soffice -p /home/eric/cloud/Checklists.odt

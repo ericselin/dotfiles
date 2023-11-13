@@ -1,22 +1,38 @@
 [general]
 status_path = "~/.vdirsyncer/status/"
 
-[pair personal]
-a = "cloud"
-b = "local"
+[pair calendar]
+a = "calendar_cloud"
+b = "calendar_local"
 collections = ["personal"]
 metadata = ["color"]
 
-[storage local]
+[storage calendar_local]
 type = "filesystem"
 path = "~/.calendars"
 fileext = ".ics"
 
-[storage cloud]
+[storage calendar_cloud]
 type = "caldav"
 item_types = ["VEVENT"]
 start_date = "datetime.now() - timedelta(days=31)"
 end_date = "datetime.now() + timedelta(days=365) * 10"
-url = "https://cloud.ericselin.dev/remote.php/dav/calendars/admin/personal/"
+url = "https://selin.cloud/remote.php/dav/calendars/admin/personal/"
 username = "admin"
-password.fetch = ["command", "gopass", "show", "-o", "websites/cloud.ericselin.dev/admin"]
+password.fetch = ["command", "gopass", "show", "-o", "websites/selin.cloud/admin"]
+
+[pair contacts]
+a = "contacts_local"
+b = "contacts_cloud"
+collections = ["contacts"]
+
+[storage contacts_local]
+type = "filesystem"
+path = "~/.contacts"
+fileext = ".vcf"
+
+[storage contacts_cloud]
+type = "carddav"
+url = "https://selin.cloud/remote.php/dav/contacts/"
+username = "admin"
+password.fetch = ["command", "gopass", "show", "-o", "websites/selin.cloud/admin"]

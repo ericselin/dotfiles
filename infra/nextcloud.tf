@@ -1,5 +1,5 @@
-resource "hcloud_server" "nextcloud_srv" {
-  name               = "nextcloud"
+resource "hcloud_server" "nextcloud_server" {
+  name               = "selin.cloud"
   location           = "hel1"
   image              = "ubuntu-22.04"
   server_type        = "cx31"
@@ -9,6 +9,11 @@ resource "hcloud_server" "nextcloud_srv" {
   ssh_keys           = ["yubikey"]
   user_data          = <<-EOT
     #!/bin/bash
+    mkdir /mnt/backup /mnt/data
+    echo "${hcloud_volume.nextcloud_backup.linux_device} /mnt/backup ext4 discard,nofail,defaults 0 0" >> /etc/fstab
+    echo "${hcloud_volume.nextcloud_data.linux_device} /mnt/data ext4 discard,nofail,defaults 0 0" >> /etc/fstab
+    sleep 10
+    mount -a
     curl -fsSL https://get.docker.com | sudo sh
     sudo docker run -d \
       --sig-proxy=false \
@@ -19,32 +24,53 @@ resource "hcloud_server" "nextcloud_srv" {
       --publish 8443:8443 \
       --volume nextcloud_aio_mastercontainer:/mnt/docker-aio-config \
       --volume /var/run/docker.sock:/var/run/docker.sock:ro \
+      --env NEXTCLOUD_DATADIR="/mnt/data" \
     nextcloud/all-in-one:latest
     EOT
   firewall_ids       = [hcloud_firewall.nextcloud_fw.id]
 }
 
-import {
-  to = gandi_livedns_record.nextcloud_dns
-  id = "ericselin.dev/cloud/A"
+resource "hcloud_volume" "nextcloud_data" {
+  name              = "nextcloud-data"
+  delete_protection = true
+  size              = 250
+  location          = "hel1"
+  format            = "ext4"
 }
 
-resource "gandi_livedns_record" "nextcloud_dns" {
-  zone = data.gandi_domain.esdev.id
-  name = "cloud"
+resource "hcloud_volume" "nextcloud_backup" {
+  name              = "nextcloud-backup"
+  delete_protection = true
+  size              = 500
+  location          = "hel1"
+  format            = "ext4"
+}
+
+resource "hcloud_volume_attachment" "nextcloud_data_attachment" {
+  volume_id = hcloud_volume.nextcloud_data.id
+  server_id = hcloud_server.nextcloud_server.id
+  automount = false
+}
+
+resource "hcloud_volume_attachment" "nextcloud_backup_attachment" {
+  volume_id = hcloud_volume.nextcloud_backup.id
+  server_id = hcloud_server.nextcloud_server.id
+  automount = false
+}
+
+resource "gandi_livedns_record" "nextcloud_dns_record" {
+  zone = data.gandi_domain.selin_cloud.id
+  name = "@"
   type = "A"
-  ttl  = 10800
+  ttl  = 600
+  # ttl  = 10800
   values = [
-    hcloud_server.nextcloud_srv.ipv4_address
+    hcloud_server.nextcloud_server.ipv4_address
   ]
 }
 
-data "gandi_domain" "esdev" {
-  name = "ericselin.dev"
-}
-
-output "primary_ip" {
-  value = hcloud_server.nextcloud_srv.ipv4_address
+data "gandi_domain" "selin_cloud" {
+  name = "selin.cloud"
 }
 
 resource "hcloud_ssh_key" "yubikey" {

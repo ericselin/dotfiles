@@ -36,10 +36,6 @@ alias yayr='yay -Qqe | fzf --multi --preview "yay -Qi {1}" | xargs -ro yay -Rns'
 alias l='ls -l'
 alias ll='ls -la'
 
-# sync email before opening mutt
-alias mutts='mbsync --pull --new mailfence && mutt'
-
-
 # use screenshot dir for grim
 mkdir -p /tmp/screenshots
 export GRIM_DEFAULT_DIR=/tmp/screenshots
@@ -185,12 +181,6 @@ if [ "$TERM" = "linux" ]; then
     echo -en "\e]PE8fbcbb"
     echo -en "\e]PFeceff4"
     clear #for background artifacting
-fi
-
-# GTK nord theme
-if command -v gsettings >/dev/null; then
-  gsettings set org.gnome.desktop.interface gtk-theme "Nordic"
-  gsettings set org.gnome.desktop.wm.preferences theme "Nordic"
 fi
 
 # use direnv to get auto-loading nix-shell

@@ -1,27 +1,32 @@
+[language-server.deno]
+command = "deno"
+args = ["lsp"]
+config = { enable = true, lint = true, unstable = true }
+
 [[language]]
 name = "javascript"
 shebangs = ["deno", "node"]
 roots = ["deno.json", "package.json", "tsconfig.json"]
-config = { enable = true, lint = true, unstable = true }
-language-server = { command = "deno", args = ["lsp"], language-id = "javascript" }
+language-servers = [ "deno" ]
+auto-format = true
 
 [[language]]
 name = "jsx"
 shebangs = ["deno", "node"]
 roots = ["deno.json", "package.json", "tsconfig.json"]
-config = { enable = true, lint = true, unstable = true }
-language-server = { command = "deno", args = ["lsp"], language-id = "javascriptreact" }
+language-servers = [ "deno" ]
+auto-format = true
 
 [[language]]
 name = "typescript"
 shebangs = ["deno", "node"]
 roots = ["deno.json", "package.json", "tsconfig.json"]
-config = { enable = true, lint = true, unstable = true }
-language-server = { command = "deno", args = ["lsp"], language-id = "typescript" }
+language-servers = [ "deno" ]
+auto-format = true
 
 [[language]]
 name = "tsx"
 shebangs = ["deno", "node"]
 roots = ["deno.json", "package.json", "tsconfig.json"]
-config = { enable = true, lint = true, unstable = true }
-language-server = { command = "deno", args = ["lsp"], language-id = "typescriptreact" }
+language-servers = [ "deno" ]
+auto-format = true

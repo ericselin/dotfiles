@@ -5,6 +5,10 @@ input "type:keyboard" {
   xkb_numlock enable
 }
 
+input "12951:6505:ZSA_Technology_Labs_Moonlander_Mark_I" {
+  xkb_layout "us"
+}
+
 # Monitor identifiers
 set $laptop eDP-1
 set $work 'Lenovo Group Limited LEN P27u-10 0x00005F41'
@@ -57,10 +61,10 @@ set $mod Mod4
 # Special button handling
 bindsym {
   # Use pactl to adjust volume in PulseAudio.
-  XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-  XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-  XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-  XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+  XF86AudioRaiseVolume exec --no-startup-id wpctl set-volume -l 1.5 @DEFAULT_SINK@ 5%+
+  XF86AudioLowerVolume exec --no-startup-id wpctl set-volume @DEFAULT_SINK@ 5%-
+  XF86AudioMute exec --no-startup-id wpctl set-mute @DEFAULT_SINK@ toggle
+  XF86AudioMicMute exec --no-startup-id wpctl set-mute @DEFAULT_SOURCE@ toggle
   # Use playerctl for play-pause and next, prev
   XF86AudioPlay exec --no-startup-id playerctl play-pause
   XF86AudioPause exec --no-startup-id playerctl play-pause
@@ -269,3 +273,7 @@ exec waybar
 # configure screen sharing
 # https://github.com/emersion/xdg-desktop-portal-wlr#running
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+# from https://nixos.wiki/wiki/Sway
+exec dbus-sway-environment
+exec configure-gtk

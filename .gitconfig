@@ -17,6 +17,7 @@
 	defaultBranch = main
 [core]
 	editor = hx
+	quotePath = false
 [pull]
 	rebase = false
 [merge]

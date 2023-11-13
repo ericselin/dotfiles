@@ -19,9 +19,43 @@ Channel mailfence
 Far :mailfence-remote:
 Near :mailfence-local:
 Create Near
+Sync All
+Expunge Both
 
-Channel mailfence-all
+Channel mailfence-folders
 Far :mailfence-remote:
 Near :mailfence-local:
-Pattern * !INBOX !Trash !Spam?
+Patterns * !INBOX !"Sent Items" !Sent
 Create Near
+Sync All
+Expunge Both
+
+Channel mailfence-sent
+Far :mailfence-remote:"Sent Items"
+Near :mailfence-local:Sent
+Create Near
+Sync All
+Expunge Both
+
+IMAPAccount gandi-selin-account
+Host mail.gandi.net
+User eric@selin.email
+PassCmd "gopass show -o websites/webmail.gandi.net/eric@selin.email"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore gandi-selin-remote
+Account gandi-selin-account
+
+MaildirStore gandi-selin-local
+SubFolders Verbatim
+Path ~/.mail/gandi-selin/
+Inbox ~/.mail/gandi-selin/Inbox
+
+Channel gandi-selin
+Far :gandi-selin-remote:
+Near :gandi-selin-local:
+Patterns *
+Create Near
+Sync All
+Expunge Both

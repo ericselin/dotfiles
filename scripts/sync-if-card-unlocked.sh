@@ -17,6 +17,8 @@ __heading () {
 
 __heading 'syncing email...'
 mbsync -Va
+msmtp-queue -r
+notmuch new
 
 __heading 'syncing calendar...'
 vdirsyncer sync
@@ -27,8 +29,8 @@ gopass sync
 __heading 'syncing files...'
 nextcloudcmd \
   --user admin \
-  --password "$(gopass show -o 'websites/cloud.ericselin.dev/admin')" \
-  ~/cloud https://cloud.ericselin.dev
+  --password "$(gopass show -o 'websites/selin.cloud/admin')" \
+  ~/cloud https://selin.cloud
 
 __heading 'updating date and waybar...'
 date -Iseconds > ~/.cache/sync-date

@@ -9,6 +9,9 @@ insert = "bar"
 normal = "block"
 select = "underline"
 
+[keys.insert]
+C-space = "completion"
+
 [keys.normal]
 t = "move_line_down"
 n = "move_line_up"

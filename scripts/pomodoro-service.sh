@@ -19,7 +19,7 @@ start_pomodoro()
     # this is the progress bar length
     bar=$(printf '%-'$minutes's' | sed 's/ /\*/g')
 
-    local text=" [$(printf '%-25s' $bar)]"
+    local text=" [$(printf '%-25s' "$bar")]"
     local tooltip="$((25-minutes)) min left"
     local class='running'
 
