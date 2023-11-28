@@ -1,0 +1,11 @@
+[database]
+path=/home/eric/.mail
+
+[new]
+tags=inbox;unread
+ignore=.uidvalidity
+
+[search]
+
+[maildir]
+synchronize_flags=true
