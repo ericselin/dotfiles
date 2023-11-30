@@ -1,3 +1,7 @@
+# exclude the git folder itself
+/.dot.git
+# cloud files are private and already in the cloud
+/cloud
 # source code is already in git
 /src
 # firefox settings
@@ -8,6 +12,7 @@
 /.calendars
 /.ssh
 /.gnupg
+/.contacts
 # cache and other local files
 /.nix-profile
 /.pki
@@ -20,6 +25,3 @@
 /.bash_history
 /.lesshst
 /.sqlite_history
-# exclude the git folder itself
-/.dot.git
-/cloud

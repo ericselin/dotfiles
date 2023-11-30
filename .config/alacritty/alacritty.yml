@@ -3,7 +3,7 @@ key_bindings:
 font:
   normal:
     family: Source Code Pro
-  size: 11
+  size: 14
 window:
   padding:
     x: 5
