@@ -19,6 +19,7 @@
 /.local
 /.cache
 /.vdirsyncer
+/.msmtp.queue
 /go
 **/*.swp
 # history
