@@ -14,6 +14,7 @@
 /.gnupg
 /.contacts
 # cache and other local files
+/log
 /.nix-profile
 /.pki
 /.local

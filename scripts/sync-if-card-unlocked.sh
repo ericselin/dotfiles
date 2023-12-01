@@ -18,6 +18,11 @@ __heading () {
 __heading 'syncing email...'
 mbsync -Va
 msmtp-queue -r
+# check the queue is now empty (msmtp-queue exit code is always 0)
+if [ "$(ls -A $HOME/.msmtp.queue)" ]; then
+  exit 1
+fi
+# index emails
 notmuch new
 
 __heading 'syncing calendar...'
