@@ -1,0 +1,22 @@
+defaults
+auth on
+tls on
+
+account eric@selin.email
+from eric@selin.email
+host mail.gandi.net
+port 587
+tls_starttls on
+user eric@selin.email
+passwordeval gopass show -o websites/webmail.gandi.net/eric@selin.email
+
+account me@ericselin.dev
+from me@ericselin.dev
+host smtp.mailfence.com
+port 465
+tls_starttls off
+user eric.selin
+passwordeval gopass show -o websites/mailfence.com/eric.selin
+
+account statichost :me@ericselin.dev
+from *@statichost.eu
