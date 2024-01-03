@@ -147,6 +147,25 @@ resource "hcloud_firewall" "nextcloud_fw" {
     ]
   }
 
+  rule {
+    direction = "in"
+    protocol  = "tcp"
+    port      = "3478"
+    source_ips = [
+      "0.0.0.0/0",
+      "::/0"
+    ]
+  }
+  rule {
+    direction = "in"
+    protocol  = "udp"
+    port      = "3478"
+    source_ips = [
+      "0.0.0.0/0",
+      "::/0"
+    ]
+  }
+
 }
 
 variable "hcloud_token" { sensitive = true }
