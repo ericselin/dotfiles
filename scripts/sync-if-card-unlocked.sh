@@ -1,4 +1,5 @@
 #!/bin/sh
+REPO_DIR="$HOME/src/"
 
 if ! gpg --card-status > /dev/null 2>&1; then
   echo 'Key not inserted'
@@ -24,6 +25,19 @@ if [ "$(ls -A $HOME/.msmtp.queue)" ]; then
 fi
 # index emails
 notmuch new
+
+__heading 'syncing git repositories'
+cd "$REPO_DIR"
+for d in */ ; do
+  echo "processing $d"
+  cd "$d"
+  if [ -d .git ]; then
+    git fetch --all
+    git push --all
+  fi
+  cd "$REPO_DIR"
+done
+
 
 __heading 'syncing calendar...'
 vdirsyncer sync
