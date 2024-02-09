@@ -1,0 +1,27 @@
+From: <eric@statichost.eu>
+Subject: Welcome to statichost.eu!
+
+Hi!
+
+... and welcome to statichost.eu! Unfortunately, I see that your site 
+`SITENAME` is not building correctly.
+
+Specifically, cloning your repository failed due to an authentication error. I'm
+guessing your repository is private, in which case you need to add a deploy key
+to the repository in order for the build to work. The deploy key can be found in
+the dashboard (not included here for security). For more information, see:
+https://www.statichost.eu/docs/git/#private-repositories
+
+Find your deploy key and other details in the dashboard:
+https://builder.statichost.eu/
+
+Please let me know if there's anything I can do for you! I'm happy to help in
+any way I can. I'd also really appreciate it if you would comment on how you
+plan to use statichost.eu and how your experience so far has been. No pressure,
+though :)
+
+Take care, and best regards,
+Eric
+
+Eric Selin
+Founder, statichost.eu
