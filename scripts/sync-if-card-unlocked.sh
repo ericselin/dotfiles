@@ -17,27 +17,14 @@ __heading () {
 }
 
 __heading 'syncing email...'
-mbsync -Va
 msmtp-queue -r
 # check the queue is now empty (msmtp-queue exit code is always 0)
 if [ "$(ls -A $HOME/.msmtp.queue)" ]; then
   exit 1
 fi
+mbsync -Va
 # index emails
 notmuch new
-
-__heading 'syncing git repositories'
-cd "$REPO_DIR"
-for d in */ ; do
-  echo "processing $d"
-  cd "$d"
-  if [ -d .git ]; then
-    git fetch --all
-    git push --all
-  fi
-  cd "$REPO_DIR"
-done
-
 
 __heading 'syncing calendar...'
 vdirsyncer sync
