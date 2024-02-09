@@ -28,17 +28,8 @@ alias dot='git --git-dir=$HOME/.dot.git/ --work-tree=$HOME'
 # Source dotfiles adding function `dotadd`
 source ~/scripts/dotfiles-add.sh
 
-# Install packages with yay and fzf
-alias yays='yay -Slq | fzf --multi --preview "yay -Si {1}" | xargs -ro yay -S'
-# Remove packages with yay and fzf
-alias yayr='yay -Qqe | fzf --multi --preview "yay -Qi {1}" | xargs -ro yay -Rns'
-
 alias l='ls -l'
 alias ll='ls -la'
-
-# use screenshot dir for grim
-mkdir -p /tmp/screenshots
-export GRIM_DEFAULT_DIR=/tmp/screenshots
 
 #
 # FZF
