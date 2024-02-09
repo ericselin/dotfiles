@@ -16,6 +16,8 @@ export EDITOR=hx
 #
 
 alias ls='ls --color=auto'
+alias l='ls -l'
+alias ll='ls -la'
 
 # easier agenda
 alias k='khal list'
@@ -28,8 +30,7 @@ alias dot='git --git-dir=$HOME/.dot.git/ --work-tree=$HOME'
 # Source dotfiles adding function `dotadd`
 source ~/scripts/dotfiles-add.sh
 
-alias l='ls -l'
-alias ll='ls -la'
+alias nix-unstable-shell='nix-shell -I nixpkgs=https://github.com/NixOS/nixpkgs/archive/nixpkgs-unstable.tar.gz -p'
 
 #
 # FZF
