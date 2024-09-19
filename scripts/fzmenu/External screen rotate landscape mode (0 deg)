@@ -2,4 +2,5 @@
 
 set -e
 
+swaymsg output DP-1 transform 0
 swaymsg output DP-2 transform 0
