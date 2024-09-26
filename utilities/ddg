@@ -1,2 +1,0 @@
-# lynx "https://lite.duckduckgo.com/lite/?q=$( echo $@ | sed 's/ /+/g')"
-firefox -search "$*"
