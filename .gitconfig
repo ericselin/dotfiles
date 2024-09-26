@@ -2,7 +2,7 @@
 	helper = store
 [user]
 	name = Eric Selin
-	email = eric.selin@gmail.com
+	email = me@ericselin.dev
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
