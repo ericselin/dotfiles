@@ -79,6 +79,7 @@ in
       fd # for better fzf
       go
       gopls
+      marksman # markdown lang server
     ];
   };
 
@@ -174,9 +175,6 @@ in
     };
   };
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
