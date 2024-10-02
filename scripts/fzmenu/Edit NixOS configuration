@@ -1,6 +1,0 @@
-#!/usr/bin/env sh
-
-set -e
-
-file="/etc/nixos/configuration.nix"
-swaymsg exec "alacritty -e /bin/sh -ic 'sudo hx --config $HOME/.config/helix/config.toml $file'"

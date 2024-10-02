@@ -1,25 +1,26 @@
 #!/usr/bin/env bash
 
 output() {
-  echo "{\"text\": \"$1\", \"tooltip\": \"$2\", \"class\": \"$3\"}"
+  echo "{\"text\": \"\", \"tooltip\": \"$1\", \"class\": \"$2\"}"
   exit
 }
 
-if [ "$1" == "sync" ]; then
-  systemctl --user start sync
-  pkill -SIGRTMIN+8 waybar
-  exit
+if [[ $(systemctl --user is-active sync.service) == 'activating' ]]; then
+  output 'syncing...' running
 fi
 
 # warn if yubikey not connected
 if ! gpg --card-status > /dev/null 2>&1; then
-  output 'not syncing' 'gpg card (yubikey) not connected' warning
+  output 'gpg card (yubikey) not connected' error
 fi
 
 # see if sync more than 20 min age
 twenty_min_ago=$(date -d '20 minutes ago' +%s)
-last_log=$(cat ~/.cache/sync-date)
-last_log_epoch=$(date -d "$last_log" +%s)
-if (( last_log_epoch < twenty_min_ago )) ; then
-  output 'sync delay' "last sync at $last_log" warning
+last_sync=$(cat ~/.cache/sync-date)
+last_sync_human=$(date -d "$last_sync" '+%x %X')
+last_sync_epoch=$(date -d "$last_sync" +%s)
+if (( last_sync_epoch < twenty_min_ago )) ; then
+  output "last sync at $last_sync_human" warning
 fi
+
+output "last sync at $last_sync_human"

@@ -39,6 +39,7 @@ nextcloudcmd \
   ~/cloud https://selin.cloud
 
 __heading 'updating date and waybar...'
+# we need to persist the sync date for reliability after reboot, because
+# systemd timestamps are zero if the unit has not run during this boot cycle
 date -Iseconds > ~/.cache/sync-date
-pkill -RTMIN+8 waybar
 echo Done!

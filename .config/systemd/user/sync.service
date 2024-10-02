@@ -1,5 +1,7 @@
 [Unit]
 Description=Synchronization service calling sync script
+After=network-online.target
+Wants=network-online.target
 
 [Service]
 Type=oneshot
@@ -10,4 +12,9 @@ Environment="PATH=/etc/profiles/per-user/eric/bin:/run/current-system/sw/bin"
 # gopass uses ssh and so needs the ssh auth sock
 Environment="SSH_AUTH_SOCK=/run/user/1000/gnupg/S.gpg-agent.ssh"
 
+# update waybar
+ExecStartPre=/run/current-system/sw/bin/pkill -RTMIN+8 waybar
+# run the actual sync
 ExecStart=%h/scripts/sync-if-card-unlocked.sh
+# update waybar
+ExecStartPost=/run/current-system/sw/bin/pkill -RTMIN+8 waybar

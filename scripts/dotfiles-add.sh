@@ -31,6 +31,9 @@ function dotadd() {
     return
   fi
 
+  # turn the newline-separated list into quoted and space-separated
+  path=$(echo "$path" | awk '{printf "''%s'' ", $0}')
+
   # add it!
   echo "Adding $path"
   git $GIT_OPTS add $path

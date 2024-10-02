@@ -1,5 +1,7 @@
 @define-color nord0 #2e3440;
 @define-color nord1 #3b4252;
+@define-color nord2 #434c5e;
+@define-color nord3 #4c566a;
 @define-color nord4 #d8dee9;
 @define-color nord9 #81a1c1;
 @define-color nord11 #bf616a;
@@ -31,6 +33,13 @@
 #workspaces button {
   padding: 5px;
   color: @fg;
+}
+
+#workspaces button:hover {
+  background: @nord2;
+  box-shadow: inherit;
+  text-shadow: inherit;
+  border: none;
 }
 
 #workspaces button.focused {
@@ -66,13 +75,21 @@
   margin-right: 10px;
 }
 
-#custom-pomodoro.running {
+.running {
   background: @bg-focus;
   color: @fg-focus;
+}
+
+#custom-pomodoro.running {
   padding-left: 10px;
   padding-right: 10px;
   margin-left: 10px;
   margin-right: 10px;
+}
+
+/* WORKAROUND: the icons are different widths */
+#idle_inhibitor {
+  min-width: 1.25em;
 }
 
 #idle_inhibitor.activated {
