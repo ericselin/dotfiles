@@ -12,6 +12,9 @@ select = "underline"
 [keys.insert]
 C-space = "completion"
 
+[keys.normal."+"]
+d = ":insert-output date '+%x %H:%M'"
+
 [keys.normal]
 t = "move_line_down"
 n = "move_line_up"
@@ -29,6 +32,11 @@ j = "search_next"
 # paragraph jumping
 "}" = "goto_next_paragraph"
 "{" = "goto_prev_paragraph"
+# code tree selection
+"A-t" = "expand_selection"
+"A-n" = "shrink_selection"
+"A-s" = "select_next_sibling"
+"A-h" = "select_prev_sibling"
 
 [keys.normal."space"]
 o = "file_picker_in_current_buffer_directory"
