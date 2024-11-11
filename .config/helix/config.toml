@@ -13,7 +13,8 @@ select = "underline"
 C-space = "completion"
 
 [keys.normal."+"]
-d = ":insert-output date '+%x %H:%M'"
+d = ":insert-output date -I"
+D = ":insert-output date '+%x %H:%M'"
 
 [keys.normal]
 t = "move_line_down"
