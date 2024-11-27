@@ -36,6 +36,7 @@ __heading 'syncing files...'
 nextcloudcmd \
   --user admin \
   --password "$(gopass show -o 'websites/selin.cloud/admin')" \
+  --exclude "$HOME/.config/Nextcloud/sync-exclude.lst" \
   ~/cloud https://selin.cloud
 
 __heading 'updating date and waybar...'

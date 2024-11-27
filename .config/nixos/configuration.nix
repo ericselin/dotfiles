@@ -72,7 +72,7 @@ in
       msmtp # email sending, includes queing version msmtpq
       notmuch # email indexing / searching
       vdirsyncer # colendar syncing
-      nextcloud-client # file syncing
+      unstable.nextcloud-client # file syncing
       direnv # auto-load nix-shell per directory
       libreoffice
       unzip
