@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+rsync -avz root@builder.statichost.eu:/mnt/HC_Volume_28694463/backups/ sh-db
