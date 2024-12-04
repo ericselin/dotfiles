@@ -97,14 +97,14 @@ in
         xdg-utils # for opening default programs when clicking links
         glib # gsettings
         nordic # nord theme
-        gnome3.adwaita-icon-theme  # default gnome cursors
+        adwaita-icon-theme  # default gnome cursors
         swaylock
         swayidle
         grim # screenshot functionality
         slurp # screenshot functionality
         mako # notification system developed by swaywm maintainer
         libnotify # notify-send, needed for pomodoro notifications
-        gnome.simple-scan
+        simple-scan
       ];
     };
     git = {
@@ -135,7 +135,6 @@ in
     inter
     source-code-pro
     noto-fonts
-    noto-fonts-cjk
     noto-fonts-color-emoji
     liberation_ttf
     fira-code
