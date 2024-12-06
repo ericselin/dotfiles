@@ -73,7 +73,6 @@ in
       notmuch # email indexing / searching
       vdirsyncer # colendar syncing
       unstable.nextcloud-client # file syncing
-      direnv # auto-load nix-shell per directory
       libreoffice
       unzip
       ldns # dns tools, i.e. drill
@@ -107,9 +106,8 @@ in
         simple-scan
       ];
     };
-    git = {
-      enable = true;
-    }; 
+    direnv.enable = true;
+    git.enable = true; 
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
