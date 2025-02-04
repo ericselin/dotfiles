@@ -99,6 +99,7 @@ in
         adwaita-icon-theme  # default gnome cursors
         swaylock
         swayidle
+        brightnessctl
         grim # screenshot functionality
         slurp # screenshot functionality
         mako # notification system developed by swaywm maintainer

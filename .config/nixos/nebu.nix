@@ -3,7 +3,7 @@
   time.timeZone = null; # enable setting time zone on the road
 
   imports = [
-    /etc/nixos/networks.nix
+    /home/eric/cloud/networks.nix
     ./configuration.nix 
    ];
 
