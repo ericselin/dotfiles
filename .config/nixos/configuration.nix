@@ -147,6 +147,9 @@ in
   console.keyMap = "dvorak-programmer";
 
   virtualisation.docker.enable = true;
+  # live restore is incompatible with swarm mode,
+  # which is useful to enable for testing purposes
+  virtualisation.docker.daemon.settings.live-restore = false;
 
   # mdns for local name resolution
   # mdns doesn't work very well with CUPS
