@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+
+set -e
+
+export BACKUP_LOG="$HOME/.backup_log"
+export BACKUP_MOUNT="/mnt"
+BACKUP_A_UUID=28c4ac29-baa2-41b8-90ca-ffa63209dc2
+BACKUP_B_UUID=28c4ac29-baa2-41b8-90ca-ffa63209dc23
+
+log() {
+  echo "INFO:    $(date +'%Y-%m-%d %H:%M:%S') - $1" | tee -a $BACKUP_LOG
+}
+
+warn() {
+  echo "WARNING: $(date +'%Y-%m-%d %H:%M:%S') - $1" | tee -a $BACKUP_LOG
+}
+
+log 'Mounting backup drive'
+sudo systemd-cryptsetup attach backup /dev/disk/by-uuid/$BACKUP_A_UUID - fido2-device=auto || \
+sudo systemd-cryptsetup attach backup /dev/disk/by-uuid/$BACKUP_B_UUID - fido2-device=auto
+sudo mount /dev/mapper/backup $BACKUP_MOUNT
+
+cd $BACKUP_MOUNT
+log "Starting backup to $BACKUP_MOUNT i.e. $(pwd)"
+
+log "Backing up: statichost.eu database"
+rsync -avz root@builder.statichost.eu:/mnt/HC_Volume_28694463/backups/ sh-db
+
+log "Backing up: statichost.eu edge sites"
+rsync -avz root@hel.statichost.eu:/srv/ sh-edge
+
+log "Backing up: personal github repos"
+nix-shell -p gh git-lfs
+repos=$(gh repo list | grep -Eo '^\S+/\S+')
+for repo in $repos; do
+  git -C "github/$repo" pull || git clone "ssh://git@github.com/$repo.git" "github/$repo"
+done
+
+log "Backing up: email via home directory"
+mbsync -a
+rsync ~/.mail/ mail
+
+log "Backing up: calendar and contacts via home directory"
+vdirsyncer sync
+rsync ~/.calendars/ calendars
+rsync ~/.contacts/ contacts
+
+log "Backing up: selin.cloud files"
+nextcloudcmd \
+  --user admin \
+  --password "$(gopass show -o 'websites/selin.cloud/admin')" \
+  cloud https://selin.cloud
+
+log "Reporting backup success"
+curl https://uptime.betterstack.com/api/v1/heartbeat/o9g5WYxdAXvhBWLQxSmbqPNP
+
+log "Unmounting backup drive"
+cd
+sudo umount -l $BACKUP_MOUNT
+sudo systemd-cryptsetup detach backup
