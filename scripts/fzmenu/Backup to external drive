@@ -1,11 +1,12 @@
-#!/usr/bin/env bash
+#! /usr/bin/env nix-shell
+#! nix-shell -i bash -p gh git-lfs
 
 set -e
 
 export BACKUP_LOG="$HOME/.backup_log"
 export BACKUP_MOUNT="/mnt"
-BACKUP_A_UUID=28c4ac29-baa2-41b8-90ca-ffa63209dc2
-BACKUP_B_UUID=28c4ac29-baa2-41b8-90ca-ffa63209dc23
+BACKUP_A_UUID=28c4ac29-baa2-41b8-90ca-ffa63209dc23
+BACKUP_B_UUID=a94270df-22c2-4395-a2af-a918d7d767d9
 
 log() {
   echo "INFO:    $(date +'%Y-%m-%d %H:%M:%S') - $1" | tee -a $BACKUP_LOG
@@ -30,7 +31,6 @@ log "Backing up: statichost.eu edge sites"
 rsync -avz root@hel.statichost.eu:/srv/ sh-edge
 
 log "Backing up: personal github repos"
-nix-shell -p gh git-lfs
 repos=$(gh repo list | grep -Eo '^\S+/\S+')
 for repo in $repos; do
   git -C "github/$repo" pull || git clone "ssh://git@github.com/$repo.git" "github/$repo"
