@@ -46,6 +46,7 @@ rsync ~/.calendars/ calendars
 rsync ~/.contacts/ contacts
 
 log "Backing up: selin.cloud files"
+mkdir -p cloud
 nextcloudcmd \
   --user admin \
   --password "$(gopass show -o 'websites/selin.cloud/admin')" \
