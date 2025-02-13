@@ -57,5 +57,5 @@ curl https://uptime.betterstack.com/api/v1/heartbeat/o9g5WYxdAXvhBWLQxSmbqPNP
 
 log "Unmounting backup drive"
 cd
-sudo umount -l $BACKUP_MOUNT
+sudo umount $BACKUP_MOUNT
 sudo systemd-cryptsetup detach backup
