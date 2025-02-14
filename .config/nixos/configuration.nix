@@ -151,14 +151,6 @@ in
   # which is useful to enable for testing purposes
   virtualisation.docker.daemon.settings.live-restore = false;
 
-  # mdns for local name resolution
-  # mdns doesn't work very well with CUPS
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    # openFirewall = true;
-  };
-
   # per nixos wiki printing article
   services.printing.enable = true;
   
