@@ -1,0 +1,21 @@
+
+Hi again,
+
+Just wanted to check in to see if there's anything I can do for you? Do you have
+everything you need for your static site? Please let me know if you
+have any questions or comments at all. :)
+
+If you've decided not to move forward with statichost.eu, I completely
+understand. Just let me know, so I won’t bother you unnecessarily. However, I’d
+really appreciate a quick note on what led to that decision, so we can do better
+in the future.
+
+All the best!
+Eric
+
+On {{dateFormat (.OriginalDate | toLocal) "Mon Jan 2, 2006 at 3:04 PM MST"}}, {{.OriginalFrom | names | join ", "}} wrote:
+{{trimSignature .OriginalText | quote}}
+{{- with .Signature }}
+
+{{.}}
+{{- end }}

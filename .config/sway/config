@@ -166,6 +166,7 @@ bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+f floating toggle
 
 # change container layout (stacked, tabbed, toggle split)
 # BIND: left hand home row a o e
