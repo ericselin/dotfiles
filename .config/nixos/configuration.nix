@@ -59,6 +59,7 @@ in
       chromium
       alacritty
       unstable.helix
+      unstable.llm
       fzf
       gopass
       bat
