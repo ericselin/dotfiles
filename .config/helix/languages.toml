@@ -1,10 +1,15 @@
 [[language]]
+name = "git-commit"
+file-types = [{ glob = "COMMIT_EDITMSG" }, { glob = "MERGE_MSG" }, { glob = "flight-log.md"} ]
+language-servers = [ "lsp-ai" ]
+
+[[language]]
 name = "dockerfile"
-language-servers = [ "lsp-ai", "docker-langsorver" ]
+language-servers = [ "lsp-ai", "docker-langserver" ]
 
 [[language]]
 name = "docker-compose"
-language-servers = [ "lsp-ai", "docker-compose-langsorver", "yaml-language-server" ]
+language-servers = [ "lsp-ai", "docker-compose-langserver", "yaml-language-server" ]
 
 [[language]]
 name = "yaml"

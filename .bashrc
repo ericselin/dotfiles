@@ -150,6 +150,14 @@ fi
 # Launch Firefox with wayland
 export MOZ_ENABLE_WAYLAND=1
 
+# Env vars
+if [ -f .env ];
+then
+  set -a
+  source .env
+  set +a
+fi
+
 #
 # COLORS
 #

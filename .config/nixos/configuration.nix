@@ -60,6 +60,7 @@ in
       alacritty
       unstable.helix
       unstable.llm
+      unstable.lsp-ai
       fzf
       gopass
       bat
